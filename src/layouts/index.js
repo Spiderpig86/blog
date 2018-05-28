@@ -17,7 +17,9 @@ const Layout = ({ children, data }) => (
         { name: "keywords", content: "stanley, lim, blog" }
       ]}
     />
-    <Header />
+    <Header
+      siteTitle="the blog"
+    />
     <div
       style={{
         margin: "0 auto",
