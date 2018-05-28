@@ -1,10 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
+import Media from 'react-media' // Listens for matches to CSS media query and renders components
 
 import Header from '../components/header'
 import './index.css'
-import '../styles/layoutoverride.css';
+import '../styles/layoutoverride.css'
+import Sidebar from '../components/sidebar'
 
 const Layout = ({ children, data }) => (
   <div>
