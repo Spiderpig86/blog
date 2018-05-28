@@ -5,44 +5,81 @@ import Media from 'react-media' // Listens for matches to CSS media query and re
 
 import Header from '../components/header'
 import './index.css'
-import '../styles/layoutoverride.css'
+import '../styles/layout-override.css'
 import Sidebar from '../components/sidebar'
 
 const Layout = ({ children, data }) => (
   <div>
     <Helmet
-      title={data.site.siteMetadata.title}
+      title="The Blog"
       meta={[
-        { name: 'description', content: 'Sample' },
-        { name: 'keywords', content: 'sample, something' },
+        { name: "description", content: "The musings of Stanley" },
+        { name: "keywords", content: "stanley, lim, blog" }
       ]}
     />
-    <Header siteTitle={data.site.siteMetadata.title} />
+    <Header />
     <div
       style={{
-        margin: '0 auto',
-        maxWidth: 960,
-        padding: '0px 1.0875rem 1.45rem',
-        paddingTop: 0,
+        margin: "0 auto",
+        maxWidth: 980,
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "space-between",
+        height: "100%",
       }}
     >
-      {children()}
+    
+      <Media query={{ maxWidth: 848 }}>
+        { matches => // Inline function for checking if rules match above (less than 848px)
+            matches ? (
+              <div
+                style={{
+                  margin: "0 auto",
+                  maxWidth: 980,
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                  height: "100%",
+                  padding: "25px",
+                }}
+              >
+                <div style={{ flex: 1 }}>{ children() }</div>
+              </div>
+            ) : (
+              <div
+                style={{
+                  margin: "0 auto",
+                  maxWidth: 980,
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                  height: "100%",
+                  padding: "25px",
+                }}
+              >
+                <div style={{ flex: 2.5, paddingRight: "2rem" }}>{ children() }</div>
+
+                <div style={{ flex: 1 }}>
+                  <Sidebar
+                    title="slim blog"
+                    description="too many ideas get lost in my head"
+                  />
+                  <Sidebar
+                    title="about me"
+                    description="just your average developer who recently discovered the Yugo"
+                  />
+                </div>
+              </div>
+            )
+        }
+      </Media>
     </div>
   </div>
-)
+);
 
+/* Explicitly define our prop types */
 Layout.propTypes = {
-  children: PropTypes.func,
-}
+  children: PropTypes.func
+};
 
-export default Layout
-
-export const query = graphql`
-  query SiteTitleQuery {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-  }
-`
+export default Layout;

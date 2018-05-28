@@ -1,3 +1,7 @@
+import React from 'react'
+import PropTypes from 'prop-types'
+import Helmet from 'react-helmet'
+
 const Sidebar = (props) => (
     <div
         style={{
@@ -10,3 +14,5 @@ const Sidebar = (props) => (
         <strong>{props.title}.</strong> {props.description}
     </div>
 )
+
+export default Sidebar;
