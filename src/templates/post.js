@@ -25,13 +25,13 @@ export default function Template({
 
 // Query our posts and get an object passed in as data for the template above
 // Path corresponds to the blog post path we are referring to
-// markdownRemark will add the html to the html property of the data object
+// markdownRemark will add the html to the html property of the data
 export const postQuery = graphql`
     query BlogPostByPatch($path: String!) {
         markdownRemark(frontmatter: { path: { eq: $path } }) {
             html
             frontmatter {
-                date(formatString: "MM DD, YYYY")
+                date(formatString: "MMMM DD, YYYY")
                 path
                 title
             }

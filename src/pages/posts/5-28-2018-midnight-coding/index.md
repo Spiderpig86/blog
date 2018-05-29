@@ -1,6 +1,6 @@
 ---
 path: "/midnight-coding"
-date: "2018-05-28T00:31:33.96Z"
+date: "2018-05-28T00:31:33.962Z"
 title: "The Unofficial Official First Post"
 ---
 
