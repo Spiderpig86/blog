@@ -2,6 +2,8 @@
 path: "/midnight-coding"
 date: "2018-05-28T00:31:33.962Z"
 title: "The Unofficial Official First Post"
+excerpt: "This is just a test"
+tags: ['programming', 'misc']
 ---
 
 This seems like a pretty cool post, of course written haphazardly in the middle of the night.
