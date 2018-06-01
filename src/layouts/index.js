@@ -4,6 +4,7 @@ import Helmet from 'react-helmet'
 import Media from 'react-media' // Listens for matches to CSS media query and renders components
 
 import Header from '../components/header'
+import '../styles/cirrus.header.css'
 import './index.css'
 import '../styles/layout-override.css'
 import Sidebar from '../components/sidebar'
@@ -11,14 +12,14 @@ import Sidebar from '../components/sidebar'
 const Layout = ({ children, data }) => (
   <div>
     <Helmet
-      title="The Blog"
+      title="slim blog"
       meta={[
         { name: "description", content: "The musings of Stanley" },
         { name: "keywords", content: "stanley, lim, blog" }
       ]}
     />
     <Header
-      siteTitle="the blog"
+      siteTitle="slim blog"
     />
     <div
       style={{

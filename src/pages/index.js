@@ -12,10 +12,10 @@ export default function Index({ data }) {
                 .filter(post => post.node.frontmatter.title.length > 0)
                 .map(({ node: post }) => { // Generate an list entry for each post
                     return (
-                        <div className="blog-post-review" key={post.id}>
-                            <h1>
-                                <Link to={post.frontmatter.path}>{ post.frontmatter.title }</Link>
-                            </h1>
+                        <div className="blog-post-preview" key={post.id}>
+                            <Link to={post.frontmatter.path}>
+                                <h1>{  post.frontmatter.title }</h1>
+                            </Link>
                             <h2>{ post.frontmatter.date }</h2>
                             <p>{ post.excerpt }</p>
                         </div>
