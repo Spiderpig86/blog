@@ -24,6 +24,7 @@ const Layout = ({ children, data }) => (
     <div
       style={{
         margin: "0 auto",
+        paddingTop: "5rem",
         maxWidth: 980,
         display: "flex",
         flexDirection: "row",

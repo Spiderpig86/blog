@@ -15,10 +15,13 @@ body {
 
 h1 {
     font-size: 1.5rem;
-    line-height: 0.5rem;
 }
 
 p, div {
     font-size: 1rem;
     line-height: 2rem;
+}
+
+.nav-item {
+    padding: .5rem;
 }
