@@ -6,7 +6,7 @@
   -ms-flex-negative: 0;
   width: 100%;
   z-index: 100;
-  margin-bottom: 20px; 
+  margin-bottom: 20px;
   box-shadow: 0 3px 15px rgba(57, 63, 72, 0.1);
   background: #fff;
   max-height: 100vh;
@@ -34,8 +34,8 @@
   transition-timing-function: ease, ease;
   -webkit-transition-delay: initial, initial;
   transition-delay: initial, initial;
-  -webkit-transition: all .3s;
-  transition: all .3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
 }
 
 .header-brand {
@@ -62,16 +62,15 @@
 
 /* Styles for header menu (aka the nav bar) */
 .nav-menu {
-  -webkit-transition: all .3s;
-  transition: all .3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
 }
-
 
 /* Allow the user to scroll through navbar items if it exceeds nav-left, nav-center, or nav-right widths */
 .nav-overflow-x {
   -webkit-box-pack: inherit;
-      -ms-flex-pack: inherit;
-          justify-content: inherit;
+  -ms-flex-pack: inherit;
+  justify-content: inherit;
   overflow-x: scroll;
 }
 
@@ -97,9 +96,9 @@
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-  -webkit-transition: all .3s;
-  transition: all .3s;
-  padding: 0 .3rem;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  padding: 0 0.3rem;
   cursor: pointer;
 }
 
@@ -110,9 +109,9 @@
 /* Hover effect for header elements when appropriate */
 .header:not(.header-clear) .nav-item:not(.no-hover):hover,
 .header:not(.header-clear) .nav-item:not(.no-hover).hovered {
-   -webkit-transition: all .3s;
-   transition: all .3s;
-    background-color: rgba(144, 144, 144, 0.15);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  background-color: rgba(144, 144, 144, 0.15);
 }
 
 .header:not(.header-clear) .nav-item.active, /* active:hover removes the transition effect when hoveirng over the dropdown menu */ 
@@ -148,8 +147,8 @@
 
 /* Just add a transition in general */
 .nav-item .dropdown-menu.dropdown-animated {
-  -webkit-transition: all .2s;
-  transition: all .2s;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
 }
 
 /* Dropdown menu location adjustment located below for sizes above phones */
@@ -162,7 +161,7 @@
   display: block;
   height: 0.5em;
   width: 0.5em;
-  content: " ";
+  content: ' ';
   -webkit-transform: rotate(-45deg);
   transform: rotate(-45deg);
   pointer-events: none;
@@ -180,7 +179,7 @@
 
 /* Dark dropdown menu theme */
 .nav-item .dropdown-menu.dropdown-dark,
-.header-dark .dropdown-menu{
+.header-dark .dropdown-menu {
   background-color: rgba(0, 0, 0, 0.87);
   border: 1px solid #333;
   color: #fff;
@@ -193,7 +192,7 @@
 
 .dropdown-menu > li > a {
   display: block;
-      padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   clear: both;
   line-height: 1.42857143;
   white-space: nowrap;
@@ -206,21 +205,21 @@
 }
 
 .dropdown-menu > li {
-margin: 0;
-  -webkit-transition: all .3s;
-   transition: all .3s;
+  margin: 0;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
 }
 
 .dropdown-menu > li:hover {
-  -webkit-transition: all .3s;
-   transition: all .3s;
-    background-color: rgba(144, 144, 144, 0.15);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  background-color: rgba(144, 144, 144, 0.15);
 }
 
 .dropdown-menu > li:active {
-  -webkit-transition: all .3s;
-   transition: all .3s;
-    background-color: rgba(144, 144, 144, 0.25);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  background-color: rgba(144, 144, 144, 0.25);
 }
 
 .dropdown-menu > li:last-child {
@@ -244,262 +243,266 @@ margin: 0;
 
 @media screen and (min-width: 769px) {
   .header {
-      -webkit-box-align: stretch; /* Box Align and align items to stretch to make nav-items fill up parent height */
-      -ms-flex-align: stretch;
-      align-items: stretch;
-      display: -webkit-box; 
-      display: -ms-flexbox;
+    -webkit-box-align: stretch; /* Box Align and align items to stretch to make nav-items fill up parent height */
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    display: -webkit-box;
+    display: -ms-flexbox;
   }
-  
+
   .header-nav {
-      -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-      flex-grow: 1;
-      -ms-flex-negative: 0;
-      -webkit-box-align: stretch;
-      -ms-flex-align: stretch;
-      align-items: stretch; /* Make items fill up all available space regardless of width https://drafts.csswg.org/css-align/ */
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      position: relative;
-      text-align: center;
-      width: 100%;
-      top: 0;
-      overflow: visible; /* Only visible for showing dropdown menus, hidden for mobile */
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -ms-flex-negative: 0;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch; /* Make items fill up all available space regardless of width https://drafts.csswg.org/css-align/ */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: relative;
+    text-align: center;
+    width: 100%;
+    top: 0;
+    overflow: visible; /* Only visible for showing dropdown menus, hidden for mobile */
   }
 
   /* These styles can also be used on menus in the body */
-  .nav-left, .nav-right {
-      -webkit-box-align: stretch;
-      -ms-flex-align: stretch;
-      -ms-grid-row-align: stretch;
-      align-items: stretch;
-      -ms-flex-preferred-size: 0;
-      flex-basis: 0;
-      -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-      flex-grow: 1;
-      -ms-flex-negative: 0;
-      flex-shrink: 0;
-      /*overflow: hidden;*/
+  .nav-left,
+  .nav-right {
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    -ms-grid-row-align: stretch;
+    align-items: stretch;
+    -ms-flex-preferred-size: 0;
+    flex-basis: 0;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    /*overflow: hidden;*/
   }
 
   /* Align items to the left */
   .nav-left {
-          display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-pack: start;
-      -ms-flex-pack: start;
-      justify-content: flex-start;
-      /*overflow: hidden;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    /*overflow: hidden;
       overflow-x: auto;*/
-      white-space: nowrap;
+    white-space: nowrap;
   }
 
   /* Align items to the right */
   .nav-right {
-      display: -webkit-box;
-      display: -ms-flexbox;
-      -webkit-box-pack: end;
-      -ms-flex-pack: end;
-      justify-content: flex-end;
-      /*overflow: hidden;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    /*overflow: hidden;
       overflow-x: auto;*/
-      white-space: nowrap;
+    white-space: nowrap;
   }
 
   /* Centering items, best used when nav-brand is not used to prevent offset */
   .nav-center {
-      -webkit-box-align: stretch;
-      -ms-flex-align: stretch;
-      align-items: stretch;
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-flex: 0;
-      -ms-flex-positive: 0;
-      flex-grow: 0;
-      -ms-flex-negative: 0;
-      flex-shrink: 0;
-      -webkit-box-pack: center;
-      -ms-flex-pack: center;
-      justify-content: center;
-      margin-left: auto;
-      margin-right: auto;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 0;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   /* Hide hamburger button */
   .nav-btn {
-      display: none;
+    display: none;
   }
 
   .nav-item {
-      position: relative; /* Include for helping dropdown menu positioning */
+    position: relative; /* Include for helping dropdown menu positioning */
   }
 
   /* Expand link area for desktop views so it is easier to click */
   .nav-item a {
-      padding: 0.5rem 1rem;
+    padding: 0.5rem 1rem;
   }
 
   .nav-item .dropdown-menu {
-      opacity: 0;
-      pointer-events: none; /* Make cursor not respond to menu links when not displayed */
+    opacity: 0;
+    pointer-events: none; /* Make cursor not respond to menu links when not displayed */
   }
 
   .nav-item .dropdown-menu.dropdown-animated {
-      -webkit-transform: translateY(-5px); /* Used for transitional drop down effect */
-      transform: translateY(-5px);
+    -webkit-transform: translateY(
+      -5px
+    ); /* Used for transitional drop down effect */
+    transform: translateY(-5px);
   }
 
   .nav-item .dropdown-menu.dropdown-shown,
   .nav-item.toggle-hover:hover .dropdown-menu,
   .nav-item .dropdown-menu.dropdown-animated.dropdown-shown,
-  .nav-item.toggle-hover:hover .dropdown-animated.dropdown-menu  {
-      opacity: 1;
-      -webkit-transform: none; /* Used for transitional drop down effect */
-      transform: none;
-      pointer-events: auto;
+  .nav-item.toggle-hover:hover .dropdown-animated.dropdown-menu {
+    opacity: 1;
+    -webkit-transform: none; /* Used for transitional drop down effect */
+    transform: none;
+    pointer-events: auto;
   }
 
   /* Align dropdown menu to the left side of the parent nav-item for header-left */
   .nav-left .has-sub .dropdown-menu {
-      left: 0;
-      right: auto;
+    left: 0;
+    right: auto;
   }
 
   /* Align dropdown menu to the right side of the parent nav-item for header-right */
   .nav-right .has-sub .dropdown-menu {
-      left: auto;
-      right: 0;
+    left: auto;
+    right: 0;
   }
 }
 
 @media screen and (max-width: 768px) {
-
   /* Add scrolling support in header */
   .header {
-      display: flex;
-      flex-direction: column;
+    display: flex;
+    flex-direction: column;
   }
 
   .header-brand .nav-item:first-child {
-      padding: 0 1rem; /* Add padding to the first child, usually the logo */
+    padding: 0 1rem; /* Add padding to the first child, usually the logo */
   }
 
   /* Hide dropdon menu on mobile */
   .header-nav {
-      height: 0;
+    height: 0;
   }
 
   /* Show the dropdown */
   .header-nav.active {
-      height: 100vh;
+    height: 100vh;
   }
 
-/* Remove flex for mobile devices */
+  /* Remove flex for mobile devices */
   .nav-item.has-sub {
-      display: block;
+    display: block;
   }
 
-.nav-item.has-sub .dropdown-menu.dropdown-shown {
-  border-radius: 0;
-  box-shadow: none;
-  display: block;
-  position: relative;
-  top: 1rem;
-  float: none;
-  border: none;
-  background: transparent;
-}
+  .nav-item.has-sub .dropdown-menu.dropdown-shown {
+    border-radius: 0;
+    box-shadow: none;
+    display: block;
+    position: relative;
+    top: 1rem;
+    float: none;
+    border: none;
+    background: transparent;
+  }
 
-.nav-item.has-sub .dropdown-menu.dropdown-dark {
-      background-color: rgba(0, 0, 0, 0.17);
-      border: 0;
-      color: #fff;
+  .nav-item.has-sub .dropdown-menu.dropdown-dark {
+    background-color: rgba(0, 0, 0, 0.17);
+    border: 0;
+    color: #fff;
   }
 
   /* Hide the menu by default in mobile view (overflow on header-right can expose it) */
   .nav-item.has-sub .dropdown-menu {
-      display: none;
+    display: none;
   }
 
-/* Make the menu items larger in the dropdown menu */
-.header-nav .nav-item {
-  padding: 1rem;
-}
+  /* Make the menu items larger in the dropdown menu */
+  .header-nav .nav-item {
+    padding: 1rem;
+  }
 
-/* Get rid of extra spaces */
-.header-nav .nav-item > a {
-  padding: 0;
-  width: 100%; /* Stretch the link to span the entire list item */
-}
+  /* Get rid of extra spaces */
+  .header-nav .nav-item > a {
+    padding: 0;
+    width: 100%; /* Stretch the link to span the entire list item */
+  }
 
-/* Hamburger button */
-.nav-btn {
-  cursor: pointer;
-  display: block;
-  position: relative;
-  margin-left: auto;
-}
+  /* Hamburger button */
+  .nav-btn {
+    cursor: pointer;
+    display: block;
+    position: relative;
+    margin-left: auto;
+  }
 
-.nav-btn span {
-      background-color: #4D565F;
-  display: block;
-  height: 2px;
-  left: 50%;
-  margin-left: -7px;
-  position: absolute;
-  top: 50%;
-  -webkit-transition: none 86ms ease-out;
-  transition: none 86ms ease-out;
-  -webkit-transition-property: background, left, opacity, -webkit-transform;
-  transition-property: background, left, opacity, -webkit-transform;
-  transition-property: background, left, opacity, transform;
-  transition-property: background, left, opacity, transform, -webkit-transform;
-  width: 15px;
-}
+  .nav-btn span {
+    background-color: #4d565f;
+    display: block;
+    height: 2px;
+    left: 50%;
+    margin-left: -7px;
+    position: absolute;
+    top: 50%;
+    -webkit-transition: none 86ms ease-out;
+    transition: none 86ms ease-out;
+    -webkit-transition-property: background, left, opacity, -webkit-transform;
+    transition-property: background, left, opacity, -webkit-transform;
+    transition-property: background, left, opacity, transform;
+    transition-property: background, left, opacity, transform, -webkit-transform;
+    width: 15px;
+  }
 
-/* Line spacing in hamburger button */
-.nav-btn span:nth-child(1) {
-  margin-top: -6px;
-}
+  /* Line spacing in hamburger button */
+  .nav-btn span:nth-child(1) {
+    margin-top: -6px;
+  }
 
-.nav-btn span:nth-child(2) {
-  margin-top: -1px;
-}
+  .nav-btn span:nth-child(2) {
+    margin-top: -1px;
+  }
 
-.nav-btn span:nth-child(3) {
-  margin-top: 4px;
-}
+  .nav-btn span:nth-child(3) {
+    margin-top: 4px;
+  }
 
-/* Hamburger button on active */
+  /* Hamburger button on active */
   .nav-btn.active span:nth-child(1) {
-      margin-left: -5px;
-      transform: rotate(45deg);
-      transform-origin: left top;
+    margin-left: -5px;
+    transform: rotate(45deg);
+    transform-origin: left top;
   }
 
   .nav-btn.active span:nth-child(2) {
-      opacity: 0;
+    opacity: 0;
   }
 
   .nav-btn.active span:nth-child(3) {
-      margin-left: -5px;
-      transform: rotate(-45deg);
-      transform-origin: left bottom;
+    margin-left: -5px;
+    transform: rotate(-45deg);
+    transform-origin: left bottom;
   }
 
-/* Hide drop down menu items */
-.nav-left, .nav-center, .nav-right {
+  /* Hide drop down menu items */
+  .nav-left,
+  .nav-center,
+  .nav-right {
     overflow: hidden;
-}
+  }
 }
 
 @media screen and (min-width: 1003px) {
   .header {
-      padding: 0 2rem;
+    padding: 0 2rem;
   }
 }

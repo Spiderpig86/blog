@@ -3,11 +3,11 @@ import Link from 'gatsby-link'
 
 const Header = ({ siteTitle }) => (
   <div
-    className='header header-fixed'
+    className="header header-fixed header-clear"
     style={{
       background: '#fff',
       marginBottom: '3rem',
-      borderBottom: '2px solid #e6e6e6',
+      paddingTop: '1.5rem',
     }}
   >
     <div
@@ -19,20 +19,13 @@ const Header = ({ siteTitle }) => (
       <div className="header-nav">
         <div className="nav-left">
           <div className="nav-item">
-            <img
-              src="https://lh3.googleusercontent.com/DhOadha-kqTL8fj-HaI9fmRr59L4liJGqOB4-jHNUCWOnss14wMZ--VbBXSuR_ld9zA=w300" 
+            <h1
               style={{
-                height: '100%',
-                width: '60px',
                 margin: 0,
+                textAlign: 'center',
                 background: 'transparent',
-              }}  
-            />
-          </div>
-        </div>
-        <div className="nav-center">
-          <div className="nav-item">
-            <h1 style={{ margin: 0, textAlign: 'center', background: 'transparent' }}>
+              }}
+            >
               <Link
                 to="/"
                 style={{
@@ -45,12 +38,42 @@ const Header = ({ siteTitle }) => (
             </h1>
           </div>
         </div>
-        <div className="nav-right">
-          
+        <div className="nav-center" />
+        <div className="nav-right" style={{ display: 'flex' }}>
+          <div className="nav-item">
+            <div
+              className="burger"
+              style={{
+                background: 'transparent',
+                display: 'flex',
+                flexDirection: 'column',
+                right: 0,
+              }}
+            >
+              <div
+                style={{...burgerPiece, ...{ alignSelf:'flex-end', width: '15px' }}}
+              />
+              <div
+                style={burgerPiece}
+              />
+              <div
+                style={{...burgerPiece, ...{ width: '15px' }}}
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 )
+
+const burgerPiece = {
+  height: '4px',
+  borderRadius: '4px',
+  background: '#222',
+  marginTop: '.15rem',
+  marginBottom: '.15rem',
+  width: '30px',
+}
 
 export default Header
