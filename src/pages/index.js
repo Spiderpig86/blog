@@ -2,12 +2,15 @@ import React from 'react'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 
+import Prologue from '../components/prologue'
+
 import '../styles/blog-listing.css'
 
 export default function Index({ data }) {
     const { edges: posts }  = data.allMarkdownRemark; // All the edges will represent the posts
     return (
         <div className="blog-posts">
+            <Prologue />
             { posts
                 .filter(post => post.node.frontmatter.title.length > 0)
                 .map(({ node: post }) => { // Generate an list entry for each post

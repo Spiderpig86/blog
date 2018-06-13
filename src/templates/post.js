@@ -4,21 +4,32 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
+import Sidebar from '../components/sidebar'
+
 export default function Template({
     data // Object will be from GraphQL query
 }) {
     const post = data.markdownRemark;
     return (
-        <div className="blog-post-container">
-            <Helmet title={`slim - ${ post.frontmatter.title }`} />
-            <div className="blog-post">
-                <h1>{ post.frontmatter.title }</h1>
+        <div className="blog-post-container" style={{ display: 'flex' }}>
+            <div style={{ flex: 2.5, paddingRight: "2rem" }}>
+                <Helmet title={`slim - ${ post.frontmatter.title }`} />
+                <div className="blog-post">
+                    <h1>{ post.frontmatter.title }</h1>
 
-                <div
-                    className="blog-post-content"
-                    dangerouslySetInnerHTML={{ __html: post.html }} // Gets the html version of the post
-                />
+                    <div
+                        className="blog-post-content"
+                        dangerouslySetInnerHTML={{ __html: post.html }} // Gets the html version of the post
+                    />
+                </div>
             </div>
+            
+            <div style={{ flex: 1 }}>
+                  <Sidebar
+                    title="about me"
+                    description="just your average developer who recently discovered the Yugo"
+                  />
+                </div>
         </div>
     );
 }

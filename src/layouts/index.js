@@ -4,8 +4,6 @@ import Helmet from 'react-helmet'
 import Media from 'react-media' // Listens for matches to CSS media query and renders components
 
 import Header from '../components/header'
-import Sidebar from '../components/sidebar'
-import Prologue from '../components/prologue'
 
 import '../styles/cirrus.header.css'
 import './index.css'
@@ -33,8 +31,6 @@ const Layout = ({ children, data }) => (
         height: "100%",
       }}
     >
-
-    <Prologue />
     
       <Media query={{ maxWidth: 848 }}>
         { matches => // Inline function for checking if rules match above (less than 848px)
@@ -64,14 +60,9 @@ const Layout = ({ children, data }) => (
                   padding: "25px",
                 }}
               >
-                <div style={{ flex: 2.5, paddingRight: "2rem" }}>{ children() }</div>
+                { children() }
 
-                <div style={{ flex: 1 }}>
-                  <Sidebar
-                    title="about me"
-                    description="just your average developer who recently discovered the Yugo"
-                  />
-                </div>
+                
               </div>
             )
         }
