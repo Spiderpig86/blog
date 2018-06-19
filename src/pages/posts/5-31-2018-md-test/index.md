@@ -3,7 +3,7 @@ path: "/md-test"
 date: "2018-05-31T23:27:33.962Z"
 title: "Markdown Support Test"
 excerpt: "Testing Markdown support"
-tags: ['programming', 'misc']
+tags: ['programming', 'markdown']
 ---
 
 # Markdown: Syntax
