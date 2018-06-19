@@ -10,7 +10,7 @@ export default function Index({ data }) {
   const { edges: posts } = data.allMarkdownRemark // All the edges will represent the posts
   return (
     <div className="blog-posts">
-      <Prologue />
+      <Prologue blogPosts={ posts } />
       {posts
         .filter(post => post.node.frontmatter.title.length > 0)
         .map(({ node: post }) => {
