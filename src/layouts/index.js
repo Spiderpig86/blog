@@ -8,72 +8,52 @@ import Header from '../components/header'
 import '../styles/cirrus.header.css'
 import './index.css'
 import '../styles/layout-override.css'
+import { styles } from '../styles/index-styles'
 
 const Layout = ({ children, data }) => (
   <div>
     <Helmet
       title="slim blog"
       meta={[
-        { name: "description", content: "The musings of Stanley" },
-        { name: "keywords", content: "stanley, lim, blog" }
+        { name: 'description', content: 'The musings of Stanley' },
+        { name: 'keywords', content: 'stanley, lim, blog' },
       ]}
     />
-    <Header
-      siteTitle="slim"
-    />
-    <div
-      style={{
-        margin: "0 auto",
-        paddingTop: "7rem",
-        maxWidth: 980,
-        flexDirection: "row",
-        justifyContent: "space-between",
-        height: "100%",
-      }}
-    >
-    
-      <Media query={{ maxWidth: 848 }}>
-        { matches => // Inline function for checking if rules match above (less than 848px)
-            matches ? (
-              <div
-                style={{
-                  margin: "0 auto",
-                  maxWidth: 980,
-                  display: "flex",
-                  flexDirection: "row",
-                  justifyContent: "space-between",
-                  height: "100%",
-                  padding: "25px",
-                }}
-              >
-                <div style={{ flex: 1 }}>{ children() }</div>
-              </div>
-            ) : (
-              <div
-                style={{
-                  margin: "0 auto",
-                  maxWidth: 980,
-                  display: "flex",
-                  flexDirection: "row",
-                  justifyContent: "space-between",
-                  height: "100%",
-                  padding: "25px",
-                }}
-              >
-                { children() }
+    <Header siteTitle="slim" />
 
-                
-              </div>
-            )
-        }
-      </Media>
-    </div>
+    <Media query={{ maxWidth: 848 }}>
+      {(
+        matches // Inline function for checking if rules match above (less than 848px)
+      ) =>
+        matches ? (
+          <div
+            style={{ ...styles.indexBox, ...{ paddingTop: '3rem' }}}
+          >
+            <div
+              style={ styles.indexChildWrapper }
+            >
+              <div style={{ flex: 1 }}>{children()}</div>
+            </div>
+          </div>
+        ) : (
+          <div
+            style={{ ...styles.indexBox, ...{ paddingTop: '7rem' }}}
+          >
+            <div
+              style={ styles.indexChildWrapper }
+            >
+              {children()}
+            </div>
+          </div>
+        )
+      }
+    </Media>
   </div>
-);
+)
 
 /* Explicitly define our prop types */
 Layout.propTypes = {
-  children: PropTypes.func
-};
+  children: PropTypes.func,
+}
 
-export default Layout;
+export default Layout

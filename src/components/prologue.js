@@ -2,6 +2,7 @@ import React, { Component }  from 'react';
 import Counter from '../helpers/counter';
 
 import { styles } from '../styles/proglogue-styles';
+import { INSPECT_MAX_BYTES } from 'buffer';
 
 class Prologue extends Component {
 
@@ -29,6 +30,9 @@ class Prologue extends Component {
         );
     }
 
+    /**
+     * Get the top tags for each post
+     */
     getTopTags() {
         let popTags = this.props.blogPosts
                         .map(post => post.node.frontmatter.tags)
@@ -48,7 +52,11 @@ class Prologue extends Component {
           let keys = Object.keys(tagOccurs);
           keys.sort((a, b) => tagOccurs[a] - tagOccurs[b]);
 
-        return keys;
+        return keys.slice(0, 5);
+    }
+
+    filterPosts(tag) {
+
     }
 }
 

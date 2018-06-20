@@ -1,4 +1,5 @@
 import React from 'react'
+import Media from 'react-media'
 import Link from 'gatsby-link'
 
 const Header = ({ siteTitle }) => (
