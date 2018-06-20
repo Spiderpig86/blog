@@ -1,28 +1,29 @@
 import React, { Component }  from 'react';
 import Counter from '../helpers/counter';
 
+import { styles } from '../styles/proglogue-styles';
+
 class Prologue extends Component {
+
+    curTagFilter = 'All'
     
     render() {
         return (
-            <div style={{
-                padding: '2rem 4rem',
-                textAlign: 'center',
-            }}>
+            <div style={ styles.prologueComponent }>
                 <h1>Blog</h1>
                 <p>Writing about whatever comes to mind.</p>
 
-                <div style={{
-                    display: 'flex',
-                    justifyContent: 'flex-end'
-                }}>
+                <div style={ styles.prologueTagContainer }>
+                    <span style={ styles.prologueTagItem }>All</span>
                     {
-                        // this.getTopTags().map(tag => {
-                        //     <li>tag</li>
-                        // })
+                        this.getTopTags().map(tag => {
+                            return (
+                                <span style={ styles.prologueTagItem }>
+                                    { tag }
+                                </span>
+                            )
+                        })
                     }
-                    {
-                        this.getTopTags()}
                 </div>
             </div>
         );
