@@ -1,5 +1,4 @@
 import React, { Component }  from 'react';
-import Counter from '../helpers/counter';
 
 import { styles } from '../styles/proglogue-styles';
 import { INSPECT_MAX_BYTES } from 'buffer';
@@ -20,12 +19,12 @@ class Prologue extends Component {
                 <p>Writing about whatever comes to mind.</p>
 
                 <div style={ styles.prologueTagContainer }>
-                    <span style={ styles.prologueTagItem }>All</span>
                     {
                         this.getTopTags().map(tag => {
                             return (
                                 <span
                                     className={ this.state.curTagFilter === tag ? 'tag selected' : 'tag'}
+                                    onClick={ () => this.filterPosts(tag) }
                                     style={ styles.prologueTagItem }
                                 >
                                     { tag }
@@ -58,13 +57,14 @@ class Prologue extends Component {
           }, {});
 
           let keys = Object.keys(tagOccurs);
-          keys.sort((a, b) => tagOccurs[a] - tagOccurs[b]);
+          keys.sort((a, b) => tagOccurs[b] - tagOccurs[a]);
 
-        return keys.slice(0, 5);
+        return ['All', ...keys.slice(0, 4)];
     }
 
     filterPosts(tag) {
-
+        this.setState({ curTagFilter: tag });
+        this.props.updateSelectedTag(tag);
     }
 }
 
