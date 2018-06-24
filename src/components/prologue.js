@@ -6,7 +6,12 @@ import { INSPECT_MAX_BYTES } from 'buffer';
 
 class Prologue extends Component {
 
-    curTagFilter = 'All'
+    constructor(props) {
+        super(props);
+        this.state = {
+            curTagFilter: 'All',
+        }
+    }
     
     render() {
         return (
@@ -19,7 +24,10 @@ class Prologue extends Component {
                     {
                         this.getTopTags().map(tag => {
                             return (
-                                <span style={ styles.prologueTagItem }>
+                                <span
+                                    className={ this.state.curTagFilter === tag ? 'tag selected' : 'tag'}
+                                    style={ styles.prologueTagItem }
+                                >
                                     { tag }
                                 </span>
                             )
