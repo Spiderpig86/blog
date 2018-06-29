@@ -41,6 +41,7 @@ export const postQuery = graphql`
     query BlogPostByPatch($path: String!) {
         markdownRemark(frontmatter: { path: { eq: $path } }) {
             html
+            timeToRead
             frontmatter {
                 date(formatString: "MMMM DD, YYYY")
                 path

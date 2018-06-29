@@ -243,7 +243,6 @@ h2 {
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  margin-bottom: 1.45rem;
   color: inherit;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
@@ -251,6 +250,12 @@ h2 {
   text-rendering: optimizeLegibility;
   font-size: 1.62671rem;
   line-height: 1.1;
+}
+h2:last-of-type {
+  margin-bottom: 1.45rem;
+}
+h2.bold {
+  font-weight: bold !important;
 }
 h3 {
   margin-left: 0;
