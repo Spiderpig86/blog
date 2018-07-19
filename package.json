@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "author": "Stanley Lim",
   "dependencies": {
-    "gatsby": "^1.9.247",
+    "gatsby": "^1.9.274",
     "gatsby-link": "^1.6.40",
     "gatsby-transformer-remark": "^1.7.41",
     "react-helmet": "^5.2.0"
