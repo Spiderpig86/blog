@@ -8,7 +8,8 @@ import Header from '../components/header'
 import '../styles/cirrus.header.css'
 import './index.css'
 import '../styles/layout-override.css'
-import { styles } from '../styles/index-styles'
+import '../styles/gradient.css'
+import { styles } from '../styles/component-styles/index-styles'
 
 const Layout = ({ children, data }) => (
   <div>

@@ -6,7 +6,7 @@ const Header = ({ siteTitle }) => (
   <div
     className="header header-fixed header-clear"
     style={{
-      background: '#fff',
+      background: 'linear-gradient(to bottom, #fff 30%, transparent)',
       marginBottom: '3rem',
       paddingTop: '1.5rem',
     }}
@@ -17,7 +17,7 @@ const Header = ({ siteTitle }) => (
         padding: '0 1.0875rem',
       }}
     >
-      <div className="header-nav">
+      <div className="header-nav" style={{ background: 'transparent' }}>
         <div className="nav-left">
           <div className="nav-item">
             <h1
@@ -28,6 +28,7 @@ const Header = ({ siteTitle }) => (
               }}
             >
               <Link
+                className="header-brand"
                 to="/"
                 style={{
                   color: '#222',
@@ -71,7 +72,6 @@ const Header = ({ siteTitle }) => (
 const burgerPiece = {
   height: '4px',
   borderRadius: '4px',
-  background: '#222',
   marginTop: '.15rem',
   marginBottom: '.15rem',
   width: '30px',

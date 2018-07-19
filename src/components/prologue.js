@@ -1,6 +1,6 @@
 import React, { Component }  from 'react';
 
-import { styles } from '../styles/proglogue-styles';
+import { styles } from '../styles/component-styles/proglogue-styles';
 import { INSPECT_MAX_BYTES } from 'buffer';
 
 class Prologue extends Component {
