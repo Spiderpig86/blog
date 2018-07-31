@@ -1,10 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import { styles } from '../styles/component-styles/sidebar-styles';
+
 const Sidebar = props => (
   <div
     style={{
-      border: '2px solid #e6e6e6',
+      boxShadow: '0 0.2rem 1.25rem 0 rgba(27, 30, 36, 0.07)',
       maxWidth: 960,
       padding: '0.5rem',
       marginBottom: '2rem',
@@ -18,9 +20,14 @@ const Sidebar = props => (
       <strong>{props.duration}</strong> { props.duration == 1 ? 'minute' : 'minutes' }
     </div>
 
-    {props.tags.map(tag => {
-      return <div>{tag}</div>
-    })}
+
+    <strong>Tags</strong>
+
+    <div className="row">
+        {props.tags.map((tag, i) => {
+            return <div style={styles.tagStyle} key={i}>{tag}</div>
+        })}
+    </div>
   </div>
 )
 
