@@ -627,3 +627,8 @@ pre tt:after {
     font-size: 100%;
   }
 }
+
+/* CUSTOM */
+body, #___gatsby, [data-reactroot] {
+  height: 100% !important;
+}

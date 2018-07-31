@@ -28,7 +28,7 @@ const Layout = ({ children, data }) => (
       ) =>
         matches ? (
           <div
-            style={{ ...styles.indexBox, ...{ paddingTop: '3rem' }}}
+            style={{ ...styles.indexBody, ...{ paddingTop: '3rem' }}}
           >
             <div
               style={ styles.indexChildWrapper }
@@ -38,7 +38,7 @@ const Layout = ({ children, data }) => (
           </div>
         ) : (
           <div
-            style={{ ...styles.indexBox, ...{ paddingTop: '7rem' }}}
+            style={{ ...styles.indexBody, ...{ paddingTop: '7rem' }}}
           >
             <div
               style={ styles.indexChildWrapper }
