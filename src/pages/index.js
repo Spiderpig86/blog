@@ -63,6 +63,10 @@ export default class Index extends Component {
                   {post.timeToRead} { post.timeToRead == 1 ? 'minute' : 'minutes' }
                 </h2>
                 <p>{post.excerpt}</p>
+
+                <Link to={ post.frontmatter.path }>
+                  <h6>Read More</h6>
+                </Link>
               </div>
             )
           })}

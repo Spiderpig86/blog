@@ -26,8 +26,9 @@ export default function Template({
             
             <div style={{ flex: 1 }}>
                   <Sidebar
-                    title="about me"
-                    description="just your average developer who recently discovered the Yugo"
+                    date={ post.frontmatter.date }
+                    duration={ post.timeToRead }
+                    tags={ post.frontmatter.tags }
                   />
                 </div>
         </div>
@@ -41,10 +42,12 @@ export const postQuery = graphql`
     query BlogPostByPatch($path: String!) {
         markdownRemark(frontmatter: { path: { eq: $path } }) {
             html
+            tableOfContents
             timeToRead
             frontmatter {
                 date(formatString: "MMMM DD, YYYY")
                 path
+                tags
                 title
             }
         }

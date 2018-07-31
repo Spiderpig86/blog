@@ -13,6 +13,7 @@ const Header = ({ siteTitle }) => (
   >
     <div
       style={{
+        background: 'transparent',
         margin: '0 auto',
         padding: '0 1.0875rem',
       }}

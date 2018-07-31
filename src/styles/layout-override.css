@@ -25,3 +25,13 @@ p, div {
 .nav-item {
     padding: .5rem;
 }
+
+a {
+    text-decoration: none;
+    transition: all .2s;
+}
+
+a:hover {
+    color: #2ac4e8;
+    transition: all .2s;
+}
