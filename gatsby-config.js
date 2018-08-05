@@ -5,6 +5,7 @@ module.exports = {
     plugins: [
         `gatsby-plugin-react-helmet`, // To modify head tags
         `gatsby-plugin-catch-links`, // Intercepts links from markdown to avoid refreshes
+        `gatsby-plugin-sass`,
         {
         resolve: `gatsby-source-filesystem`,
         options: {

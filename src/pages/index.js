@@ -4,7 +4,7 @@ import Helmet from 'react-helmet'
 
 import Prologue from '../components/prologue'
 
-import '../styles/blog-listing.css'
+import '../styles/blog-listing.scss'
 
 export default class Index extends Component {
   // Note that the data is still sent to props from GraphQL as in old code

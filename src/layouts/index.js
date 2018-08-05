@@ -6,9 +6,9 @@ import Media from 'react-media' // Listens for matches to CSS media query and re
 import Header from '../components/header'
 
 import '../styles/cirrus.header.css'
-import './index.css'
-import '../styles/layout-override.css'
-import '../styles/gradient.css'
+import './index.scss'
+import '../styles/layout-override.scss'
+import '../styles/gradient.scss'
 import { styles } from '../styles/component-styles/index-styles'
 
 const Layout = ({ children, data }) => (
