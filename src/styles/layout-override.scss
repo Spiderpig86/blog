@@ -1,36 +1,31 @@
 /* GLOBAL STYLES */
+
 * {
     color: #222;
-}
-
-html {
+  }
+  
+  html, body {
     height: 100vh;
-}
-
-body {
-    height: 100vh;
-    
-}
-
-h1 {
+  }
+  
+  h1 {
     font-size: 1.5rem;
-}
-
-p, div {
+  }
+  
+  p, div {
     font-size: 1rem;
     line-height: 2rem;
-}
-
-.nav-item {
+  }
+  
+  .nav-item {
     padding: .5rem;
-}
-
-a {
+  }
+  
+  a {
     text-decoration: none;
     transition: all .2s;
-}
-
-a:hover {
-    color: #2ac4e8;
-    transition: all .2s;
-}
+    &:hover {
+      color: #2ac4e8;
+      transition: all .2s;
+    }
+  }
