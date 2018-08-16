@@ -18,6 +18,7 @@ const Layout = ({ children, data }) => (
       meta={[
         { name: 'description', content: 'The musings of Stanley' },
         { name: 'keywords', content: 'stanley, lim, blog' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0' }
       ]}
     />
     <Header siteTitle="slim" />

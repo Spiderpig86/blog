@@ -6,6 +6,7 @@ const tagStyle = {
   backgroundColor: '#eee',
   borderRadius: '.25rem',
   color: '#222',
+  cursor: 'pointer',
   display: 'inline-flex',
   fontSize: '75%',
   lineHeight: '1.5',

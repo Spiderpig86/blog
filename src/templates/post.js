@@ -3,6 +3,7 @@
  */
 import React from 'react'
 import Helmet from 'react-helmet'
+import Media from 'react-media';
 
 import Sidebar from '../components/sidebar'
 
@@ -24,13 +25,31 @@ export default function Template({
                 </div>
             </div>
             
-            <div style={{ flex: 1 }}>
-                  <Sidebar
-                    date={ post.frontmatter.date }
-                    duration={ post.timeToRead }
-                    tags={ post.frontmatter.tags }
-                  />
-                </div>
+
+            <Media query={{ minWdth: 848 }}>
+            {(
+                matches // Inline function for checking if rules match above (less than 848px)
+            ) =>
+                matches ? (
+                        <div style={{ flex: 1 }}>
+                            <Sidebar
+                                date={ post.frontmatter.date }
+                                duration={ post.timeToRead }
+                                tags={ post.frontmatter.tags }
+                            />
+                        </div>
+                    ) : (
+                        <div style={{ flex: 1 }}>
+                            <Sidebar
+                                date={ post.frontmatter.date }
+                                duration={ post.timeToRead }
+                                tags={ post.frontmatter.tags }
+                            />
+                        </div>
+                    )
+                }
+            )
+            </Media>
         </div>
     );
 }

@@ -8,7 +8,7 @@ const Sidebar = props => (
     style={{
       boxShadow: '0 0.2rem 1.25rem 0 rgba(27, 30, 36, 0.07)',
       maxWidth: 960,
-      padding: '0.5rem',
+      padding: '1rem',
       marginBottom: '2rem',
       marginTop: '1rem',
     }}
