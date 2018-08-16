@@ -26,29 +26,22 @@ export default function Template({
             </div>
             
 
-            <Media query={{ minWdth: 848 }}>
-            {(
-                matches // Inline function for checking if rules match above (less than 848px)
-            ) =>
+            <Media query="(min-width: 848px)">
+                {(
+                    matches // Inline function for checking if rules match above (less than 848px)
+                ) =>
                 matches ? (
-                        <div style={{ flex: 1 }}>
-                            <Sidebar
-                                date={ post.frontmatter.date }
-                                duration={ post.timeToRead }
-                                tags={ post.frontmatter.tags }
-                            />
-                        </div>
-                    ) : (
-                        <div style={{ flex: 1 }}>
-                            <Sidebar
-                                date={ post.frontmatter.date }
-                                duration={ post.timeToRead }
-                                tags={ post.frontmatter.tags }
-                            />
-                        </div>
-                    )
-                }
-            )
+                    <div style={{ flex: 1 }}>
+                        <Sidebar
+                            date={ post.frontmatter.date }
+                            duration={ post.timeToRead }
+                            tags={ post.frontmatter.tags }
+                        />
+                    </div>
+                ) : (
+                    <div></div>
+                )
+            }
             </Media>
         </div>
     );

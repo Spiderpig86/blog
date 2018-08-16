@@ -545,3 +545,7 @@ pre {
 body, #___gatsby, [data-reactroot] {
   height: 100% !important;
 }
+
+::selection {
+  background-color: rgba(0, 102, 255, 0.25);
+}
