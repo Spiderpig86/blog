@@ -47,7 +47,7 @@ export default class Index extends Component {
             return (
               <div className="blog-post-preview" key={post.id}>
                 <Link to={post.frontmatter.path}>
-                  <h1>{post.frontmatter.title}</h1>
+                  <h1 style={{ marginBottom: 0 }}>{post.frontmatter.title}</h1>
                 </Link>
                 <h2>{post.frontmatter.date}</h2>
                 <h2
