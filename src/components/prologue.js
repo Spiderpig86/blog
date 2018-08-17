@@ -20,12 +20,13 @@ class Prologue extends Component {
 
                 <div style={ styles.prologueTagContainer }>
                     {
-                        this.getTopTags().map(tag => {
+                        this.getTopTags().map((tag, i) => {
                             return (
                                 <span
                                     className={ this.state.curTagFilter === tag ? 'tag selected' : 'tag'}
                                     onClick={ () => this.filterPosts(tag) }
                                     style={ styles.prologueTagItem }
+                                    key={ i }
                                 >
                                     { tag }
                                 </span>

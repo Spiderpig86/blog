@@ -6,6 +6,7 @@ import Helmet from 'react-helmet'
 import Media from 'react-media';
 
 import Sidebar from '../components/sidebar'
+import '../styles/article-scroll.scss'
 
 export default function Template({
     data // Object will be from GraphQL query
@@ -13,6 +14,8 @@ export default function Template({
     const post = data.markdownRemark;
     return (
         <div className="blog-post-container" style={{ display: 'flex' }}>
+                    
+            <div className="scroller"></div>
             <div style={{ flex: 2.5, paddingRight: "2rem" }}>
                 <Helmet title={`slim - ${ post.frontmatter.title }`} />
                 <div className="blog-post">

@@ -9,6 +9,7 @@ import '../styles/cirrus.header.css'
 import './index.scss'
 import '../styles/layout-override.scss'
 import '../styles/gradient.scss'
+import '../styles/blog-listing.scss'
 import { styles } from '../styles/component-styles/index-styles'
 
 const Layout = ({ children, data }) => (

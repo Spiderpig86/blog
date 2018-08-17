@@ -4,8 +4,6 @@ import Helmet from 'react-helmet'
 
 import Prologue from '../components/prologue'
 
-import '../styles/blog-listing.scss'
-
 export default class Index extends Component {
   // Note that the data is still sent to props from GraphQL as in old code
 
@@ -35,7 +33,7 @@ export default class Index extends Component {
     const { edges: posts } = this.props.data.allMarkdownRemark // All the edges will represent the posts
 
     return (
-      <div className="blog-posts">
+      <div className="blog-posts">  
         <Prologue
           blogPosts={posts}
           updateSelectedTag={this.updateSelectedTag.bind(this)}
