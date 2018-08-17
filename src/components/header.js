@@ -8,7 +8,8 @@ const Header = ({ siteTitle }) => (
     style={{
       background: 'linear-gradient(to bottom, #fff 30%, transparent)',
       marginBottom: '3rem',
-      paddingTop: '1.5rem',
+      paddingTop: '1rem',
+      top: '6px',
     }}
   >
     <div

@@ -1,27 +1,32 @@
 /* GLOBAL STYLES */
 
 * {
-    color: #222;
-  }
-  
-  h1 {
-    font-size: 1.5rem;
-  }
-  
-  p, div {
-    font-size: 1rem;
-    line-height: 2rem;
-  }
-  
-  .nav-item {
-    padding: .5rem;
-  }
-  
-  a {
-    text-decoration: none;
+  color: #222;
+}
+
+h1 {
+  font-size: 1.5rem;
+}
+
+p,
+div {
+  font-size: 1rem;
+  line-height: 2rem;
+}
+
+.nav-item {
+  padding: .5rem;
+}
+
+a {
+  text-decoration: none;
+  transition: all .2s;
+  &:hover {
+    color: #2ac4e8;
     transition: all .2s;
-    &:hover {
-      color: #2ac4e8;
-      transition: all .2s;
-    }
   }
+}
+
+progress {
+  left: 0;
+}
