@@ -8,6 +8,7 @@
     "gatsby-link": "^1.6.40",
     "gatsby-plugin-sass": "^1.0.26",
     "gatsby-transformer-remark": "^1.7.41",
+    "gh-pages": "^1.2.0",
     "react-helmet": "^5.2.0",
     "react-reading-progress": "^0.3.0"
   },
@@ -19,7 +20,8 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write 'src/**/*.js'",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public"
   },
   "devDependencies": {
     "gatsby-plugin-catch-links": "^1.0.22",
