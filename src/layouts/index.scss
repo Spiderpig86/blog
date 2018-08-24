@@ -549,3 +549,11 @@ body, #___gatsby, [data-reactroot] {
 ::selection {
   background-color: rgba(0, 102, 255, 0.25);
 }
+
+::-webkit-progress-value {
+  background: linear-gradient(to right, #12c2e9, #c471ed, #f64f59) !important;
+}
+
+::-moz-progress-bar {
+  background: linear-gradient(to right, #12c2e9, #c471ed, #f64f59) !important;
+}

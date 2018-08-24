@@ -13,8 +13,9 @@ export default function Template({
 }) {
     const post = data.markdownRemark;
     return (
-        <div className="blog-post-container" style={{ display: 'flex' }}>
-            <ReadingProgress targetEl="#post-el"></ReadingProgress>
+        <div className="blog-post-container" style={{ display: 'flex'}}>
+            <ReadingProgress targetEl="#post-el"
+                style={{ borderColor: 'transparent', color: '#000', height: '0.25rem', zIndex: '100' }}></ReadingProgress>
             <div style={{ flex: 2.5, paddingRight: "2rem" }}>
                 <Helmet title={`slim - ${ post.frontmatter.title }`} />
                 <div className="blog-post">
