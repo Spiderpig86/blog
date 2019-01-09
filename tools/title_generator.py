@@ -7,8 +7,8 @@ def arg_parse():
         epilog = 'Version: 0.0.1'\
     )
 
-    parser.add_argument('title', help = 'Set the title of the blog post')
-    parser.add_argument('tags', help = 'Enter tags associated with this post')
+    parser.add_argument('-t', '-title', type = string, metavar = '', required = True help = 'Set the title of the blog post')
+    parser.add_argument('-a', '-tags', type = string, metavar = '', required = True help = 'Enter tags associated with this post')
 
     args = parser.parse_args() # Parse the args
 
@@ -23,7 +23,25 @@ def arg_parse():
 " :return: String
 """
 def to_path(name):
-    pass
+    # Replace spaces with hyphens, lower case
+    name = name.replace(' ', '-').lower()
+    return 'path: "/' + name + '"'
+
+"""
+" Format tag strings
+" :arg tags: string[]
+" :return: string
+"""
+def generate_tags(tags):
+    s = 'tags: ['
+    for t in tags:
+        s += f"'{t}',"
+    s = s[:-1] # Remove last comma
+    return s + ']'
+
+def build_tag(title, tags):
+    path = to_path(title)
+    
 
 def main():
     args = arg_parse()
