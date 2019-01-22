@@ -1,5 +1,7 @@
 import argparse
 from sys import argv, exit
+from datetime import datetime, tzinfo, timedelta
+import pytz
 
 def arg_parse():
     parser = argparse.ArgumentParser(\
@@ -7,8 +9,8 @@ def arg_parse():
         epilog = 'Version: 0.0.1'\
     )
 
-    parser.add_argument('-t', '-title', type = string, metavar = '', required = True help = 'Set the title of the blog post')
-    parser.add_argument('-a', '-tags', type = string, metavar = '', required = True help = 'Enter tags associated with this post')
+    parser.add_argument('-t', '-title', metavar = '', required = True, help = 'Set the title of the blog post')
+    parser.add_argument('-a', '-tags', metavar = '', required = True, help = 'Enter tags associated with this post')
 
     args = parser.parse_args() # Parse the args
 
@@ -34,19 +36,25 @@ def to_path(name):
 """
 def generate_tags(tags):
     s = 'tags: ['
-    for t in tags:
+    for t in tags.split(','):
         s += f"'{t}',"
     s = s[:-1] # Remove last comma
     return s + ']'
 
-def build_tag(title, tags):
-    path = to_path(title)
-    
+def build_header(title, tags):
+    str_list = ['---']
+    str_list.append(to_path(title)) # Path
+    str_list.append(datetime.now().isoformat() + 'Z')
+    str_list.append('title: ' + f'"{title}"')
+    str_list.append('excerpt:')
+    str_list.append(generate_tags(tags))
+    str_list.append('---')
+
+    return '\n'.join(str_list)
 
 def main():
     args = arg_parse()
-    print(args.title)
-    print(args.tags)
+    print(build_header(args.t, args.a))
 
 if __name__ == "__main__":
     main()
