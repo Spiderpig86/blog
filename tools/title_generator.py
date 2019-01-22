@@ -2,6 +2,9 @@ import argparse
 from sys import argv, exit
 from datetime import datetime, tzinfo, timedelta
 import pytz
+import os
+from os import path
+from pathlib import Path
 
 def arg_parse():
     parser = argparse.ArgumentParser(\
@@ -11,6 +14,7 @@ def arg_parse():
 
     parser.add_argument('-t', '-title', metavar = '', required = True, help = 'Set the title of the blog post')
     parser.add_argument('-a', '-tags', metavar = '', required = True, help = 'Enter tags associated with this post')
+    parser.add_argument('-p', '-path', metavar = '', required = False, nargs = '?', default = '/src/pages/posts', help = 'Enter path to generate file, "." for current dir')
 
     args = parser.parse_args() # Parse the args
 
@@ -27,7 +31,7 @@ def arg_parse():
 def to_path(name):
     # Replace spaces with hyphens, lower case
     name = name.replace(' ', '-').lower()
-    return 'path: "/' + name + '"'
+    return '"/' + name + '"'
 
 """
 " Format tag strings
@@ -43,8 +47,8 @@ def generate_tags(tags):
 
 def build_header(title, tags):
     str_list = ['---']
-    str_list.append(to_path(title)) # Path
-    str_list.append(datetime.now().isoformat() + 'Z')
+    str_list.append('path: ' + to_path(title)) # Path
+    str_list.append('date: "' + datetime.now().isoformat() + 'Z"')
     str_list.append('title: ' + f'"{title}"')
     str_list.append('excerpt:')
     str_list.append(generate_tags(tags))
@@ -54,7 +58,18 @@ def build_header(title, tags):
 
 def main():
     args = arg_parse()
-    print(build_header(args.t, args.a))
+
+    # Create dir
+    date_str = datetime.today().strftime('%#m-%#d-%Y') + '-'
+    file_name = to_path(args.t).replace('/', '').replace('"', '')
+    directory = date_str + file_name
+    rel = str(Path(os.path.abspath(__file__)).parents[1])
+    if not os.path.exists('/'.join([rel, args.p, directory])):
+        os.makedirs('/'.join([rel, args.p, directory]))
+
+    f = open('/'.join([rel, args.p, directory, 'index.md']), 'w+')
+    f.write(build_header(args.t, args.a))
+    f.close()
 
 if __name__ == "__main__":
     main()
