@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito+Sans');
-@import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
 @mixin header {
   margin-left: 0;
   margin-right: 0;
@@ -237,18 +237,15 @@ img {
 }
 
 h1 {
+  @include header();
   font-family: 'Montserrat';
   font-weight: 700;
-}
-
-h1 {
-  @include header();
   margin-bottom: 1.45rem;
   font-size: 2.25rem;
 }
 
 h2 {
-  
+  @include header();
   font-size: 1.62671rem;
   &:last-of-type {
     margin-bottom: 1.45rem;
@@ -260,26 +257,30 @@ h2 {
 
 h3 {
   @include header();
-  margin-bottom: 1.45rem;
+  margin-bottom: 1.15rem;
   font-size: 1.38316rem;
+  font-weight: 400;
 }
 
 h4 {
   @include header();
-  margin-bottom: 1.45rem;
+  margin-bottom: 1rem;
   font-size: 1rem;
+  font-weight: 400;
 }
 
 h5 {
   @include header();
-  margin-bottom: 1.45rem;
+  margin-bottom: 1rem;
   font-size: 0.85028rem;
+  font-weight: 400;
 }
 
 h6 {
   @include header();
-  margin-bottom: 1.45rem;
+  margin-bottom: 1rem;
   font-size: 0.78405rem;
+  font-weight: 400;
 }
 
 hgroup {

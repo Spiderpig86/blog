@@ -9,63 +9,76 @@ import ReadingProgress from 'react-reading-progress'
 import Sidebar from '../components/sidebar'
 
 export default function Template({
-    data // Object will be from GraphQL query
+  data, // Object will be from GraphQL query
 }) {
-    const post = data.markdownRemark;
-    return (
-        <div className="blog-post-container" style={{ display: 'flex'}}>
-            <ReadingProgress targetEl="#post-el"
-                style={{ borderColor: 'transparent', color: '#000', height: '0.25rem', zIndex: '100' }}></ReadingProgress>
-            <div style={{ flex: 2.5, paddingRight: "2rem" }}>
-                <Helmet title={`slim - ${ post.frontmatter.title }`} />
-                <div className="blog-post">
-                    <h1>{ post.frontmatter.title }</h1>
-
-                    <div
-                        className="blog-post-content"
-                        dangerouslySetInnerHTML={{ __html: post.html }} // Gets the html version of the post
-                        id="post-el"
-                    />
-                </div>
-            </div>
-            
-
-            <Media query="(min-width: 848px)">
-                {(
-                    matches // Inline function for checking if rules match above (less than 848px)
-                ) =>
-                matches ? (
-                    <div style={{ flex: 1 }}>
-                        <Sidebar
-                            date={ post.frontmatter.date }
-                            duration={ post.timeToRead }
-                            tags={ post.frontmatter.tags }
-                        />
-                    </div>
-                ) : (
-                    <div></div>
-                )
-            }
-            </Media>
+  const post = data.markdownRemark
+  return (
+    <div className="blog-post-container" style={{ display: 'flex' }}>
+      <ReadingProgress
+        targetEl="#post-el"
+        style={{
+          borderColor: 'transparent',
+          color: '#000',
+          height: '0.25rem',
+          zIndex: '100',
+        }}
+      />
+      <div style={{ flex: 2.5, paddingRight: '2rem' }}>
+        <Helmet title={`slim - ${post.frontmatter.title}`} />
+        <div className="blog-post">
+          <h1
+            style={{
+              fontSize: '3rem',
+            }}
+          >{post.frontmatter.title}</h1>
+          <hr style={{
+            backgroundColor: '#ddd',
+            marginBottom: '3rem',
+          }}></hr>
+          <div
+            className="blog-post-content"
+            dangerouslySetInnerHTML={{ __html: post.html }} // Gets the html version of the post
+            id="post-el"
+          />
         </div>
-    );
+      </div>
+
+      <Media query="(min-width: 848px)">
+        {(
+          matches // Inline function for checking if rules match above (less than 848px)
+        ) =>
+          matches ? (
+            <div style={{ flex: 1 }}>
+              <Sidebar
+                date={post.frontmatter.date}
+                duration={post.timeToRead}
+                tags={post.frontmatter.tags}
+              />
+            </div>
+          ) : (
+            <div />
+          )
+        }
+      </Media>
+    </div>
+  )
 }
 
 // Query our posts and get an object passed in as data for the template above
 // Path corresponds to the blog post path we are referring to
 // markdownRemark will add the html to the html property of the data
 export const postQuery = graphql`
-    query BlogPostByPatch($path: String!) {
-        markdownRemark(frontmatter: { path: { eq: $path } }) {
-            html
-            tableOfContents
-            timeToRead
-            frontmatter {
-                date(formatString: "MMMM DD, YYYY")
-                path
-                tags
-                title
-            }
-        }
+  query BlogPostByPatch($path: String!) {
+    markdownRemark(frontmatter: { path: { eq: $path } }) {
+      html
+      tableOfContents
+      timeToRead
+      frontmatter {
+        date(formatString: "MMMM DD, YYYY")
+        path
+        tags
+        title
+      }
     }
-`;
+  }
+`
