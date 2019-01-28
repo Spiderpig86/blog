@@ -13,7 +13,8 @@ module.exports = {
                 name: 'pages'
             }
         },
-        `gatsby-transformer-remark` // Markdown to HTML
+        `gatsby-transformer-remark`, // Markdown to HTML,
+        `gatsby-remark-emoji`, // Emoji rendering for markdown
     ],
     pathPrefix: "/blog", // For setting up in github pages
 }

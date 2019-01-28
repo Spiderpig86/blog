@@ -7,6 +7,7 @@
     "gatsby": "^1.9.274",
     "gatsby-link": "^1.6.40",
     "gatsby-plugin-sass": "^1.0.26",
+    "gatsby-remark-emoji": "0.0.2",
     "gatsby-transformer-remark": "^1.7.41",
     "gh-pages": "^1.2.0",
     "react-helmet": "^5.2.0",
