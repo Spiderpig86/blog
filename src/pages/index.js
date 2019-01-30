@@ -47,18 +47,20 @@ export default class Index extends Component {
             return (
               <div className="blog-post-preview" key={post.id}>
                 <Link to={post.frontmatter.path}>
-                  <h1 style={{ marginBottom: 0 }}>{post.frontmatter.title}</h1>
+                  <h1>{post.frontmatter.title}</h1>
                 </Link>
                 <h2 style={{
+                  color: '#333',
+                  fontFamily: 'Montserrat',
                   fontSize: '0.9rem',
-                  marginBottom: '0rem'
                 }}
                 >{post.frontmatter.date}</h2>
                 <h2
                   className="bold"
                   style={{
                     borderLeft: '2px solid #222',
-                    fontSize: '0.8rem',
+                    color: '#333',
+                    fontSize: '0.9rem',
                     fontWeight: 700,
                     marginTop: '0rem',
                     paddingLeft: '0.5rem',
