@@ -48,7 +48,7 @@ def generate_tags(tags):
 def build_header(title, tags):
     str_list = ['---']
     str_list.append('path: ' + to_path(title)) # Path
-    str_list.append('date: "' + datetime.now().isoformat() + 'Z"')
+    str_list.append('date: "' + datetime.now().isoformat()[:-3] + 'Z"')
     str_list.append('title: ' + f'"{title}"')
     str_list.append('excerpt:')
     str_list.append(generate_tags(tags))
