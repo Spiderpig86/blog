@@ -20,7 +20,7 @@ After looking more into them, there seems to be a sizable portion that just hate
 
 
 
-### The Hook
+### The Hooks
 
 Now there are several somewhat effective tactics that these guys love to use in order to draw in as many viewers as they can. As with all their ads, the first 5 seconds is crucial in order to get viewers engaged since most of them are long enough that they can be skipped. The old way that marketers usually would start their ad is to discourage the viewer from skipping, but this has gotten less and less as it completely overused, cliché, and ineffective. Instead, a more clever tactic is needed to hook viewers in: through results.
 
@@ -34,7 +34,7 @@ The second major theme that all three notably share is the somewhat low producti
 
 
 
-The third major theme is the continuous action that takes place in the background.
+The third major theme is the continuous action that takes place in the background. This is probably more notable in Tai's videos but they sometimes are used in Grant's videos as well. Tai typically starts recording after he has done something, whether if it is walking through his garage, after a jog, or even after his meetings. He continuously moves through whatever environment he is in -- which is a masterful technique in keeping the person's attention. [talk about this phenomenon, from film class]
 
 
 
