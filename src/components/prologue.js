@@ -1,7 +1,6 @@
 import React, { Component }  from 'react';
 
 import { styles } from '../styles/component-styles/proglogue-styles';
-import { INSPECT_MAX_BYTES } from 'buffer';
 
 class Prologue extends Component {
 
@@ -14,7 +13,10 @@ class Prologue extends Component {
     
     render() {
         return (
-            <div style={ styles.prologueComponent }>
+            <div 
+                className="prologue-component"
+                style={ styles.prologueComponent }
+            >
                 <h1>Blog</h1>
                 <p>Writing about whatever comes to mind.</p>
 

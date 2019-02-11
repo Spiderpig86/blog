@@ -21,3 +21,9 @@ h1 > * {
   font-size: 1.2rem;
   text-decoration-line: none;
 }
+
+@media screen and (min-width: 848px) {
+  .prologue-component {
+    padding: 2rem 4rem;
+  }
+}
