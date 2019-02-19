@@ -2,7 +2,9 @@
 
 
 
-Did that title catch your attention?
+Does that title sound familiar?
+
+[This video might jog your memory][https://youtu.be/yMha6kJZmrw)
 
 If you've ever been on YouTube, chances are that you have seen some "affluencers" try to pitch you their get rich quick scheme in the first 5 seconds before you skip the ad. It's probably of some guy standing in his mansion holding an expo marker with illegible scribbles written on an Easel Pad with various arrows and dollar signs scattered throughout what supposedly is the next big thing. 
 
@@ -34,9 +36,17 @@ The second major theme that all three notably share is the somewhat low producti
 
 
 
-The third major theme is the continuous action that takes place in the background. This is probably more notable in Tai's videos but they sometimes are used in Grant's videos as well. Tai typically starts recording after he has done something, whether if it is walking through his garage, after a jog, or even after his meetings. He continuously moves through whatever environment he is in -- which is a masterful technique in keeping the person's attention. [talk about this phenomenon, from film class]
+The third major theme is the continuous action that takes place in the background. This is probably more notable in Tai's videos but they sometimes are used in Grant's videos as well. Tai typically starts recording after he has done something, whether if it is walking through his garage, after a jog, or even after his meetings. He continuously moves through whatever environment he is in -- which is a masterful technique in keeping the person's attention.
 
 
+
+### Can Goldfish Pay Attention?
+
+As an aside, it is important to note that the pace of films today is much faster than when Alfred Hitchcock's *Psycho* first came out in 1960. According to Mike Feurstein writeup in *Filmmaker Magazine* [2], much of the content on the web today "demands attention spans shorter than most goldfish". This is evident in the rise (and fall) of video apps like Vine and Tiktok. Of course there are some exceptions where films do not follow the traditional pace of filming back then, but for the most part, much of these films featured many still shots of people, landscapes, etc. For example, Sergio Leone loved including long takes of the surrounding landscape *The Good, the Bad, and the Ugly* to evince the rugged landscape that the movie takes place in.
+
+This is in stark contrast with the fast-paced riffs of pop culture that exist today mainly on the web. Popular videos are often quite short, funny, and stimulating to keep viewers engaged overall --- and making them return for more [1].  Although the people I refer to don't make funny videos, they successfully apply the same principles that allow their content to be heavily shared, in addition to the promotion campaigns that they run.
+
+A brief search for some of Grant's older videos reveals the disparity between his older content and his new ones. In his newer videos, quite a few of them were able to surpass the 1 million view mark which had more camera movements, shaky hands, and more amateurish overall compared to his still and professional videos from almost a decade ago. This not to say that all of his videos surpass the 1 million mark easily. But for the ones that do, this is a common trait that they all share. Even though these videos do last longer than just a few minutes sometimes, the constant movement with things going on in the background acts as an illusion that stimulates the brain into paying more attention. This is extremely powerful in capturing the attention of many.
 
 ### In Sum
 
@@ -45,3 +55,6 @@ The third major theme is the continuous action that takes place in the backgroun
 
 
 ## References
+
+1. [Attention-Deficit Audiences and How New Media Might Be Affecting Traditional Filmmaking](https://nofilmschool.com/2012/11/attention-deficit-audiences-new-media-filmmaking)
+2. [Spanned Attentions](https://filmmakermagazine.com/58685-spanned-attentions/)
