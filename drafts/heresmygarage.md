@@ -44,13 +44,17 @@ The third major theme is the continuous action that takes place in the backgroun
 
 As an aside, it is important to note that the pace of films today is much faster than when Alfred Hitchcock's *Psycho* first came out in 1960. According to Mike Feurstein writeup in *Filmmaker Magazine* [2], much of the content on the web today "demands attention spans shorter than most goldfish". This is evident in the rise (and fall) of video apps like Vine and Tiktok. Of course there are some exceptions where films do not follow the traditional pace of filming back then, but for the most part, much of these films featured many still shots of people, landscapes, etc. For example, Sergio Leone loved including long takes of the surrounding landscape *The Good, the Bad, and the Ugly* to evince the rugged landscape that the movie takes place in.
 
+
+
 This is in stark contrast with the fast-paced riffs of pop culture that exist today mainly on the web. Popular videos are often quite short, funny, and stimulating to keep viewers engaged overall --- and making them return for more [1].  Although the people I refer to don't make funny videos, they successfully apply the same principles that allow their content to be heavily shared, in addition to the promotion campaigns that they run.
 
-A brief search for some of Grant's older videos reveals the disparity between his older content and his new ones. In his newer videos, quite a few of them were able to surpass the 1 million view mark which had more camera movements, shaky hands, and more amateurish overall compared to his still and professional videos from almost a decade ago. This not to say that all of his videos surpass the 1 million mark easily. But for the ones that do, this is a common trait that they all share. Even though these videos do last longer than just a few minutes sometimes, the constant movement with things going on in the background acts as an illusion that stimulates the brain into paying more attention. This is extremely powerful in capturing the attention of many.
+
+
+A brief search for some of Grant's older videos reveals the disparity between his older content and his new ones. In his newer videos, quite a few of them were able to surpass the 1 million view mark which had more camera movements, shaky hands, and more amateurish overall compared to his still and professional videos from almost a decade ago. This not to say that all of his videos surpass the 1 million mark easily. But for the ones that do, this is a common trait that they all share. Even though these videos do last longer than just a few minutes sometimes, the constant movement with things going on in the background acts as an illusion that stimulates the brain into paying more attention. This is an extremely powerful tactic in a medium where everyone is vying for your attention.
 
 ### In Sum
 
-
+For months, I've always found myself watching through to the end of some of their ads -- more than I'd like to admit. There are quite a few people who have also done an analysis on the way these guys market themselves and how effective it really is. These are some of the things that I think that they are doing correctly in terms of engaging even the most discerning of viewers. It is possible that I am giving them more credit than they actually deserve and all these different "tactics" are just a mere coincidence, but one cannot argue that this is a consistent pattern that is seen in a lot of their videos.
 
 
 
