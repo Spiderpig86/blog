@@ -14,7 +14,10 @@ class Prologue extends Component {
     
     render() {
         return (
-            <div style={ styles.prologueComponent }>
+            <div 
+                className="prologue-component"
+                style={ styles.prologueComponent }
+            >
                 <h1>Blog</h1>
                 <p>Writing about whatever comes to mind.</p>
                 <div style={ styles.prologueSocial }>

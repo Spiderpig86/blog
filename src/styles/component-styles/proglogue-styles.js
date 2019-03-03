@@ -3,7 +3,6 @@
  */
 
  const prologueComponent = {
-    padding: '2rem 4rem',
     textAlign: 'center',
  }
 
