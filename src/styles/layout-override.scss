@@ -5,12 +5,42 @@
 }
 
 h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  font-family: 'Montserrat';
+}
+
+h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  font-family: 'Montserrat';
+}
+
+h3 {
   font-size: 1.5rem;
+  font-weight: 700;
+  font-family: 'Montserrat';
+}
+
+h4 {
+  font-size: 1.25rem;
+  font-family: 'Montserrat';
+}
+
+h5 {
+  font-size: 1.15rem;
+  font-family: 'Montserrat';
+}
+
+h6 {
+  font-size: 1.05rem;
+  font-family: 'Montserrat';
 }
 
 h1, h2 {
   margin-top: 3rem;
 }
+
 
 p,
 div {
@@ -30,6 +60,10 @@ a {
     color: #2ac4e8;
     transition: all .2s;
   }
+}
+
+.blog-post-content a {
+  text-decoration: underline;
 }
 
 progress {
