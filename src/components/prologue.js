@@ -1,7 +1,7 @@
 import React, { Component }  from 'react';
+import FontAwesome from 'react-fontawesome';
 
 import { styles } from '../styles/component-styles/proglogue-styles';
-import { INSPECT_MAX_BYTES } from 'buffer';
 
 class Prologue extends Component {
 
@@ -17,6 +17,13 @@ class Prologue extends Component {
             <div style={ styles.prologueComponent }>
                 <h1>Blog</h1>
                 <p>Writing about whatever comes to mind.</p>
+                <div style={ styles.prologueSocial }>
+                    <a href="#"><FontAwesome name='github' style={ styles.prologueSocialItem } /></a>
+                    <a href="#"><FontAwesome name='linkedin' style={ styles.prologueSocialItem } /></a>
+                    <a href="#"><FontAwesome name='medium' style={ styles.prologueSocialItem } /></a>
+                    <a href="#"><FontAwesome name='instagram' style={ styles.prologueSocialItem } /></a>
+                    <a href="#"><FontAwesome name='globe' style={ styles.prologueSocialItem } /></a>
+                </div>
 
                 <div style={ styles.prologueTagContainer }>
                     {

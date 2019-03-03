@@ -19,8 +19,19 @@
     textTransform: 'capitalize',
  }
 
+ const prologueSocial = {
+     display: 'flex',
+     justifyContent: 'center',
+ }
+
+ const prologueSocialItem = {
+     padding: '1rem'
+ }
+
  export const styles = {
      prologueComponent: prologueComponent,
      prologueTagContainer: prologueTagContainer,
-     prologueTagItem: prologueTagItem
+     prologueTagItem: prologueTagItem,
+     prologueSocial: prologueSocial,
+     prologueSocialItem: prologueSocialItem,
  }

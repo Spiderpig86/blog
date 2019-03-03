@@ -7,8 +7,8 @@ def arg_parse():
         epilog = 'Version: 0.0.1'\
     )
 
-    parser.add_argument('-t', '-title', type = string, metavar = '', required = True help = 'Set the title of the blog post')
-    parser.add_argument('-a', '-tags', type = string, metavar = '', required = True help = 'Enter tags associated with this post')
+    parser.add_argument('-t', '-title', type = string, metavar = '', required = True, help = 'Set the title of the blog post')
+    parser.add_argument('-a', '-tags', type = string, metavar = '', required = True, help = 'Enter tags associated with this post')
 
     args = parser.parse_args() # Parse the args
 
