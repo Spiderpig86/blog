@@ -1,7 +1,7 @@
 ---
-path: "/here's-my-garage"
+path: "/here-in-my-garage"
 date: "2019-02-23T11:34:17.948Z"
-title: "here's my garage"
+title: "here in my garage"
 excerpt:
 tags: ['entrpreneurship','ads','videos','cinematography']
 ---
