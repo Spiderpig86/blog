@@ -21,7 +21,9 @@ const Layout = ({ children, data }) => (
         { name: 'keywords', content: 'stanley, lim, blog' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0' }
       ]}
-    />
+    >
+      <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    </Helmet>
     <Header siteTitle="slim" />
 
     <Media query={{ maxWidth: 848 }}>

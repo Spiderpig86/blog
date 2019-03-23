@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
+import { styles } from '../styles/component-styles/index-styles';
 
 import Prologue from '../components/prologue'
 
@@ -71,7 +72,7 @@ export default class Index extends Component {
                 <p>{post.excerpt}</p>
 
                 <Link to={ post.frontmatter.path }>
-                  <h6>Read More</h6>
+                  <button style={ styles.readmoreButton }>Read More</button>
                 </Link>
               </div>
             )

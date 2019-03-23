@@ -12,9 +12,14 @@ def arg_parse():
         epilog = 'Version: 0.0.1'\
     )
 
+<<<<<<< HEAD
+    parser.add_argument('-t', '-title', type = string, metavar = '', required = True, help = 'Set the title of the blog post')
+    parser.add_argument('-a', '-tags', type = string, metavar = '', required = True, help = 'Enter tags associated with this post')
+=======
     parser.add_argument('-t', '-title', metavar = '', required = True, help = 'Set the title of the blog post')
     parser.add_argument('-a', '-tags', metavar = '', required = True, help = 'Enter tags associated with this post')
     parser.add_argument('-p', '-path', metavar = '', required = False, nargs = '?', default = '/src/pages/posts', help = 'Enter path to generate file, "." for current dir')
+>>>>>>> 28a78e6c969207c26b5513dde41c6cedfe8d0d2e
 
     args = parser.parse_args() # Parse the args
 

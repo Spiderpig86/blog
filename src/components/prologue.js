@@ -1,4 +1,5 @@
 import React, { Component }  from 'react';
+import FontAwesome from 'react-fontawesome';
 
 import { styles } from '../styles/component-styles/proglogue-styles';
 
@@ -19,6 +20,13 @@ class Prologue extends Component {
             >
                 <h1>Blog</h1>
                 <p>Writing about whatever comes to mind.</p>
+                <div style={ styles.prologueSocial }>
+                    <a className="prologue__social-links" href="https://github.com/Spiderpig86" target="_blank"><FontAwesome name='github' style={ styles.prologueSocialItem } /></a>
+                    <a className="prologue__social-links" href="https://www.linkedin.com/in/serbis/" target="_blank"><FontAwesome name='linkedin' style={ styles.prologueSocialItem } /></a>
+                    <a className="prologue__social-links" href="https://medium.com/@serbis" target="_blank"><FontAwesome name='medium' style={ styles.prologueSocialItem } /></a>
+                    <a className="prologue__social-links" href="https://www.instagram.com/dammitstan/" target="_blank"><FontAwesome name='instagram' style={ styles.prologueSocialItem } /></a>
+                    <a className="prologue__social-links" href="http://stanleylim.me" target="_blank"><FontAwesome name='globe' style={ styles.prologueSocialItem } /></a>
+                </div>
 
                 <div style={ styles.prologueTagContainer }>
                     {

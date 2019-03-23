@@ -10,6 +10,7 @@
     "gatsby-remark-emoji": "0.0.2",
     "gatsby-transformer-remark": "^1.7.41",
     "gh-pages": "^1.2.0",
+    "react-fontawesome": "^1.6.1",
     "react-helmet": "^5.2.0",
     "react-reading-progress": "^0.3.0"
   },
@@ -18,7 +19,7 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
+    "build": "gatsby build --prefix-paths",
     "develop": "gatsby develop",
     "format": "prettier --write 'src/**/*.js'",
     "test": "echo \"Error: no test specified\" && exit 1",

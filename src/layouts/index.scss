@@ -70,7 +70,7 @@ dfn {
 }
 
 h1 {
-  font-size: 2em;
+  font-size: 2rem;
 }
 
 mark {
@@ -256,9 +256,10 @@ h2 {
 
 h3 {
   @include header();
-  margin-bottom: 1.15rem;
   font-size: 1.38316rem;
-  font-weight: 400;
+  font-weight: 700;
+  margin-bottom: 1.15rem;
+  margin-top: 2.25rem;
 }
 
 h4 {
