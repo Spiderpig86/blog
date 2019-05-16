@@ -4,6 +4,10 @@
   color: #222;
 }
 
+body {
+  background-color: #f8f9fa;
+}
+
 h1 {
   font-size: 2rem;
   font-weight: 700;
@@ -44,13 +48,13 @@ h1, h2 {
 
 p,
 div {
-  font-size: 1rem;
-  line-height: 2rem;
+  font-size: 1.125rem;
+  line-height: 2.25rem;
 }
 
 .nav-item {
   align-items: baseline;
-  padding: .5rem;
+  padding: 0 .5rem;
 }
 
 a {

@@ -6,9 +6,10 @@ const Header = ({ siteTitle }) => (
   <div
     className="header header-fixed header-clear"
     style={{
-      background: 'linear-gradient(to bottom, #fff 30%, transparent)',
-      marginBottom: '3rem',
-      paddingTop: '1rem',
+      backgroundColor: 'rgba(255, 255, 255, 0.9)',
+      borderBottom: '1px solid #e1e1e1',
+      boxShadow: '0 0.2rem 1.25rem 0 rgba(27,30,36,.07)',
+      paddingTop: '1.25rem',
     }}
   >
     <div

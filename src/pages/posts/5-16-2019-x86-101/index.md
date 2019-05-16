@@ -5,12 +5,15 @@ title: "x86 101"
 excerpt:
 tags: ['programming','asm','x86','systems']
 ---
+# x86 101
 
 ## Why?
 
 You might be wondering why I would subject myself to torture by trying to learn Assembly in the first place since it's "either too hard" or "it's boring as hell". Well you're right, it's definitely not the most interesting thing in the world. Since I'm taking a course of offensive security, I *kinda* need to at least understand the basics of it -- mainly to understand program disassembling for CTF.
 
 So far, there aren't too many simple guides on learning x86 online compared to other languages. So hopefully, this will be a quick and easy guide for you to follow to learn the very basics of x86. :smile:
+
+Anyway, please excuse the poor drawings. I did them by hand on a trackpad. :sweat_smile:
 
 ## What is x86?
 
@@ -38,11 +41,11 @@ STORE A, RES
 
 Before we get started with the x86 language, first we must understand the main sections of a program written in C. This will be a very brief guide since there is plenty of info online. Note that what I will be talking about is the 32-bit variant of the x86 architecture.
 
-#### Heap
+### Heap
 
 The **heap** is a section of **unmanaged** memory (in Java, there's GC so technically it is managed there) that is allocated by the operating system. The OS uses the `sysbrk` syscall to allocate memory from the requesting function. Unlike the stack, memory is not invalidated when the function returns which leads to memory leaks. To avoid this, in C you would release memory with `free()` after a call to `malloc()` or one of its variants. Heap grows **upward** towards higher memory addresses.
 
-#### Stack
+### Stack
 
 This refers to the region of memory that is allocated to the process **primarily to implement functions**. This is managed in the sense that the variables created remain local to the function it resides and is invalidated once the function exits (when the [stack pointer](https://en.wikipedia.org/wiki/Stack_register) moves up). The values are still there, but they will be overwritten by the contents of the next function call's [stack frame](https://stackoverflow.com/questions/10057443/explain-the-concept-of-a-stack-frame-in-a-nutshell). Two x86 registers that deal with this are:
 
@@ -51,7 +54,7 @@ This refers to the region of memory that is allocated to the process **primarily
 
 Note that the stack grows **downward** towards lower memory addresses. This is also where global and static variables are declared.
 
-#### Registers
+### Registers
 
 These are small storage units located directly in the processor for quick access to intermediate values in function calls. It is known as L0 cache and it is located at the highest level in the [memory hierarchy](https://www.geeksforgeeks.org/memory-hierarchy-design-and-its-characteristics/).
 
@@ -76,9 +79,9 @@ There are six 32-bit general purpose registers in the x86 architecture [3]:
 
 `ebp`, `esp`, and `eip` are all known as **reserved** registers.
 
-#### Instructions
+## Instructions
 
-##### Format
+### Format
 
 There are essentially two schools of thought for instruction format: the **AT&T syntax** and the **Intel syntax**.
 
@@ -99,7 +102,7 @@ mov arg1, arg2
 
 Although it is called `mov`, it actually **copies** instead, meaning that the value stored in `arg2` is actually still there. However, there are some caveats with this specific instruction in general discussed in the next section.
 
-##### Dereferencing
+### Dereferencing
 
 The caveat comes when you are trying to get values from the stack.
 

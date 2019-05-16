@@ -22,6 +22,15 @@ html {
 }
 
 body {
+  color: hsla(0, 0%, 0%, 0.8);
+  font-family: "Nunito Sans", serif;
+  font-weight: normal;
+  word-wrap: break-word;
+  font-kerning: normal;
+  -moz-font-feature-settings: 'kern', 'liga', 'clig', 'calt';
+  -ms-font-feature-settings: 'kern', 'liga', 'clig', 'calt';
+  -webkit-font-feature-settings: 'kern', 'liga', 'clig', 'calt';
+  font-feature-settings: 'kern', 'liga', 'clig', 'calt';
   margin: 0;
 }
 
@@ -199,7 +208,7 @@ textarea {
 }
 
 html {
-  font: 112.5%/1.45em "Nunito Sans", serif;
+  font: 1.125rem "Nunito Sans", serif;
   box-sizing: border-box;
   overflow-y: scroll;
 }
@@ -209,18 +218,6 @@ html {
   &:before, &:after {
     box-sizing: inherit;
   }
-}
-
-body {
-  color: hsla(0, 0%, 0%, 0.8);
-  font-family: "Nunito Sans", serif;
-  font-weight: normal;
-  word-wrap: break-word;
-  font-kerning: normal;
-  -moz-font-feature-settings: 'kern', 'liga', 'clig', 'calt';
-  -ms-font-feature-settings: 'kern', 'liga', 'clig', 'calt';
-  -webkit-font-feature-settings: 'kern', 'liga', 'clig', 'calt';
-  font-feature-settings: 'kern', 'liga', 'clig', 'calt';
 }
 
 img {
@@ -495,24 +492,15 @@ th:last-child, td:last-child {
 }
 
 tt, code {
-  background-color: hsla(0, 0%, 0%, 0.04);
+  background-color: #f5e3d7;
   border-radius: 3px;
   font-family: 'SFMono-Regular', Consolas, 'Roboto Mono', 'Droid Sans Mono', 'Liberation Mono', Menlo, Courier, monospace;
-  padding: 0;
-  padding-top: 0.2em;
-  padding-bottom: 0.2em;
+  padding: .1875rem .25rem;
 }
 
 pre code {
   background: none;
   line-height: 1.42;
-}
-
-code {
-  &:before, &:after {
-    letter-spacing: -0.2em;
-    content: ' ';
-  }
 }
 
 tt {
