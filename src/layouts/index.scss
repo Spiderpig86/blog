@@ -501,6 +501,7 @@ tt, code {
 pre code {
   background: none;
   line-height: 1.42;
+  padding: 0;
 }
 
 tt {
@@ -511,11 +512,6 @@ tt {
 }
 
 pre {
-  code {
-    &:before, &:after {
-      content: '';
-    }
-  }
   tt {
     &:before, &:after {
       content: '';

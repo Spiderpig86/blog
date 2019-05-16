@@ -26,7 +26,7 @@
     "deploy": "gatsby build --prefix-paths && gh-pages -d public"
   },
   "devDependencies": {
-    "gatsby-plugin-catch-links": "^1.0.22",
+    "gatsby-plugin-catch-links": "^1.0.26",
     "gatsby-plugin-react-helmet": "^2.0.11",
     "gatsby-source-filesystem": "^1.5.36",
     "imagesloaded": "^4.1.4",
