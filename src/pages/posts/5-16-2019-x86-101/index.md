@@ -1,4 +1,10 @@
-# x86 101
+---
+path: "/x86-101"
+date: "2019-05-16T01:50:49.486Z"
+title: "x86 101"
+excerpt:
+tags: ['programming','asm','x86','systems']
+---
 
 ## Why?
 

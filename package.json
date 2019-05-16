@@ -1,6 +1,6 @@
 {
-  "name": "gatsby-starter-default",
-  "description": "Gatsby default starter",
+  "name": "blog",
+  "description": "Stan's super happy funtime blog",
   "version": "1.0.0",
   "author": "Stanley Lim",
   "dependencies": {
