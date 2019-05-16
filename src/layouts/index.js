@@ -6,11 +6,14 @@ import Media from 'react-media' // Listens for matches to CSS media query and re
 import Header from '../components/header'
 
 import '../styles/cirrus.header.css'
+import '../styles/prism.min.css'
 import './index.scss'
 import '../styles/layout-override.scss'
 import '../styles/gradient.scss'
 import '../styles/blog-listing.scss'
 import { styles } from '../styles/component-styles/index-styles'
+
+import '../lib/prism'
 
 const Layout = ({ children, data }) => (
   <div>

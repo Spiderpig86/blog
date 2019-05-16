@@ -6,10 +6,15 @@
   "dependencies": {
     "gatsby": "^1.9.274",
     "gatsby-link": "^1.6.40",
+    "gatsby-plugin-offline": "^2.1.0",
     "gatsby-plugin-sass": "^1.0.26",
+    "gatsby-remark-autolink-headers": "^2.0.16",
     "gatsby-remark-emoji": "0.0.2",
-    "gatsby-transformer-remark": "^1.7.41",
+    "gatsby-remark-external-links": "0.0.4",
+    "gatsby-remark-prismjs": "^3.2.9",
+    "gatsby-transformer-remark": "^1.7.44",
     "gh-pages": "^1.2.0",
+    "prismjs": "^1.16.0",
     "react-fontawesome": "^1.6.1",
     "react-helmet": "^5.2.0",
     "react-reading-progress": "^0.3.0"
@@ -28,7 +33,7 @@
   "devDependencies": {
     "gatsby-plugin-catch-links": "^1.0.26",
     "gatsby-plugin-react-helmet": "^2.0.11",
-    "gatsby-source-filesystem": "^1.5.36",
+    "gatsby-source-filesystem": "^1.5.39",
     "imagesloaded": "^4.1.4",
     "prettier": "^1.12.0",
     "react-media": "^1.8.0"

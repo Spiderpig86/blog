@@ -10,7 +10,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/src/pages`, // Store markdown posts here,
-        name: 'pages',
+        name: `pages`,
       },
     },
     {
@@ -18,9 +18,24 @@ module.exports = {
       options: {
         plugins: [
           `gatsby-remark-emoji`, // <-- this line adds emoji
+          {
+            resolve: `gatsby-remark-external-links`,
+            options: {
+              target: `_blank`,
+              rel: `noopener noreferrer`,
+            },
+          },
+          {
+            // should be placed after gatsby-remark-autolink-headers
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              inlineCodeMarker: `›`,
+            },
+          },
         ],
       },
     },
+    `gatsby-plugin-offline`,
   ],
-  pathPrefix: '/blog', // For setting up in github pages
+  pathPrefix: `/blog`, // For setting up in github pages
 }

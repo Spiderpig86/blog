@@ -208,7 +208,7 @@ textarea {
 }
 
 html {
-  font: 1.125rem "Nunito Sans", serif;
+  font: 100%/1.125rem "Nunito Sans", serif;
   box-sizing: border-box;
   overflow-y: scroll;
 }
@@ -493,8 +493,11 @@ th:last-child, td:last-child {
 
 tt, code {
   background-color: #f5e3d7;
-  border-radius: 3px;
   font-family: 'SFMono-Regular', Consolas, 'Roboto Mono', 'Droid Sans Mono', 'Liberation Mono', Menlo, Courier, monospace;
+}
+
+:not(pre)>code[class*=language-] {
+  border-radius: 3px;
   padding: .1875rem .25rem;
 }
 
