@@ -8,7 +8,6 @@ const Header = ({ siteTitle }) => (
       backgroundColor: 'rgba(255, 255, 255, 0.9)',
       borderBottom: '1px solid #e1e1e1',
       boxShadow: '0 0.2rem 1.25rem 0 rgba(27,30,36,.07)',
-      paddingTop: '1.25rem',
     }}
   >
     <div
@@ -75,6 +74,7 @@ const burgerPiece = {
   borderRadius: '4px',
   marginTop: '.15rem',
   marginBottom: '.15rem',
+  paddingTop: '3px',
   width: '30px',
 }
 

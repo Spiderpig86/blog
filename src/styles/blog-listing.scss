@@ -26,3 +26,9 @@ h1 > * {
     padding: 2rem 4rem;
   }
 }
+
+@media screen and (min-width: 769px) {
+  .header-nav {
+    padding-top: 1rem;
+  }
+}

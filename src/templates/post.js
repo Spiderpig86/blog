@@ -8,60 +8,67 @@ import ReadingProgress from 'react-reading-progress'
 import { graphql } from 'gatsby'
 
 import Sidebar from '../components/sidebar'
+import Layout from '../layouts/index'
 
 export default function Template({
   data, // Object will be from GraphQL query
 }) {
   const post = data.markdownRemark
   return (
-    <div className="blog-post-container" style={{ display: 'flex' }}>
-      <ReadingProgress
-        targetEl="#post-el"
-        style={{
-          borderColor: 'transparent',
-          color: '#000',
-          height: '0.25rem',
-          zIndex: '100',
-        }}
-      />
-      <div style={{ flex: 2.5, paddingRight: '2rem' }}>
-        <Helmet title={`slim - ${post.frontmatter.title}`} />
-        <div className="blog-post">
-          <h1
-            style={{
-              fontSize: '3rem',
-            }}
-          >{post.frontmatter.title}</h1>
-          <hr style={{
-            backgroundColor: '#ddd',
-            marginBottom: '3rem',
-          }}></hr>
-          <div
-            className="blog-post-content"
-            dangerouslySetInnerHTML={{ __html: post.html }} // Gets the html version of the post
-            id="post-el"
-          />
+    <Layout>
+      <div className="blog-post-container" style={{ display: 'flex' }}>
+        <ReadingProgress
+          targetEl="#post-el"
+          style={{
+            borderColor: 'transparent',
+            color: '#000',
+            height: '0.25rem',
+            zIndex: '100',
+          }}
+        />
+        <div style={{ flex: 2.5, paddingRight: '2rem' }}>
+          <Helmet title={`slim - ${post.frontmatter.title}`} />
+          <div className="blog-post">
+            <h1
+              style={{
+                fontSize: '3rem',
+              }}
+            >
+              {post.frontmatter.title}
+            </h1>
+            <hr
+              style={{
+                backgroundColor: '#ddd',
+                marginBottom: '3rem',
+              }}
+            />
+            <div
+              className="blog-post-content"
+              dangerouslySetInnerHTML={{ __html: post.html }} // Gets the html version of the post
+              id="post-el"
+            />
+          </div>
         </div>
-      </div>
 
-      <Media query="(min-width: 848px)">
-        {(
-          matches // Inline function for checking if rules match above (less than 848px)
-        ) =>
-          matches ? (
-            <div style={{ flex: 1 }}>
-              <Sidebar
-                date={post.frontmatter.date}
-                duration={post.timeToRead}
-                tags={post.frontmatter.tags}
-              />
-            </div>
-          ) : (
-            <div />
-          )
-        }
-      </Media>
-    </div>
+        <Media query="(min-width: 848px)">
+          {(
+            matches // Inline function for checking if rules match above (less than 848px)
+          ) =>
+            matches ? (
+              <div style={{ flex: 1 }}>
+                <Sidebar
+                  date={post.frontmatter.date}
+                  duration={post.timeToRead}
+                  tags={post.frontmatter.tags}
+                />
+              </div>
+            ) : (
+              <div />
+            )
+          }
+        </Media>
+      </div>
+    </Layout>
   )
 }
 
