@@ -18,16 +18,8 @@ const indexChildWrapper = {
 }
 
 const readmoreButton = {
-    backgroundColor: '#fff',
-    cursor: 'pointer',
-    outline: 'none',
-    display: 'inline-block',
-    padding: '0.1275rem 1.875rem',
-    border: '0.1375rem solid #000',
-    borderRadius: '0.1875rem',
-    textDecoration: 'none',
-    fontWeightt: 600,
-    fontSize: '90%',
+    fontFamily: 'Montserrat',
+    fontWeight: 600
 }
 
 export const styles = {

@@ -80,8 +80,8 @@ export default class Index extends Component {
                   </h2>
                   <p>{post.excerpt}</p>
 
-                  <Link to={post.frontmatter.path}>
-                    <button style={styles.readmoreButton}>Read More</button>
+                  <Link className="utb u-LR" style={ styles.readmoreButton } to={post.frontmatter.path}>
+                    Read
                   </Link>
                 </div>
               )

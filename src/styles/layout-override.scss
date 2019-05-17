@@ -60,14 +60,27 @@ div {
 a {
   text-decoration: none;
   transition: all .2s;
-  &:hover {
-    color: #2ac4e8;
+  &:not(.utb):hover {
+    color: rgba(12, 26, 66, 0.6);
+    text-decoration: underline;
     transition: all .2s;
   }
 }
 
 .blog-post-content a {
   text-decoration: underline;
+  border: none!important;
+  border-radius: 2px;
+  padding: 1px 4px;
+  background: rgba(12,26,66,.05);
+  padding-bottom: 2px;
+  transition: 0.2s ease;
+  color: rgba(12,26,66,.6)!important;
+
+  &:hover {
+    background: rgba(250, 208, 50, 0.1);
+    color: rgb(237, 165, 28)!important;
+  }
 }
 
 .prologue__social-links:hover {
@@ -79,7 +92,9 @@ progress {
 }
 
 blockquote {
-  background-color: #f8f8f8;
-  border-radius: .3rem;
+  background-color: transparent;
+  border-left: 2px solid #222;
+  font-family: 'Noto Serif', 'serif';
+  font-style: italic;
 	padding: 1rem;
 }
