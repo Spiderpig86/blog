@@ -8,9 +8,10 @@
  // You can delete this file if you're not using it
 
 const path = require('path');
+const graphql = require('gatsby/graphql')
 
-exports.createPages = ({ boundActionCreators, graphql }) => {
-    const { createPage } = boundActionCreators;
+exports.createPages = ({ actions, graphql }) => {
+    const { createPage } = actions;
 
     const blogPostTemplate = path.resolve(`src/templates/post.js`);
 

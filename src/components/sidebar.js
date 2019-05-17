@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 import { styles } from '../styles/component-styles/sidebar-styles';
 
@@ -18,7 +17,7 @@ const Sidebar = props => (
       Published <strong>{props.date}</strong>
     </div>
     <div className="row">
-      <strong>{props.duration}</strong> { props.duration == 1 ? 'minute' : 'minutes' }
+      <strong>{props.duration}</strong> { props.duration === 1 ? 'minute' : 'minutes' }
     </div>
 
 
