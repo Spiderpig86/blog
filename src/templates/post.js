@@ -26,7 +26,7 @@ export default function Template({
             zIndex: '100',
           }}
         />
-        <div style={{ flex: 2.5, paddingRight: '2rem' }}>
+        <div style={{ flex: 2.5, paddingRight: '2rem', maxWidth: '100%' }}>
           <Helmet title={`slim - ${post.frontmatter.title}`} />
           <div className="blog-post">
             <h1

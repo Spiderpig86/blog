@@ -32,7 +32,7 @@ const Layout = ({ children, data }) => (
             <div
               style={ styles.indexChildWrapper }
             >
-              <div style={{ flex: 1 }}>{children}</div>
+              <div style={{ flex: 1, maxWidth: '100%' }}>{children}</div>
             </div>
           </div>
         ) : (
