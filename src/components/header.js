@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'gatsby-link'
+import Media from 'react-media'
 
 const Header = ({ siteTitle }) => (
   <div
@@ -17,54 +18,88 @@ const Header = ({ siteTitle }) => (
         padding: '0 1.0875rem',
       }}
     >
-      <div className="header-nav" style={{ background: 'transparent' }}>
-        <div className="nav-left">
-          <div className="nav-item">
-            <h1
-              style={{
-                margin: 0,
-                textAlign: 'center',
-                background: 'transparent',
-              }}
-            >
-              <Link
-                className="header-brand"
-                to="/"
-                style={{
-                  color: '#222',
-                  textDecoration: 'none',
-                }}
-              >
-                {siteTitle}
-              </Link>
-            </h1>
-          </div>
-        </div>
-        <div className="nav-center" />
-        <div className="nav-right" style={{ display: 'flex' }}>
-          <div className="nav-item">
-            <div
-              className="burger"
-              style={{
-                background: 'transparent',
-                display: 'flex',
-                flexDirection: 'column',
-                right: 0,
-              }}
-            >
-              <div
-                style={{...burgerPiece, ...{ alignSelf:'flex-end', width: '15px' }}}
-              />
-              <div
-                style={burgerPiece}
-              />
-              <div
-                style={{...burgerPiece, ...{ width: '15px' }}}
-              />
+    
+      <Media query={{ minWidth: 848 }}>
+        {(
+          matches
+        ) => matches ? (
+          <div className="header-nav" style={{ background: 'transparent' }}>
+            <div className="nav-left">
+              <div className="nav-item">
+                <h1
+                  style={{
+                    margin: 0,
+                    textAlign: 'center',
+                    background: 'transparent',
+                  }}
+                >
+                  <Link
+                    className="header-brand"
+                    to="/"
+                    style={{
+                      color: '#222',
+                      textDecoration: 'none',
+                    }}
+                  >
+                    {siteTitle}
+                  </Link>
+                </h1>
+              </div>
+            </div>
+            <div className="nav-center" />
+            <div className="nav-right" style={{ display: 'flex' }}>
+              <div className="nav-item">
+                <div
+                  className="burger"
+                  style={{
+                    background: 'transparent',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    right: 0,
+                  }}
+                >
+                  <div
+                    style={{...burgerPiece, ...{ alignSelf:'flex-end', width: '15px' }}}
+                  />
+                  <div
+                    style={burgerPiece}
+                  />
+                  <div
+                    style={{...burgerPiece, ...{ width: '15px' }}}
+                  />
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
+        ) : (
+          <div className="header-nav" style={{ background: 'transparent' }}>
+            <div className="nav-center">
+              <div className="nav-item">
+                <h1
+                  style={{
+                    margin: 0,
+                    textAlign: 'center',
+                    background: 'transparent',
+                  }}
+                >
+                  <Link
+                    className="header-brand"
+                    to="/"
+                    style={{
+                      color: '#222',
+                      textDecoration: 'none',
+                    }}
+                  >
+                    {siteTitle}
+                  </Link>
+                </h1>
+              </div>
+            </div>
+          </div>
+        )
+      }
+      </Media>
+      
     </div>
   </div>
 )
