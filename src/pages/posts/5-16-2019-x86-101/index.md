@@ -220,6 +220,7 @@ Like with multiplication, division also has the same rules for dealing with diff
 
 
 <h2 id="stackops">Stack Based Operations</h2>
+
 Stack based operators are design to manipulate registers that correspond with the stack pointer, such as `%esp` and `%ebp`.
 Keep in mind that the stack pointer grows downward in memory, so the "top" of the stack is really at the bottom.
 
@@ -243,6 +244,7 @@ Keep in mind that the stack pointer grows downward in memory, so the "top" of th
 ![stack](https://raw.githubusercontent.com/Spiderpig86/blog/master/public/images/x86/x86-stack.PNG)
 
 <h2 id="lea">Lea</h2>
+
 This instruction stands for **load effective address**.
 
 It places the address of the corresponding value specified in the second argment and places it into the register specified by the first argument.
@@ -296,6 +298,7 @@ To simply put it, here are the main points of why that is not possible:
 There are probably more reasons, but in general, having a dedicated instruction for calculating addresses is a lot cleaner and more optimized than overloading an existing instruction which increases complexity and decreases readability.
 
 <h2 id="compare">Compare</h2>
+
 The `cmp` instruction is actually the same as the `sub` instruction  except that instead of storing the result in the first first argument, it will set a **flag** in the processor.
 The instruction can be executed as `cmp arg1, arg2`.
 
@@ -318,11 +321,12 @@ As an example, this is how it would work:
 Now there are many other examples of using the `cmp` instruction along with many other acceptable arguments, which can all be found here <a href="#references">[5]</a>.
 
 <h2 id="jump">Jump</h2>
+
 Typically when using the `cmp` instruction above, it is followed by a `jmp` or **jump** instruction. This instruction takes in a single argument for the jump address as its parameter.
 
-  ```nasm
-  jmp addr
-  ```
+```nasm
+jmp addr
+```
 
 The jump will be taken based on the value of the **flag** in the processor. When a jump is taken, the `eip` register is set is set to that argument. Of course, there are many variants of the jump instruction that change the flow of the program based on the value of the **flag**. The `jmp` instruction shown above is the **unconditional jump**.
 
@@ -410,6 +414,7 @@ pop eax, [ebp + 0] ; Saved stack base-pointer register
 ```
 
 <h2 id="leave">Leave/Ret</h2>
+
 These two instructions are always used at the end of a given function. The `leave` instruction is always followed by the `return` instruction as seen in disassembling C programs.
 
 These two instructions make up what we know as today as a single `return` statement in higher level languages like Java or C. They must be used together as they **clean up the stack frame** and **returns to the correct part of the program**.
