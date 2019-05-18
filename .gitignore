@@ -1,3 +1,9 @@
-node_modules
+# Project dependencies
 .cache
-.git
+node_modules
+yarn-error.log
+package-lock.json
+
+# Build directory
+.DS_Store
+public/static
