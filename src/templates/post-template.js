@@ -22,7 +22,7 @@ export default function Template({
   const post = data.markdownRemark
   const { prev, next } = pageContext
 
-  console.log(data.site);
+  console.log(location);
 
   // Metadata
   const url = data.site.siteMetadata.siteUrl

@@ -12,26 +12,32 @@ const More = ({ prev, next }) => (
     </div>
 )
 
-const MoreLink = ({ post }) => (
-    <div className={ styles['morelink'] }>
-       {
-           post ? (
-                <div>
-                    <a href={ post.frontmatter.path } className={ styles['morelink__title'] }>{ post.frontmatter.title }</a>
-                     <p className={ styles['morelink__subtitle'] }>{ moment(post.frontmatter.date).format('MMMM D, YYYY') }</p>
+const MoreLink = (props) => {
+
+    console.log(props)
+    const post = props.post
+    
+    return (
+        <div className={ styles['morelink'] }>
+           {
+               post ? (
                     <div>
-                        {
-                            post.frontmatter.description ? (
-                                <p className={ styles['morelink__description'] }>{ post.frontmatter.description }</p>
-                            ) : <p className={ styles['morelink__description'] }>No description available.</p>
-                        }
+                        <a href={ `${post.frontmatter.path}` } className={ styles['morelink__title'] }>{ post.frontmatter.title }</a>
+                         <p className={ styles['morelink__subtitle'] }>{ moment(post.frontmatter.date).format('MMMM D, YYYY') }</p>
+                        <div>
+                            {
+                                post.frontmatter.description ? (
+                                    <p className={ styles['morelink__description'] }>{ post.frontmatter.description }</p>
+                                ) : <p className={ styles['morelink__description'] }>No description available.</p>
+                            }
+                        </div>
                     </div>
-                </div>
-        ) : (
-            <h6 className={ styles['morelink__title'] }>Hmm... Looks like you've reached the end.</h6>
-        )
-       }
-    </div>
-)
+            ) : (
+                <h6 className={ styles['morelink__title'] }>Hmm... Looks like you've reached the end.</h6>
+            )
+           }
+        </div>
+    )
+}
 
 export default More
