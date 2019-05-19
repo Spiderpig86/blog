@@ -16,22 +16,26 @@ const Share = ({ title, postTitle, postUrl, pathName }) => {
   const redditUrl = `${SHARE_LINKS.REDDIT}${postUrl}${pathName}&title=${postTitle}`
 
   return (
-    <div>
-      <h3>{title || 'Sharing is caring.'}</h3>
-      <div>
+    <div className={ styles['share'] }>
+      <h4 className={ styles['share__title'] }>{title || 'Sharing is caring'}</h4>
+      <div className={ styles['share__container'] }>
         <ShareButton network="facebook" url={ fbUrl } />
         <ShareButton network="twitter" url={ twitterUrl } />
         <ShareButton network="linkedin" url={ linkedinUrl } />
         <ShareButton network="reddit" url={ redditUrl } />
       </div>
+      <hr style={{
+        backgroundColor: '#ddd',
+        marginBottom: '3rem'
+      }}></hr>
     </div>
   )
 }
 
 const ShareButton = ({ network, url }) => (
-  <a rel="noopener noreferrer" href={ url } target="__blank" className={styles[`share__${network}`]}>
-    <span>
-      <i className={`fa fa-${network}-square`} />
+  <a rel="noopener noreferrer" href={ url } target="__blank" className={styles[`sharebtn__${network}`]}>
+    <span className={ `icon-container` }>
+      <i className={`fa fa-${network}`} />
     </span>
   </a>
 )

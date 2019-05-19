@@ -2,20 +2,44 @@
 
     padding: 1rem;
 
+    &__container {
+        display: flex;
+        margin-bottom: 3rem;
+        margin-top: 2rem;
+    }
+
+    &__title {
+        font-weight: 700;
+        letter-spacing: .5rem;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+}
+
+.sharebtn {
+
     &__facebook {
         background-color: #3b5998;
+        flex: 1;
+        text-align: center;
     }
 
     &__twitter {
         background-color: #1da1f2;
+        flex: 1;
+        text-align: center;
     }
 
     &__linkedin {
         background-color: #0077b5;
+        flex: 1;
+        text-align: center;
     }
 
     &__reddit {
         background-color: #ff4500;
+        flex: 1;
+        text-align: center;
     }
-
 }
