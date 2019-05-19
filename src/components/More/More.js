@@ -1,4 +1,5 @@
 import React from 'react'
+import moment from 'moment'
 import styles from './More.module.scss'
 
 const More = ({ prev, next }) => (
@@ -16,8 +17,8 @@ const MoreLink = ({ post }) => (
        {
            post ? (
                 <div>
-                    <a href={ post.frontmatter.path }className={ styles['morelink__title'] }>{ post.frontmatter.title }</a>
-                     <p className={ styles['morelink__subtitle'] }>{ post.frontmatter.date }</p>
+                    <a href={ post.frontmatter.path } className={ styles['morelink__title'] }>{ post.frontmatter.title }</a>
+                     <p className={ styles['morelink__subtitle'] }>{ moment(post.frontmatter.date).format('MMMM D, YYYY') }</p>
                     <div>
                         {
                             post.frontmatter.description ? (
@@ -27,7 +28,7 @@ const MoreLink = ({ post }) => (
                     </div>
                 </div>
         ) : (
-            <h6 className={ styles['morelink__title']}>Hmm... Looks like you've reached the end.</h6>
+            <h6 className={ styles['morelink__title'] }>Hmm... Looks like you've reached the end.</h6>
         )
        }
     </div>

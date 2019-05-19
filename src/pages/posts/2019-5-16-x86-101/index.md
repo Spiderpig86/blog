@@ -10,6 +10,8 @@ tags: ['programming','asm','x86','systems']
 
 So, you want to learn x86? Well, you've come to the right place!
 
+> PS: Please excuse the poor drawings. I did my best only having a trackpad for drawing.
+
 ## Table of Contents
 This is by no means an exhaustive guide for all there is to know for x86, but hopefully it will be a comprehensive overview of the most important parts of the language.
 

@@ -11,17 +11,31 @@ import { graphql } from 'gatsby'
 import Sidebar from '../components/sidebar'
 import Layout from '../layouts'
 import More from '../components/More/More'
+import Meta from '../components/Meta/Meta';
 
 export default function Template({
   data, // Object will be from GraphQL query
-  pageContext 
+  pageContext ,
+  location
 }) {
   const post = data.markdownRemark
   const { prev, next } = pageContext
 
+  // Metadata
+  // const url = data.site.siteMetadata.siteUrl
+  // const thumbnail = post.frontmatter.image && post.frontmatter.image.childImageSharp.resize.src
+  const { title, image } = post.frontmatter
+
   return (
     <Layout>
       <div className="blog-post-container" style={{ display: 'flex' }}>
+
+        <Meta
+          title={ title }
+          description={ post.frontmatter.description || post.excerpt }
+          pathname={ location.pathname }
+        />
+
         <ReadingProgress
           targetEl="#post-el"
           style={{
@@ -57,7 +71,7 @@ export default function Template({
             />
             
               {
-                post.frontmatter.image && post.frontmatter.image.childImageSharp ?
+                image && image.childImageSharp ?
                   <Img fluid={ post.frontmatter.image.childImageSharp.fluid} />
                   : null
               }

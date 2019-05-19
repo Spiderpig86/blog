@@ -17,8 +17,8 @@ const TagList = props => {
         <h1>All Tags</h1>
         <p>Have fun exploring! 🐤</p>
         <ul>
-          {data.map(tag => (
-            <li>
+          {data.map((tag, i) => (
+            <li key={i}>
               <Link to={`/tag/${tag.fieldValue}`}>
                 {tag.fieldValue} {`(${tag.totalCount})`}
               </Link>
