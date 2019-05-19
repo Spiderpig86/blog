@@ -5,14 +5,14 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 
-const Tags = () => (
+const TagList = () => (
   <div>
     <h1>Tags</h1>
   </div>
 )
 
 export const tagsQuery = graphql`
-  query IndexQuery {
+  query TagQuery {
     allMarkdownRemark(filter: {}) {
       group(field: frontmatter___tags) {
         fieldValue
@@ -22,4 +22,4 @@ export const tagsQuery = graphql`
   }
 `
 
-export default Tags
+export default TagList

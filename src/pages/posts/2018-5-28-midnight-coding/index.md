@@ -1,8 +1,9 @@
 ---
 path: "/midnight-coding"
+slug: "/midnight-coding"
 date: "2018-05-28T00:31:33.962Z"
 title: "The Unofficial Official First Post"
-excerpt: "This is just a test"
+image: ''
 tags: ['programming', 'misc']
 ---
 

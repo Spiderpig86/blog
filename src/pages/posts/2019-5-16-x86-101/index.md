@@ -1,8 +1,10 @@
 ---
 path: "/x86-101"
+slug: "/x86-101"
 date: "2019-05-16T01:50:49.486Z"
 title: "x86 101"
-excerpt:
+description: 'A crash course on x86 to make it less scary.'
+image: ''
 tags: ['programming','asm','x86','systems']
 ---
 

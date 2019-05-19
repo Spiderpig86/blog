@@ -1,8 +1,9 @@
 ---
 path: "/here-in-my-garage"
+slug: "/here-in-my-garage"
 date: "2019-02-23T11:34:17.948Z"
 title: "here in my garage"
-excerpt:
+image: ''
 tags: ['entrpreneurship','ads','videos','cinematography']
 ---
 

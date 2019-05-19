@@ -81,11 +81,16 @@ export const postQuery = graphql`
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       html
       timeToRead
+      fields {
+        slug
+      }
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         path
         tags
         title
+        image
+        description
       }
     }
   }

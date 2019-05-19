@@ -26,7 +26,7 @@ const Layout = ({ children, data }) => (
       ) =>
         matches ? (
           <div
-            style={{ ...styles.indexBody, ...{ paddingTop: '3rem' }}}
+            style={{ ...styles.indexBody, ...{ paddingTop: '7rem' }}}
           >
             <div
               style={ styles.indexChildWrapper }

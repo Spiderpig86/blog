@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import Link from 'gatsby-link'
-import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 
 import Layout from '../layouts/index'
@@ -100,11 +99,16 @@ export const pageQuery = graphql`
           excerpt(pruneLength: 250)
           id
           timeToRead
+          fields {
+            slug
+          }
           frontmatter {
             title
             date(formatString: "MMMM DD, YYYY")
             path
             tags
+            image
+            description
           }
         }
       }

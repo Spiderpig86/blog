@@ -9,6 +9,21 @@
 
 const path = require('path');
 const graphql = require('gatsby/graphql')
+const { createFilePath, createFileNode } = require(`gatsby-source-filesystem`)
+
+exports.onCreateNode = ({ node, getNode, actions }) => {
+    const { createNodeField } = actions;
+    
+    if (node.internal.type === `MarkdownRemark`) {
+        const slug = createFilePath({ node, getNode, basePath: `pages` })
+        
+        createNodeField({
+            node,
+            name: `slug`,
+            value: slug
+        });
+    }
+}
 
 exports.createPages = ({ actions, graphql }) => {
     const { createPage } = actions;
@@ -25,10 +40,15 @@ exports.createPages = ({ actions, graphql }) => {
                     excerpt(pruneLength: 250)
                     html
                     id
+                    fields {
+                      slug
+                    }
                     frontmatter {
                         date
                         path
                         title
+                        image
+                        description
                     }
                 }
             }
@@ -44,7 +64,9 @@ exports.createPages = ({ actions, graphql }) => {
                 createPage({
                     path: node.frontmatter.path, // Create a page with specified path
                     component: blogPostTemplate, // Template we want to use
-                    context: {} // Additional data for creating the page
+                    context: {
+                        slug: node.fields.slug
+                    } // Additional data for creating the page
                 });
             });
     });
