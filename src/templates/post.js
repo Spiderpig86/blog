@@ -37,6 +37,14 @@ export default function Template({
             >
               {post.frontmatter.title}
             </h1>
+
+            {
+              post.frontmatter.description ?
+              <h2 className="subtitle">{ post.frontmatter.description }</h2>
+              : null
+            }
+
+            
             <hr
               style={{
                 backgroundColor: '#ddd',

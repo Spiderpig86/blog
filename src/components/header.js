@@ -55,6 +55,7 @@ const Header = ({ siteTitle }) => (
                     background: 'transparent',
                     display: 'flex',
                     flexDirection: 'column',
+                    paddingTop: '3px',
                     right: 0,
                   }}
                 >
