@@ -5,6 +5,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import Media from 'react-media'
 import ReadingProgress from 'react-reading-progress'
+import Img from 'gatsby-image'
 import { graphql } from 'gatsby'
 
 import Sidebar from '../components/sidebar'
@@ -42,6 +43,13 @@ export default function Template({
                 marginBottom: '3rem',
               }}
             />
+            
+              {
+                post.frontmatter.image && post.frontmatter.image.childImageSharp ?
+                  <Img fluid={ post.frontmatter.image.childImageSharp.fluid} />
+                  : null
+              }
+
             <div
               className="blog-post-content"
               dangerouslySetInnerHTML={{ __html: post.html }} // Gets the html version of the post
@@ -89,7 +97,16 @@ export const postQuery = graphql`
         path
         tags
         title
-        image
+        image {
+          childImageSharp {
+            resize(width: 1500, height: 1500) {
+              src
+            }
+            fluid(maxWidth: 848) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
         description
       }
     }

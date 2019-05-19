@@ -15,6 +15,8 @@ module.exports = {
         name: `pages`,
       },
     },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-transformer-remark`, // Markdown to HTML,
       options: {

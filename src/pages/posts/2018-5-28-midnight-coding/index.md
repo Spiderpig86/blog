@@ -3,7 +3,8 @@ path: "/midnight-coding"
 slug: "/midnight-coding"
 date: "2018-05-28T00:31:33.962Z"
 title: "The Unofficial Official First Post"
-image: ''
+description: ''
+image: './test.jpg'
 tags: ['programming', 'misc']
 ---
 

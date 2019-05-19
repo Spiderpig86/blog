@@ -115,7 +115,7 @@ As an example with the `mov` instruction, it copies the value that is stored by 
 mov arg1, arg2
 ```
 
-![syntax](https://raw.githubusercontent.com/Spiderpig86/blog/master/public/images/x86/x86-add.PNG)
+![syntax](https://raw.githubusercontent.com/Spiderpig86/blog/master/images/x86/x86-add.PNG)
 
 Although it is called `mov`, it actually **copies** instead, meaning that the value stored in `arg2` is actually still there. However, there are some caveats with this specific instruction in general discussed in the next section.
 
@@ -139,7 +139,7 @@ So to get 42, we would run this:
 mov eax, [ebp-0xC]
 ```
 
-![dereferencing](https://raw.githubusercontent.com/Spiderpig86/blog/master/public/images/x86/x86-deref.PNG)
+![dereferencing](https://raw.githubusercontent.com/Spiderpig86/blog/master/images/x86/x86-deref.PNG)
 
 <h2 id="math">Math</h2>
 Of course, x86 supports the basic mathematical operators that you would need to perform more complex computations.
@@ -152,7 +152,7 @@ The `add` instruction is a binary operation that adds two given registers with t
 add eax, 0x5
 ```
 
-![adding](https://raw.githubusercontent.com/Spiderpig86/blog/master/public/images/x86/x86-add.PNG)
+![adding](https://raw.githubusercontent.com/Spiderpig86/blog/master/images/x86/x86-add.PNG)
 
 The instruction above adds the value in `%eax` with 5 and stores it back in `%eax`.
 
@@ -166,7 +166,7 @@ sub esp, 0x4
 The instruction above moves the stack pointer down 4 bytes.
 This can also be done by adding a negative value with a lower overhead.
 
-![subtracting](https://raw.githubusercontent.com/Spiderpig86/blog/master/public/images/x86/x86-sub.PNG)
+![subtracting](https://raw.githubusercontent.com/Spiderpig86/blog/master/images/x86/x86-sub.PNG)
 
 **Multiplication**
 
@@ -243,7 +243,7 @@ Keep in mind that the stack pointer grows downward in memory, so the "top" of th
     pop <register>
     ```
 
-![stack](https://raw.githubusercontent.com/Spiderpig86/blog/master/public/images/x86/x86-stack.PNG)
+![stack](https://raw.githubusercontent.com/Spiderpig86/blog/master/images/x86/x86-stack.PNG)
 
 <h2 id="lea">Lea</h2>
 
@@ -284,7 +284,7 @@ Below is the is the compiled version of the code, where we load the address into
   LEA ESI, [EBX + 12 * EAX + 8]
   ```
 
-![load effective address](https://raw.githubusercontent.com/Spiderpig86/blog/master/public/images/x86/x86-lea.PNG)
+![load effective address](https://raw.githubusercontent.com/Spiderpig86/blog/master/images/x86/x86-lea.PNG)
 
 **But Stan, Wait!**
 
@@ -309,7 +309,7 @@ That **flag** will have these possible values:
   2. `0` - `arg1 == arg2`
   3. `> 0` - `arg1 > arg2`
   
-![compare](https://raw.githubusercontent.com/Spiderpig86/blog/master/public/images/x86/x86-cmp.PNG)
+![compare](https://raw.githubusercontent.com/Spiderpig86/blog/master/images/x86/x86-cmp.PNG)
 
 The **flag** being stored is actually the value of `arg1 - arg2`.
 As an example, this is how it would work:
@@ -437,11 +437,11 @@ movl ebp, esp
 popl ebp
 ```
 
-![leave](https://raw.githubusercontent.com/Spiderpig86/blog/master/public/images/x86/x86-leave.PNG)
+![leave](https://raw.githubusercontent.com/Spiderpig86/blog/master/images/x86/x86-leave.PNG)
 
 The `return` instruction takes the value at the top of the stack after `leave` is called, which is the return address to the caller, and pops it into `esp`. In the end, the program continues executing where it left off in the caller function.
 
-![return](https://raw.githubusercontent.com/Spiderpig86/blog/master/public/images/x86/x86-ret.PNG)
+![return](https://raw.githubusercontent.com/Spiderpig86/blog/master/images/x86/x86-ret.PNG)
 
 ## It's time for me to leave and ret
 Understanding x86 is crucial in understanding and developing future exploits of your own. I really hope this helped to make x86 seem a little less scary.

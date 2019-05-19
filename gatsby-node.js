@@ -47,7 +47,6 @@ exports.createPages = ({ actions, graphql }) => {
                         date
                         path
                         title
-                        image
                         description
                     }
                 }

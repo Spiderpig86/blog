@@ -13,6 +13,7 @@ def arg_parse():
     )
 
     parser.add_argument('-t', '-title', metavar = '', required = True, help = 'Set the title of the blog post')
+    parser.add_argument('-d', '-description', metavar = '', required = True, help = 'Enter description post')
     parser.add_argument('-a', '-tags', metavar = '', required = True, help = 'Enter tags associated with this post')
     parser.add_argument('-p', '-path', metavar = '', required = False, nargs = '?', default = '/src/pages/posts', help = 'Enter path to generate file, "." for current dir')
 
@@ -45,12 +46,13 @@ def generate_tags(tags):
     s = s[:-1] # Remove last comma
     return s + ']'
 
-def build_header(title, tags):
+def build_header(title, description, tags):
     str_list = ['---']
     str_list.append('path: ' + to_path(title)) # Path
     str_list.append('date: "' + datetime.now().isoformat()[:-3] + 'Z"')
     str_list.append('title: ' + f'"{title}"')
-    str_list.append('excerpt:')
+    str_list.append('description: ' + f'"{description}"')
+    str_list.append('image: \'\'')
     str_list.append(generate_tags(tags))
     str_list.append('---')
 
