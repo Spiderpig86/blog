@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'gatsby-link'
 
 import { styles } from '../styles/component-styles/sidebar-styles';
 
@@ -25,7 +26,11 @@ const Sidebar = props => (
 
     <div className="row">
         {props.tags.map((tag, i) => {
-            return <div style={styles.tagStyle} key={i}>{tag}</div>
+            return (
+              <Link to={ `/tag/${tag}` } style={styles.tagStyle} key={i}>
+                {tag}
+              </Link>
+            )
         })}
     </div>
   </div>

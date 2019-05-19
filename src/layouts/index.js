@@ -52,8 +52,8 @@ const Layout = ({ children, data }) => (
 )
 
 /* Explicitly define our prop types */
-Layout.propTypes = {
-  children: PropTypes.array,
-}
+// Layout.propTypes = {
+//   children: PropTypes.array,
+// }
 
 export default Layout

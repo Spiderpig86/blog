@@ -16,7 +16,6 @@ export default function Template({
   data, // Object will be from GraphQL query
   pageContext 
 }) {
-  console.log(pageContext)
   const post = data.markdownRemark
   const { prev, next } = pageContext
 

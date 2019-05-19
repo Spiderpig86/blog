@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
 import Layout from '../layouts'
+import TagPreview from '../components/TagPreview/TagPreview';
 
 const Tags = props => {
   const posts = props.data.allMarkdownRemark.edges
@@ -8,13 +9,14 @@ const Tags = props => {
 
   return (
     <Layout>
-      <h1>{`Available posts in ${tag}`}</h1>
-      <div className="tags">
-        {posts.map(({ node }, i) => (
-          <Link to={node.frontmatter.path} key={i}>
-            {node.frontmatter.title}
-          </Link>
-        ))}
+      <div>
+        <h1>{`Available posts in '${tag}'`}</h1>
+        <h3><Link to={ `/tags` }>Go back to all tags.</Link></h3>
+        <div className="tags">
+          {posts.map(({ node }, i) => (
+            <TagPreview post={ node } key={ i } />
+          ))}
+        </div>
       </div>
     </Layout>
   )
@@ -31,9 +33,15 @@ export const query = graphql`
     ) {
       edges {
         node {
+          excerpt(pruneLength: 250)
+          id
+          timeToRead
           frontmatter {
             title
             path
+            date(formatString: "MMMM DD, YYYY")
+            description
+            tags
           }
           fields {
             slug
