@@ -9,6 +9,7 @@
 
 const path = require('path');
 const graphql = require('gatsby/graphql')
+const _ = require('lodash')
 const { createFilePath, createFileNode } = require(`gatsby-source-filesystem`)
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
@@ -28,7 +29,8 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 exports.createPages = ({ actions, graphql }) => {
     const { createPage } = actions;
 
-    const blogPostTemplate = path.resolve(`src/templates/post.js`);
+    const blogPostTemplate = path.resolve(`src/templates/post-template.js`);
+    const tagsTemplate = path.resolve(`src/templates/tag-template.js`);
 
     return graphql(`{
         allMarkdownRemark(
@@ -48,6 +50,7 @@ exports.createPages = ({ actions, graphql }) => {
                         path
                         title
                         description
+                        tags
                     }
                 }
             }
@@ -57,8 +60,31 @@ exports.createPages = ({ actions, graphql }) => {
         if (result.errors) {
             return Promise.reject(result.errors); // The request pooped out on me
         }
+        
+        const posts = result.data.allMarkdownRemark.edges;
 
-        const posts = result.data.allMarkdownRemark.edges
+        // Get all the unique tags
+        let tags = [];
+        _.each(posts, edge => {
+            if (_.get(edge, 'node.frontmatter.tags')) {
+                tags = tags.concat(edge.node.frontmatter.tags);
+            }
+        });
+
+        // Get unique tags
+        tags = _.uniq(tags);
+
+        // Construct page for each tag
+        tags.forEach((tag) => {
+            createPage({
+                path: `/tag/${ tag }`,
+                component: tagsTemplate,
+                context: {
+                    tag,
+                }
+            });
+        });
+
         posts
             .forEach(({ node }, index) => {
                 createPage({

@@ -9,7 +9,7 @@ import Img from 'gatsby-image'
 import { graphql } from 'gatsby'
 
 import Sidebar from '../components/sidebar'
-import Layout from '../layouts/index'
+import Layout from '../layouts'
 import More from '../components/More/More'
 
 export default function Template({
