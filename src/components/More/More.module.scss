@@ -1,0 +1,33 @@
+.more {
+
+    text-align: center;
+
+    &__links {
+        display: flex;
+    }
+
+    &__title {
+        font-weight: 700;
+        letter-spacing: .5rem;
+        text-transform: uppercase;
+    }
+
+}
+
+.morelink {
+    background-color: #fff;
+    flex-basis: 0;
+    flex-grow: 1;
+    padding: 1rem;
+
+    &__title {
+        font-family: 'Montserrat', 'serif';
+        font-weight: 700;
+        text-transform: uppercase
+    }
+
+    &__subtitle {
+        color: #888;
+        font-family: 'Montserrat', 'serif'
+    }
+}

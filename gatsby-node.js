@@ -58,13 +58,16 @@ exports.createPages = ({ actions, graphql }) => {
             return Promise.reject(result.errors); // The request pooped out on me
         }
 
-        result.data.allMarkdownRemark.edges
-            .forEach(({ node }) => {
+        const posts = result.data.allMarkdownRemark.edges
+        posts
+            .forEach(({ node }, index) => {
                 createPage({
                     path: node.frontmatter.path, // Create a page with specified path
                     component: blogPostTemplate, // Template we want to use
                     context: {
-                        slug: node.fields.slug
+                        slug: node.fields.slug,
+                        prev: posts[index + 1] || null,
+                        next: posts[index - 1] || null,
                     } // Additional data for creating the page
                 });
             });

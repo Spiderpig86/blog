@@ -10,11 +10,16 @@ import { graphql } from 'gatsby'
 
 import Sidebar from '../components/sidebar'
 import Layout from '../layouts/index'
+import More from '../components/More/More'
 
 export default function Template({
   data, // Object will be from GraphQL query
+  pageContext 
 }) {
+  console.log(pageContext)
   const post = data.markdownRemark
+  const { prev, next } = pageContext
+
   return (
     <Layout>
       <div className="blog-post-container" style={{ display: 'flex' }}>
@@ -64,6 +69,15 @@ export default function Template({
               id="post-el"
             />
           </div>
+
+          <hr
+            style={{
+              backgroundColor: '#ddd',
+              marginBottom: '3rem',
+            }}
+            />
+          
+          <More prev={ prev && prev.node } next={ next && next.node } />
         </div>
 
         <Media query="(min-width: 848px)">
@@ -83,6 +97,7 @@ export default function Template({
             )
           }
         </Media>
+
       </div>
     </Layout>
   )
