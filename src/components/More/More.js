@@ -16,18 +16,18 @@ const MoreLink = ({ post }) => (
        {
            post ? (
                 <div>
-                    <a href={ post.frontmatter.path }><span className={ styles['morelink__title'] }>{ post.frontmatter.title }</span></a>
-                     <p><span className={ styles['morelink__subtitle'] }>{ post.frontmatter.date }</span></p>
+                    <a href={ post.frontmatter.path }className={ styles['morelink__title'] }>{ post.frontmatter.title }</a>
+                     <p className={ styles['morelink__subtitle'] }>{ post.frontmatter.date }</p>
                     <div>
                         {
                             post.frontmatter.description ? (
-                                <p>{ post.frontmatter.description }</p>
-                            ) : null
+                                <p className={ styles['morelink__description'] }>{ post.frontmatter.description }</p>
+                            ) : <p className={ styles['morelink__description'] }>No description available.</p>
                         }
                     </div>
                 </div>
         ) : (
-            <h6>Hmm... Looks like you've reached the end.</h6>
+            <h6 className={ styles['morelink__title']}>Hmm... Looks like you've reached the end.</h6>
         )
        }
     </div>

@@ -9,13 +9,14 @@
     &__title {
         font-weight: 700;
         letter-spacing: .5rem;
+        margin-bottom: 1.5rem;
         text-transform: uppercase;
     }
 
 }
 
 .morelink {
-    background-color: #fff;
+    background-color: #e3e5eb;
     flex-basis: 0;
     flex-grow: 1;
     padding: 1rem;
@@ -23,11 +24,19 @@
     &__title {
         font-family: 'Montserrat', 'serif';
         font-weight: 700;
-        text-transform: uppercase
+        margin-bottom: 0;
+        text-transform: uppercase;
     }
 
     &__subtitle {
         color: #888;
-        font-family: 'Montserrat', 'serif'
+        font-family: 'Montserrat', 'serif';
+        font-size: 0.9rem;
+        margin-bottom: 0.25rem;
+    }
+
+    &__description {
+        font-size: 0.95rem;
+        line-height: 1.25rem;
     }
 }

@@ -52,7 +52,7 @@ def build_header(title, description, tags):
     str_list.append('date: "' + datetime.now().isoformat()[:-3] + 'Z"')
     str_list.append('title: ' + f'"{title}"')
     str_list.append('description: ' + f'"{description}"')
-    str_list.append('image: \'\'')
+    str_list.append('image: \'blank.jpg\'')
     str_list.append(generate_tags(tags))
     str_list.append('---')
 
