@@ -12,6 +12,7 @@ import Sidebar from '../components/sidebar'
 import Layout from '../layouts'
 import More from '../components/More/More'
 import Meta from '../components/Meta/Meta';
+import Share from '../components/Share/Share';
 
 export default function Template({
   data, // Object will be from GraphQL query
@@ -21,9 +22,11 @@ export default function Template({
   const post = data.markdownRemark
   const { prev, next } = pageContext
 
+  console.log(data.site);
+
   // Metadata
-  // const url = data.site.siteMetadata.siteUrl
-  // const thumbnail = post.frontmatter.image && post.frontmatter.image.childImageSharp.resize.src
+  const url = data.site.siteMetadata.siteUrl
+  const thumbnail = post.frontmatter.image && post.frontmatter.image.childImageSharp.resize.src
   const { title, image } = post.frontmatter
 
   return (
@@ -34,6 +37,9 @@ export default function Template({
           title={ title }
           description={ post.frontmatter.description || post.excerpt }
           pathname={ location.pathname }
+          keywords={ post.frontmatter.tags.join(',') }
+          thumbnail={thumbnail && url + thumbnail}
+          url={url}
         />
 
         <ReadingProgress
@@ -88,7 +94,9 @@ export default function Template({
               backgroundColor: '#ddd',
               marginBottom: '3rem',
             }}
-            />
+          />
+
+          <Share postTitle={ title } postUrl={ url } pathName={ location.pathname } />
           
           <More prev={ prev && prev.node } next={ next && next.node } />
         </div>
@@ -146,5 +154,10 @@ export const postQuery = graphql`
         description
       }
     }
+    site {
+      siteMetadata {
+          siteUrl
+        }
+     }
   }
 `

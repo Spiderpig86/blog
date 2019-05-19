@@ -1,8 +1,12 @@
+const config = require('./config')
+
 module.exports = {
   siteMetadata: {
-    title: `Slim Blog`,
-    description: 'A personal blog of mine talking about tech, life, and whatever I found intersting.',
-    keyword: 'slim, stanley lim, blog, gatsby',
+    title: config.title,
+    description: config.description,
+    keyword: config.keyword,
+    url: config.url,
+    siteUrl: config.url
   },
   plugins: [
     `gatsby-plugin-react-helmet`, // To modify head tags

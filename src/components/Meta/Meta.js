@@ -18,19 +18,19 @@ const Meta = props => {
           property: 'og:title',
           content: props.title,
         },
-        // {
-        //   property: 'og:url',
-        //   content: props.pathname ? props.url + props.pathname : props.url,
-        // },
+        {
+          property: 'og:url',
+          content: props.pathname ? props.url + props.pathname : props.url,
+        },
 
-        // {
-        //   property: 'og:image',
-        //   content: props.thumbnail && props.thumbnail,
-        // },
-        // {
-        //   property: 'og:image:secure_url',
-        //   content: props.thumbnail && props.thumbnail,
-        // },
+        {
+          property: 'og:image',
+          content: props.thumbnail && props.thumbnail,
+        },
+        {
+          property: 'og:image:secure_url',
+          content: props.thumbnail && props.thumbnail,
+        },
 
         {
           property: 'og:description',

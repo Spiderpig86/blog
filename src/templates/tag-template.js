@@ -1,7 +1,9 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
+
 import Layout from '../layouts'
 import TagPreview from '../components/TagPreview/TagPreview';
+import Meta from '../components/Meta/Meta';
 
 const Tags = props => {
   const posts = props.data.allMarkdownRemark.edges
@@ -9,6 +11,12 @@ const Tags = props => {
 
   return (
     <Layout>
+
+      <Meta
+          title={ `slim - All Tags` }
+          description={ `Display all tags on blog` }
+        />
+
       <div>
         <h1>{`Available posts in '${tag}'`}</h1>
         <h3><Link to={ `/tags` }>Go back to all tags.</Link></h3>
