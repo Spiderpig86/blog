@@ -60,7 +60,7 @@ def main():
     args = arg_parse()
 
     # Create dir
-    date_str = datetime.today().strftime('%#m-%#d-%Y') + '-'
+    date_str = datetime.today().strftime('%Y-%#m-%#d') + '-'
     file_name = to_path(args.t).replace('/', '').replace('"', '')
     directory = date_str + file_name
     rel = str(Path(os.path.abspath(__file__)).parents[1])
