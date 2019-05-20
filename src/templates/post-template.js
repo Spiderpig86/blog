@@ -22,8 +22,6 @@ export default function Template({
   const post = data.markdownRemark
   const { prev, next } = pageContext
 
-  console.log(location);
-
   // Metadata
   const url = data.site.siteMetadata.siteUrl
   const thumbnail = post.frontmatter.image && post.frontmatter.image.childImageSharp.resize.src

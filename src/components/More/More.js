@@ -1,5 +1,7 @@
 import React from 'react'
 import moment from 'moment'
+
+import { pathPrefix } from '../../../config'
 import styles from './More.module.scss'
 
 const More = ({ prev, next }) => (
@@ -12,17 +14,20 @@ const More = ({ prev, next }) => (
     </div>
 )
 
-const MoreLink = (props) => {
+const MoreLink = ({ post }) => {
 
-    console.log(props)
-    const post = props.post
+    let path = ''
+
+    if (post) {
+        path = ((post.frontmatter.path.indexOf(pathPrefix) < 0) ? pathPrefix : '') + post.frontmatter.path
+    }
     
     return (
         <div className={ styles['morelink'] }>
            {
                post ? (
                     <div>
-                        <a href={ `${post.frontmatter.path}` } className={ styles['morelink__title'] }>{ post.frontmatter.title }</a>
+                        <a href={ `${path}` } className={ styles['morelink__title'] }>{ post.frontmatter.title }</a>
                          <p className={ styles['morelink__subtitle'] }>{ moment(post.frontmatter.date).format('MMMM D, YYYY') }</p>
                         <div>
                             {

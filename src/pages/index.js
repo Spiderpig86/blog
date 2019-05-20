@@ -49,7 +49,6 @@ export default class Index extends Component {
             )
             .map(({ node: post }) => {
               // Generate an list entry for each post
-              console.log(post);
               return (
                 <div className="blog-post-preview" key={post.id}>
                   <Link to={post.frontmatter.path}>
