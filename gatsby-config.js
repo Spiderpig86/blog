@@ -5,8 +5,8 @@ module.exports = {
     title: config.title,
     description: config.description,
     keyword: config.keyword,
-    url: config.url + config.pathPrefix,
-    siteUrl: config.url + config.pathPrefix
+    url: config.url,
+    siteUrl: config.url
   },
   plugins: [
     `gatsby-plugin-react-helmet`, // To modify head tags
