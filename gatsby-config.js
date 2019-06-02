@@ -48,7 +48,7 @@ module.exports = {
       options: {
         name: 'slim',
         short_name: "slim",
-        start_url: "/",
+        start_url: "/blog",
         background_color: "#6b37bf",
         theme_color: "#6b37bf",
         // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
