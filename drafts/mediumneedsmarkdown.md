@@ -41,19 +41,38 @@ One solution that many developers and I use is to embed code snippets from other
 
 This seems fine, but if you have an existing blog post already written in Markdown, creating a new gist or code snippet on other services becomes a chore that doesn't need to exist in the first place. There are, however, tools like [this](https://markdowntomedium.com/) one that creates the code blocks for you, but that ultimately ends up polluting your Gist. The point is, there shouldn't be this many steps in trying to publish blog posts that contain code snippets.
 
-##### 3: New Line Requirements
+##### 3: Images? What Images?
+As expected, since Medium did not support Markdown, any form of embedding images was completely stripped out after I used the [import](https://medium.com/p/import) tool, all the images got stripped out. *Wonderful.*
 
-##### 4: Media? What Media? (Images/Video)
+The one thing I can do about it is to upload the images one at a time, but this shouldn't even be necessary in the first place.
 
-##### 5: Tables
+This could easily be implemented in the editor if there was support for embedding images by only using the Markdown syntax.
 
-##### 6: Interactive Content is Non-Existent
+In addition, the support for captions for images is just simply missing, making it difficult for people who have trouble seeing.
 
-[Drawbacks include no nested lists, no markdown]
+##### 4: Tables
+This is very common in a lot of text editors already where we can easily organize our data in a series of rows and columns. It may require some more work for the Medium team to implement, but things such as embedding tables for data sets, spreadsheets, and calculations are quite important in the developer space.
+
+At least even in Wordpress, you have the option to embed tables via external plugins. The lack of this feature just makes it feel very limited.
+
+##### 5: Limitations in Post Design/Control
+Now we cannot put Medium at fault for lacking these features. Medium is designed following the ethos of minimalism, but some of that is being stripped away with the addition of new modal dialogs and distractions floating around the article itself. These are a few things that are also quite limiting about the platform as a whole:
+
+###### Lack of Interactive Content
+It is hard to embed visualizations powered by JS libraries like [d3.js](https://d3js.org/). The best you can do on Medium is to just make these screenshots or link your readers to other sites to view your interactive content.
+
+This greatly limits how much information could actually be presented in Medium itself.
+
+###### Custom HTML
+Without being able to add custom HTML, crafting a beautiful blog post without making it look generic starts to become a challenge. The flexibility of styling the page the way you like can be made possible if Markdown was supported. In addition, custom styles would be a huge plus in allowing writers to have more variety in their posts. The one thing, however, is that the HTML must be sanitized before it can be rendered on pages to prevent XSS attacks.
+
+###### Video Embeds
+The only way to show videos is to link them through YouTube or gfycat.
 
 ### Benefits of Markdown
 
 ### Solutions?
+[Talk about publishers like freeCodeCamp leaving Medium]
 
 ### References
 1. [How to display code blocks in Medium](https://www.freecodecamp.org/news/how-to-add-code-to-medium-and-get-syntax-highlighting-d699761a5883/)
