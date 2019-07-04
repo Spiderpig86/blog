@@ -70,7 +70,7 @@ def main():
         os.makedirs('/'.join([rel, args.p, directory]))
 
     f = open('/'.join([rel, args.p, directory, 'index.md']), 'w+')
-    f.write(build_header(args.t, args.a))
+    f.write(build_header(args.t, args.d, args.a))
     f.close()
 
 if __name__ == "__main__":
