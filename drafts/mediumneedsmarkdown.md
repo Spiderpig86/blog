@@ -63,16 +63,41 @@ It is hard to embed visualizations powered by JS libraries like [d3.js](https://
 
 This greatly limits how much information could actually be presented in Medium itself.
 
-###### Custom HTML
+###### Custom HTML/CSS
 Without being able to add custom HTML, crafting a beautiful blog post without making it look generic starts to become a challenge. The flexibility of styling the page the way you like can be made possible if Markdown was supported. In addition, custom styles would be a huge plus in allowing writers to have more variety in their posts. The one thing, however, is that the HTML must be sanitized before it can be rendered on pages to prevent XSS attacks.
 
 ###### Video Embeds
-The only way to show videos is to link them through YouTube or gfycat.
+The only way to show videos is to link them through *YouTube* or *gfycat*. This is still debatible since these platforms do offer quite a bit of flexibility. However, they end up loading a lot of extra dependencies like JS libraries that add bandwidth and loading time. This does not make for a great mobile experience.
 
 ### Benefits of Markdown
+There is no question that Markdown has seen a dramatic increase in its adoption ever since its inception in 2004. It is widely adopted in many version control sites like [Github](https://github.com) and [Gitlab](https://gitlab.com), messaging platforms like [Slack](https://slack.com/), project management platforms like [Trello](https://trello.com/en-US), static site generators like [Gatsby](https://www.gatsbyjs.org/) and [Jekyll](https://jekyllrb.com/), and even note taking apps like [Typora](https://typora.io/). The list here is **not exhaustive**.
+
+Many have turned to Markdown in the recent years since it is syntactically simplistic compared to HTML, widely adopted by many tools on the web, and commonly used among marketers and tech teams. 
+
+The barrier to entry, even for professionals who do not program, is substantially lower than any other markup language that exists today. And no, *formatting your text in Word does not count*. There are no extra words or letters like `href`, `a`, etc. that may be confusing and just irrelevant to a marketer in a sales angency trying to promote their product.
+
+The syntax to learn is quite small, making the output quite predictable most of the time and a lot less **error prone**. There is no need to fiddle around with styling your elements or trying to make sure that elements are presented correctly. Although some may view this as a downside for Markdown due to its fixed design nature, it is extremely efficient if anyone wanted to create a quick, nicely formatted document to serve as documentation for an application or just taking some quick notes. Its low verbosity means that you can spend less time typing boilerplate and more time on the actual content.
+
+To appease the technical folk, Markdown allows inline HTML to provide more flexibility to creating different layouts. If there is something that cannot be done in Markdown, you can still write HTML and your parser will understand.
+
+Like HTML, Markdown documents can be previewed instantly without having to install any other library (*cough* looking at you **MiKTeX** *cough*) or running any specific commands. There are a plethora of online editors for both markup languages that would present the content just fine.
 
 ### Solutions?
-[Talk about publishers like freeCodeCamp leaving Medium]
+> Gee Stan, Markdown sure sounds great but there's a problem. How can I easily convert my Markdown posts to Medium?
+
+You see, this has been a big problem that many have solved, or attempted to solve I should say.
+
+In short, there is no *one size fits all* converter that could accurately convert all Markdown files into Medium's format without losing a few elements here and there. Below are a couple of ways and tools that other bloggers have taken to bridge the gap.
+
+##### Markdown To Medium
+This [tool](https://markdowntomedium.com/) is perhaps the one that comes closest to preserving all the formatting that you have in your posts. Not only does it automatically import your content, it also **automatically creates gist** for all of your code snippets to add proper syntax highlighting. This may clutter up your gist collection, but it is a small price to pay for making publishing a blog post so much easier.
+
+##### Medium Editor Markdown
+This [extension](https://ionicabizau.github.io/medium-editor-markdown/example/) to [Medium Editor](https://yabwe.github.io/medium-editor/) adds Markdown and HTML editing to render content as seen in Medium. This is great if you want a quick preview on how your post may look by simply pasting your existing Markdown file.
+
+
+#### Create Your Own Blog
+It may be a drastic choice, but nonetheless viable. It's a great way to step into the world of static site generators like Gatsby, Hugo, and Jekyll. You will end up getting all the control in terms of how to style your blog, how to code it, and how to deploy it. Earlier this year (2019), [FreeCodeCamp](https://www.freecodecamp.org/forum/t/we-just-launched-developer-news-heres-how-you-can-use-it/279929) made the jump in their announcement albeit for other reasons. Nevertheless, they are not the only blog that is moving off of Medium.
 
 ### References
 1. [How to display code blocks in Medium](https://www.freecodecamp.org/news/how-to-add-code-to-medium-and-get-syntax-highlighting-d699761a5883/)
