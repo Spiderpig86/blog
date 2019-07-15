@@ -42,7 +42,7 @@ With many notable tech blogs hosting their content on Medium such as **Treehouse
 
 In fact, Medium does; only if you are fine with settling for a plain un-highlighted gray-black block sitting in the middle of your page.
 
-This may seem like a small detail, but it makes sifting through large code snippets without going somewhat blind. I think it is great that Medium does support the **triple backtick** syntax of starting a code block since 2016, but that only scratches the surface of what code blocks can actually do.
+This may seem like a small detail, but it makes sifting through large code snippets easier without going somewhat blind. I think it is great that Medium does support the **triple backtick** syntax of starting a code block since 2016, but that only scratches the surface of what code blocks can actually do.
 
 One solution that many developers and I use is to embed code snippets from other third party services like **Gist**, **Codepen**, and **JSFiddle**. This is **much** better than the existing editor implementation and better than adding images of your code since **Medium does not support alternative text for visually impaired developers.** [1].
 
@@ -103,7 +103,7 @@ This [tool](https://markdowntomedium.com/) is perhaps the one that comes closest
 This [extension](https://ionicabizau.github.io/medium-editor-markdown/example/) to [Medium Editor](https://yabwe.github.io/medium-editor/) adds Markdown and HTML editing to render content as seen in Medium. This is great if you want a quick preview on how your post may look by simply pasting your existing Markdown file.
 
 
-#### Create Your Own Blog
+##### Create Your Own Blog
 It may be a drastic choice, but nonetheless viable. It's a great way to step into the world of static site generators like Gatsby, Hugo, and Jekyll. You will end up getting all the control in terms of how to style your blog, how to code it, and how to deploy it. Earlier this year (2019), [FreeCodeCamp](https://www.freecodecamp.org/forum/t/we-just-launched-developer-news-heres-how-you-can-use-it/279929) made the jump in their announcement albeit for other reasons. Nevertheless, they are not the only blog that is moving off of Medium.
 
 ### References
