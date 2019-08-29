@@ -31,7 +31,7 @@ In the midst of all this lies a startup studio, [Pioneer Square Labs](https://ww
 
 "The meetup is to my left", said one employee and scooted us to the thing we came for, the pizza.
 
-![The More You Know](https://raw.githubusercontent.com/Spiderpig86/blog/master/public/images/pioneer-square-labs/pizza.jpg)
+![The More You Know](https://raw.githubusercontent.com/Spiderpig86/blog/master/images/pioneer-square-labs/pizza.jpg)
 
 There were little clusters of different interns mingling about. Some were business and some were software engineering. In general, a good chunk of them come from companies like Microsoft and Amazon along with other startups in the region.
 
