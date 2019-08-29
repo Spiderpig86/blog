@@ -1,10 +1,12 @@
-# A Meetup at PSL
+# I Was Wrong About Startup Meetups
 
-It's July. You've done a lot of the touristy and fun things where you are now sitting on your bed, scrolling through the Amazon slack to find stuff to do.
+It's July. You've done a lot of the touristy and fun things in Seattle where you are now sitting on your bed, scrolling through the Amazon slack to find stuff to do.
 
 You stop at "Entrepreneurial Intern Event @ Pioneer Square Labs" and think, *this is something new*. And in bold, **food and drinks provided**.
 
 *Hmm...*
+
+## Are Meetups Pointless?
 
 You know I'm always down for anything that is remotely associated with any free food and drink. With nothing else scheduled, this doesn't seem too bad of an event to attend. It would probably just consist of a bunch of VCs and "CEOs" to brag about their successes and poach aspiring developers. The very fact that this is an intern and invite-only event makes it seem that it was only organized to siphon talent from Microsoft, Amazon, etc…
 
@@ -12,7 +14,7 @@ Looking into Reddit for what these events are like, I found [this](https://www.r
 
 Not wanting to be the only one "networking", I got another intern on my team to tag along.
 
-Until now, my knowledge on startups and entrepreneurship just comprised of a hodgepodge of Gary Vaynerchuk videos on YouTube, Silicon Valley, and this [handy library](https://github.com/words/buzzwords) of all the obnoxious buzzwords that HR loves to throw around to woo in potential candidates on LinkedIn. In short, not very extensive. 
+Until now, my knowledge on startups and entrepreneurship just comprised of a hodgepodge of Gary Vaynerchuk videos on YouTube, Silicon Valley, and this [handy library](https://github.com/words/buzzwords) of all the obnoxious buzzwords that HR loves to throw around to woo in potential candidates on LinkedIn. In short, not very extensive so I was willing to give it a shot.
 
 ## The Meetup
 
@@ -22,7 +24,7 @@ In the midst of all this lies a startup studio, [Pioneer Square Labs](https://ww
 
 "The meetup is to my left", said one employee and scooted us to the thing we came for, the pizza.
 
-[meme with pizza]
+![The More You Know](https://raw.githubusercontent.com/Spiderpig86/blog/master/public/images/pioneer-square-labs/pizza.jpg)
 
 There were little clusters of different interns mingling about. Some were business and some were software engineering. In general, a good chunk of them come from companies like Microsoft and Amazon along with other startups in the region.
 
@@ -34,7 +36,7 @@ Up until now, I was only interested in killing some time and getting free food. 
 
 Soon after, the CEOs of several startups spoke. What I had initially expected was an entire hour of speakers going up and boasting about their successes and throw around a bunch of fancy buzzwords that would attract young developers like myself. However, I could not have been more wrong.
 
-The main takeaway from these speakers was that nothing in life was set in stone. The founder of Glow, a platform designed to simplify podcast subscriptions, spoke about her transition from working in the US government to solve a fundamental problem in something she loved. The founder of SingleFile, a company aimed to make state and local regulations compliance much easier for starting companies, went from studying law to doing tech. As cheesy and cliche of a saying it is, the future is always full of uncertainties.
+The main takeaway from what these speakers said was that *nothing in life was set in stone*. The founder of **Glow**, a platform designed to simplify podcast subscriptions, spoke about her transition from working in the US government to solve a fundamental problem in something she loved. The founder of **SingleFile**, a company aimed to make state and local regulations compliance much easier for starting companies, went from studying law to doing tech. As cheesy and cliche of a saying it is, the future is always full of uncertainties.
 
 The second part was more of a discussion with two current employees in PSL — one handling business operations and the other the principal data scientist. One major part of their discussion was about the process of how they vet prospective partnerships with other founders. The one thing that stuck out to me was how much data analysis was involved even in the initial stages of launching something new to prove if something was viable or not.
 
@@ -46,7 +48,7 @@ A quick rundown of what this process looks like is:
 4. Teams start to form where people of PSL meet with the client.
 5. At this point, the stages start to blur a bit as you meet with different partners (VCs) and begin assembling your team to help build your company.
 
-I can guarantee you that the process is a lot more complicated than what I have stated above.
+I can guarantee you that the process is a lot more nuanced than what I have stated above.
 
 There were some great examples of ideas that didn't work, such as a radiation detector made from RAM chips. This by softening the memory bits which hold state (0 or 1) by constantly writing and reading them over and over again. The repeated nature of reading and writing is destructive to DRAM (DDR3 and DDR4) and it is very similar to the [row hammer](https://en.wikipedia.org/wiki/Row_hammer) used for modifying bits of memory for privilege escalation. When this idea was tested out, this was only effective in weakening a very minuscule portion of memory, making the production process long and arduous.
 
@@ -56,7 +58,7 @@ When it comes to working at a startup studio like this, many positive remarks we
 
 As the event started to wind down, the employees and co-founders started giving some great advice. The upshot from this part was that even in your early to mid-twenties, it is a great time to try out new ideas and pursue them relentlessly. The time is now to work on that idea for 6 months and see where it goes from there. The time is now to make mistakes so that it would serve as the cornerstone for any prospective startup.
 
-Although my initial intent was to go there for the food and drinks, I ended up leaving the place with greater knowledge on how ideas are usually trialed and all the stages that occur even after an idea is pitched. The very idea that an entrepreneurial course was offered in any school for computer science to me is new given that my school did not have one. I firmly believe that the knowledge that could be gained in such a class teaching this very topic is tantamount to creativity in solving problems and the ability to learn quickly on your feet in this field.
+Although my initial intent was to go there for just the food and drinks, I ended up walking away with greater knowledge on how ideas are usually trialed and all the stages that occur even after an idea is pitched. The very idea that an entrepreneurial course was offered in any school for computer science to me is new given that my school did not have one. I firmly believe that the knowledge that could be gained in such a class teaching this very topic is tantamount to creativity in solving problems and the ability to learn quickly on your feet in this field.
 
 Despite the antagonistic view that some parts of Reddit had for such events, this one has certainly evinced that they are worthwhile. Who knows, you may meet a future mentor at one of these meetups or hear some profound speech that could have a major impact on the decisions you make later in your lifetime. 
 
