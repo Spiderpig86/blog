@@ -12,6 +12,8 @@ const Sidebar = props => (
       padding: '1rem',
       marginBottom: '2rem',
       marginTop: '1rem',
+      position: 'sticky',
+      top: '7rem'
     }}
   >
     <div className="row">
