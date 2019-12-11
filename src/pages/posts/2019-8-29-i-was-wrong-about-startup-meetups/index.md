@@ -3,7 +3,7 @@ path: "/i-was-wrong-about-startup-meetups"
 date: "2019-08-29T11:41:58.971Z"
 title: "i was wrong about startup meetups"
 description: "Waste of time or important stepping stone?"
-image: './blank.jpg'
+image: './startup.jpg'
 tags: ['startup','meetup','seattle','psl']
 ---
 
