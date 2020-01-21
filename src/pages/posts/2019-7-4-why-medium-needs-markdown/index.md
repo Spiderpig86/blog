@@ -3,7 +3,6 @@ path: "/why-medium-needs-markdown"
 date: "2019-07-04T02:45:23.757Z"
 title: "why medium needs markdown"
 description: "The time for Markdown support on Medium is now."
-image: './blank.jpg'
 tags: ['medium','blogging','markdown','post']
 ---
 

@@ -104,7 +104,7 @@ export default function Template({
             matches // Inline function for checking if rules match above (less than 848px)
           ) =>
             matches ? (
-              <div style={{ flex: 1, positon: 'realtive' }}>
+              <div style={{ flex: 1, positon: 'relative' }}>
                 <Sidebar
                   date={post.frontmatter.date}
                   duration={post.timeToRead}

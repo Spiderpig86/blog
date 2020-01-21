@@ -3,7 +3,6 @@ path: "/intro"
 slug: "/intro"
 date: "2019-02-01T10:35:00.729Z"
 title: "intro"
-image: './blank.jpg'
 tags: ['first post','about']
 ---
 

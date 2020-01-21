@@ -3,7 +3,6 @@ path: "/md-test"
 slug: "/md-test"
 date: "2018-05-31T23:27:33.962Z"
 title: "Markdown Support Test"
-image: './blank.jpg'
 tags: ['programming', 'markdown']
 ---
 
