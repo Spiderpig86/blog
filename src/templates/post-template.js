@@ -29,7 +29,7 @@ export default function Template({
 
   return (
     <Layout>
-      <div className="blog-post-container" style={{ display: 'flex' }}>
+      <div className="blog-post-container" id="post-container" style={{ display: 'flex' }}>
 
         <Meta
           title={ title }
@@ -41,7 +41,7 @@ export default function Template({
         />
 
         <ReadingProgress
-          targetEl="#post-el"
+          targetEl="#post-container"
           style={{
             borderColor: 'transparent',
             color: '#000',
