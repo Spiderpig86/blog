@@ -29,7 +29,7 @@ export default function Template({
 
   return (
     <Layout>
-      <div className="blog-post-container" style={{ display: 'flex' }}>
+      <div className="blog-post-container" id="post-container" style={{ display: 'flex' }}>
 
         <Meta
           title={ title }
@@ -41,7 +41,7 @@ export default function Template({
         />
 
         <ReadingProgress
-          targetEl="#post-el"
+          targetEl="#post-container"
           style={{
             borderColor: 'transparent',
             color: '#000',
@@ -104,7 +104,7 @@ export default function Template({
             matches // Inline function for checking if rules match above (less than 848px)
           ) =>
             matches ? (
-              <div style={{ flex: 1 }}>
+              <div style={{ flex: 1, positon: 'relative' }}>
                 <Sidebar
                   date={post.frontmatter.date}
                   duration={post.timeToRead}

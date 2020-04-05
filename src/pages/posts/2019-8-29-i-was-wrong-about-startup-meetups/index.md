@@ -25,15 +25,15 @@ Until now, my knowledge on startups and entrepreneurship just comprised of a hod
 
 ## The Meetup
 
-Pioneer Square in Seattle is known to be the founding location of Seattle, hence the word "Pioneer". But over the years, the area has vastly transformed which now features shopping carts filled with trash bags, worn down tents, and your local guy tripping out of his mind.
+Pioneer Square in Seattle is known to be the city's first settlement, hence the word "Pioneer". But over the years, the area has vastly transformed which now features shopping carts filled with trash bags, worn down tents, and your local guy tripping out of his mind.
 
 In the midst of all this lies a startup studio, [Pioneer Square Labs](https://www.psl.com/). After walking in, an employee quickly escorted us to the third floor where other interns were mingling and drinking copious amounts of  *La Croix™*. The elevator doors opened to an open office featuring a rugged design mixed with Cedarwood running from the floor to the roof and string lights that came straight out of a college dorm featured on Instagram.
 
-"The meetup is to my left", said one employee and scooted us to the thing we came for, the pizza.
+"The meetup is to my left", said one employee as he scooted us to the thing we came for, the pizza.
 
 ![The More You Know](https://raw.githubusercontent.com/Spiderpig86/blog/master/images/pioneer-square-labs/pizza.jpg)
 
-There were little clusters of different interns mingling about. Some were business and some were software engineering. In general, a good chunk of them come from companies like Microsoft and Amazon along with other startups in the region.
+There were little clusters of interns mingling about. Some were business and some were software engineering. In general, a good chunk of them come from companies like Microsoft and Amazon along with other startups in the region.
 
 Once we were satiated with the amount of pizza and drinks we got, the presentation finally began with an "Omaha" (forgive me since memory seems to fail me while writing this) which is a tradition they have in encouraging someone to give a speech. In simple terms, it's just cheering exceptionally loud from a much smaller crowd. Cute.
 
@@ -45,7 +45,7 @@ Soon after, the CEOs of several startups spoke. What I had initially expected wa
 
 The main takeaway from what these speakers said was that *nothing in life was set in stone*. The founder of **Glow**, a platform designed to simplify podcast subscriptions, spoke about her transition from working in the US government to solve a fundamental problem in something she loved. The founder of **SingleFile**, a company aimed to make state and local regulations compliance much easier for starting companies, went from studying law to doing tech. As cheesy and cliche of a saying it is, the future is always full of uncertainties.
 
-The second part was more of a discussion with two current employees in PSL — one handling business operations and the other the principal data scientist. One major part of their discussion was about the process of how they vet prospective partnerships with other founders. The one thing that stuck out to me was how much data analysis was involved even in the initial stages of launching something new to prove if something was viable or not.
+The second part was more of a discussion with two current employees in PSL — one handling business operations and one principal data scientist. One major part of their discussion was about the process of how they vet prospective partnerships with other founders. The one thing that stuck out to me was how much data analysis was involved even in the initial stages of launching something new to prove if something was viable or not.
 
 A quick rundown of what this process looks like is:
 
@@ -57,13 +57,13 @@ A quick rundown of what this process looks like is:
 
 I can guarantee you that the process is a lot more nuanced than what I have stated above.
 
-There were some great examples of ideas that didn't work, such as a radiation detector made from RAM chips. This by softening the memory bits which hold state (0 or 1) by constantly writing and reading them over and over again. The repeated nature of reading and writing is destructive to DRAM (DDR3 and DDR4) and it is very similar to the [row hammer](https://en.wikipedia.org/wiki/Row_hammer) used for modifying bits of memory for privilege escalation. When this idea was tested out, this was only effective in weakening a very minuscule portion of memory, making the production process long and arduous.
+There were some great examples of ideas that didn't work, such as a radiation detector made from RAM chips. This by softening the memory bits which hold state (0 or 1) by constantly writing and reading them over and over again. The repeated nature of reading and writing is destructive to DRAM (DDR3 and DDR4) and it is very similar to the [row hammer](https://en.wikipedia.org/wiki/Row_hammer) method used for modifying bits of memory for privilege escalation. When this idea was tested out, this was only effective in weakening a very minuscule portion of memory, making the production process long and arduous.
 
 Another idea was paying someone else to pick up packages for you. That in itself opens up a whole other can of worms. Things to take into account are the people that are willing to pay someone, like their neighbor, to accept packages in the first place and security and trust concerns that may arise.
 
 When it comes to working at a startup studio like this, many positive remarks were made on the flexibility of being able to do the things that they enjoy. For instance, the data scientist stated that he was able to be a "mad scientist" of sorts working on a bunch of crazy new ideas and solving complex problems for clients. And these ideas are quite interesting since founders try to be as novel as they possibly can with the problems they try to solve.
 
-As the event started to wind down, the employees and co-founders started giving some great advice. The upshot from this part was that even in your early to mid-twenties, it is a great time to try out new ideas and pursue them relentlessly. The time is now to work on that idea for 6 months and see where it goes from there. The time is now to make mistakes so that it would serve as the cornerstone for any prospective startup.
+As the event started to wind down, the employees and co-founders "avuncular" advice as one put it. The upshot from this part was that even in your early to mid-twenties, it is a great time to try out new ideas and pursue them relentlessly. The time is now to work on that idea for 6 months and see where it goes from there. The time is now to make mistakes so that it would serve as the cornerstone for any prospective startup.
 
 Although my initial intent was to go there for just the food and drinks, I ended up walking away with greater knowledge on how ideas are usually trialed and all the stages that occur even after an idea is pitched. The very idea that an entrepreneurial course was offered in any school for computer science to me is new given that my school did not have one. I firmly believe that the knowledge that could be gained in such a class teaching this very topic is tantamount to creativity in solving problems and the ability to learn quickly on your feet in this field.
 
