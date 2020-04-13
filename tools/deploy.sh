@@ -3,28 +3,32 @@
 
 ##### Functions
 build() {
-    echo "Building...\n"
+    echo "Building..."
+    rm -r .cache
     npm run build
     mv public ../temp-blog
 }
 
 switch_branch() {
-    echo "Switching branches...\n"
+    echo "Switching branches..."
     git checkout gh-pages
-    #git pull origin gh-pages
+    git pull origin gh-pages
 }
 
 copy_build() {
-    echo "Copying build...\n"
-    #mv ../temp-blog ./
-    #git add .
-    #git commit -m $1
-    #git push
+    echo "Copying build..."
+    rsync -avh --progress ../temp-blog/* ../blog
+    git add ./
+    echo "Commiting..."
+    git commit -m "$1"
+    git push origin gh-pages
 }
 
 cleanup() {
-    echo "Cleaning up...\n"
-    rm -r ../temp-blog
+    echo "Cleaning up..."
+    git checkout master
+    cd ..
+    rm -r temp-blog
 }
 
 usage() {
@@ -32,11 +36,12 @@ usage() {
 }
 
 main() {
+    cd ./blog
     build
     switch_branch
-    #copy_build "${1}"
-    #cleanup
-    echo "Done!\n"
+    copy_build "${1}"
+    cleanup
+    echo "Done!"
 }
 
 ##### Main
