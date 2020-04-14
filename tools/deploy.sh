@@ -4,6 +4,7 @@
 ##### Functions
 build() {
     echo "Building..."
+    cp -r template public
     rm -r .cache
     npm run build
     mv public ../temp-blog
