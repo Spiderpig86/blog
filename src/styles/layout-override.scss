@@ -6,6 +6,8 @@
 
 body {
   background-color: #f8f9fa;
+  font-size: 1rem;
+  line-height: 2rem;
 }
 
 h1 {
@@ -41,7 +43,8 @@ h6 {
   font-family: 'Montserrat';
 }
 
-h1, h2 {
+h1,
+h2 {
   margin-top: 3rem;
 }
 
@@ -52,40 +55,39 @@ h2.subtitle {
   margin-top: 1rem;
 }
 
-p,
-div {
+.blog-post p, .blog-posts p {
   font-size: 1.25rem;
   line-height: 2.25rem;
 }
 
 .nav-item {
   align-items: baseline;
-  padding: 0 .5rem;
+  padding: 0 0.5rem;
 }
 
 a {
   text-decoration: none;
-  transition: all .2s;
+  transition: all 0.2s;
   &:not(.utb):hover {
     color: rgba(12, 26, 66, 0.6);
     text-decoration: underline;
-    transition: all .2s;
+    transition: all 0.2s;
   }
 }
 
 .blog-post-content a {
   text-decoration: underline;
-  border: none!important;
+  border: none !important;
   border-radius: 2px;
   padding: 1px 4px;
-  background: rgba(12,26,66,.05);
+  background: rgba(12, 26, 66, 0.05);
   padding-bottom: 2px;
   transition: 0.2s ease;
-  color: rgba(12,26,66,.6)!important;
+  color: rgba(12, 26, 66, 0.6) !important;
 
   &:hover {
     background: rgba(250, 208, 50, 0.1);
-    color: rgb(237, 165, 28)!important;
+    color: rgb(237, 165, 28) !important;
   }
 }
 
@@ -102,7 +104,7 @@ blockquote {
   border-left: 2px solid #222;
   font-family: 'Noto Serif', 'serif';
   font-style: italic;
-	padding: 1rem;
+  padding: 1rem;
 }
 
 .gatsby-image-wrapper {
@@ -111,4 +113,12 @@ blockquote {
 
 .icon-container .fa {
   color: #fff;
+}
+
+@media only screen and (max-width: 768px) {
+  .blog-post p,
+  div {
+    font-size: 1rem;
+    line-height: 2rem;
+  }
 }
