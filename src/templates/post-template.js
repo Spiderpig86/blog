@@ -97,6 +97,24 @@ export default function Template({
           <Share postTitle={ title } postUrl={ url } pathName={ location.pathname } />
           
           <More prev={ prev && prev.node } next={ next && next.node } />
+
+          <div ref={
+            elem => {
+              if (!elem) {
+                return;
+              }
+              const scriptElem = document.createElement("script");
+              scriptElem.src = "https://utteranc.es/client.js";
+              scriptElem.async = true;
+              scriptElem.crossOrigin = "anonymous";
+              scriptElem.setAttribute("repo", "Spiderpig86/blog");
+              scriptElem.setAttribute("issue-term", "pathname");
+              scriptElem.setAttribute("label", "💬 blog-comment");
+              scriptElem.setAttribute("theme", "github-light");
+              elem.appendChild(scriptElem);
+            }
+          }>
+          </div>
         </div>
 
         <Media query="(min-width: 848px)">
