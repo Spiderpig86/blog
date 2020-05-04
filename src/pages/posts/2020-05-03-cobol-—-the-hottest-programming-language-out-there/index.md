@@ -63,7 +63,7 @@ Open a new file in any editor and call it `hello.cob`. `*.cob` or `*.cbl` are fi
       
       *> Instructions go here
       PROCEDURE DIVISION.
-        DISPLAY "Hello from COBOL :)".
+        DISPLAY 'Hello from COBOL :)'.
         STOP RUN.
 ```
 
@@ -222,14 +222,14 @@ i = log<sub>b</sub>(n)/log<sub>b</sub>(3)
           *> Get the log base 10 value of n
           COMPUTE LOG-10-VAL = FUNCTION LOG10(SAMPLE-INPUT-1).
            
-            *> Get the log base 10 value of 3
-            COMPUTE LOG-10-3 = FUNCTION LOG10(3).
+          *> Get the log base 10 value of 3
+          COMPUTE LOG-10-3 = FUNCTION LOG10(3).
           
-            *> Divide the log values and get the quotient and remainder
-            DIVIDE LOG-10-VAL BY LOG-10-3 
-            GIVING QUOTIENT REMAINDER LEFTOVER.
+          *> Divide the log values and get the quotient and remainder
+          DIVIDE LOG-10-VAL BY LOG-10-3 
+          GIVING QUOTIENT REMAINDER LEFTOVER.
 
-            *> If the remainder is 0, 3^i for some integer I equals the input
+          *> If the remainder is 0, 3^i for some integer I equals the input
           IF LEFTOVER = 0 THEN
             DISPLAY "Input is a power of 3"
           ELSE
