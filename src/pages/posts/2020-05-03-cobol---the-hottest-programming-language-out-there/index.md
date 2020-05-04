@@ -1,5 +1,5 @@
 ---
-path: "/cobol-—-the-hottest-programming-language-out-there"
+path: "/cobol---the-hottest-programming-language-out-there"
 date: "2020-05-03T22:42:50.477Z"
 title: "COBOL — The Hottest Programming Language Out There"
 description: "COBOL is the past, present, and future."

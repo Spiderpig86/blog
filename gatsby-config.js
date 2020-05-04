@@ -12,6 +12,7 @@ module.exports = {
     `gatsby-plugin-react-helmet`, // To modify head tags
     `gatsby-plugin-catch-links`, // Intercepts links from markdown to avoid refreshes
     `gatsby-plugin-sass`,
+    `gatsby-plugin-twitter`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
