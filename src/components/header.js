@@ -6,9 +6,9 @@ const Header = ({ siteTitle }) => (
   <div
     className="header header-fixed header-clear"
     style={{
-      backgroundColor: 'rgba(255, 255, 255, 0.6)',
+      backgroundColor: 'var(--nav-bg)',
       backdropFilter: 'blur(5px)',
-      borderBottom: '1px solid #e1e1e1',
+      borderBottom: '1px solid var(--border-bottom)',
       boxShadow: '0 0.2rem 1.25rem 0 rgba(27,30,36,.07)',
     }}
   >
@@ -38,7 +38,7 @@ const Header = ({ siteTitle }) => (
                     className="header-brand"
                     to="/"
                     style={{
-                      color: '#222',
+                      color: 'var(--text-title)',
                       textDecoration: 'none',
                     }}
                   >
@@ -88,7 +88,7 @@ const Header = ({ siteTitle }) => (
                     className="header-brand"
                     to="/"
                     style={{
-                      color: '#222',
+                      color: 'var(--text-title)',
                       textDecoration: 'none',
                     }}
                   >

@@ -7,7 +7,7 @@ import { styles } from '../styles/component-styles/sidebar-styles';
 const Sidebar = props => (
   <div
     style={{
-      backgroundColor: '#fff',
+      backgroundColor: 'var(--bg-secondary)',
       boxShadow: '0 0.2rem 1.25rem 0 rgba(27, 30, 36, 0.07)',
       maxWidth: 960,
       padding: '1rem',

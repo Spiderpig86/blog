@@ -4,6 +4,7 @@ import { graphql } from 'gatsby'
 
 import Layout from '../layouts/index'
 import { styles } from '../styles/component-styles/index-styles'
+import { ThemeToggler } from 'gatsby-plugin-dark-mode'
 
 import Prologue from '../components/prologue'
 
@@ -56,7 +57,7 @@ export default class Index extends Component {
                   </Link>
                   <h2
                     style={{
-                      color: '#333',
+                      color: 'var(--text-normal)',
                       fontFamily: 'Montserrat',
                       fontSize: '0.9rem',
                     }}
@@ -66,8 +67,8 @@ export default class Index extends Component {
                   <h2
                     className="bold"
                     style={{
-                      borderLeft: '2px solid #222',
-                      color: '#333',
+                      borderLeft: '2px solid var(--text-normal)',
+                      color: 'var(--text-normal)',
                       fontSize: '0.9rem',
                       fontWeight: 700,
                       marginTop: '0rem',
@@ -86,6 +87,18 @@ export default class Index extends Component {
               )
             })}
         </div>
+        <ThemeToggler>
+        {({ theme, toggleTheme }) => (
+          <label>
+            <input
+              type="checkbox"
+              onChange={e => toggleTheme(e.target.checked ? 'dark' : 'light')}
+              checked={theme === 'dark'}
+            />{' '}
+            Dark mode
+          </label>
+        )}
+      </ThemeToggler>
       </Layout>
     )
   }

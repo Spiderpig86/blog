@@ -69,7 +69,7 @@ export default function Template({
             
             <hr
               style={{
-                backgroundColor: '#ddd',
+                backgroundColor: 'var(--hr)',
                 marginBottom: '3rem',
               }}
             />
@@ -89,7 +89,7 @@ export default function Template({
 
           <hr
             style={{
-              backgroundColor: '#ddd',
+              backgroundColor: 'var(--hr)',
               marginBottom: '3rem',
             }}
           />

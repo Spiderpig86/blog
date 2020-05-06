@@ -1,0 +1,31 @@
+body {
+  --bg: #f8f9fa;
+  --bg-secondary: #fff;
+  --text-normal: #222;
+  --text-title: inherit;
+  --text-subtitle: #888;
+  --text-link: rgba(12, 26, 66, 0.6);
+  --title-link: #222;
+  --hr: rgb(221, 221, 221);
+  --nav-bg: rgba(255, 255, 255, 0.6);
+  --code: #fdf6e3;
+  --border-bottom: rgb(225, 225, 225);
+
+  background-color: var(--bg);
+}
+
+body.dark {
+  -webkit-font-smoothing: antialiased;
+
+  --bg: rgb(26, 28, 29);
+  --bg-secondary: #181a1b;
+  --text-normal: rgba(255, 255, 255, 0.88);
+  --text-title: white;
+  --text-subtitle: rgb(186, 181, 171);
+  --text-link: rgba(213, 210, 204, 0.6);
+  --title-link: #424c7d;
+  --hr: #4d4d4d;
+  --nav-bg: rgba(24, 26, 27, 0.6);
+  --code: rgb(63, 47, 5);
+  --border-bottom: #393939;
+}

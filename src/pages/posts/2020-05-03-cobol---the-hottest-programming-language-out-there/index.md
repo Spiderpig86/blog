@@ -180,7 +180,7 @@ For switch statements, we specify the value to `switch` on (statement in Java) t
 Conditionals can also be combined with `NOT`, `AND`, `OR`, and some others.
 
 ```cobol
-          IF A IS LESS THAN B AND A IS LESS THAN 50 THEN
+      IF A IS LESS THAN B AND A IS LESS THAN 50 THEN
         DISPLAY 'THIS IS IN FACT TRUE'
       ELSE
         DISPLAY 'THIS SHOULD NOT SHOW'
@@ -207,16 +207,18 @@ i = log<sub>b</sub>(n)/log<sub>b</sub>(3)
 
 ```cobol
       IDENTIFICATION DIVISION.
-           PROGRAM-ID. POWER-OF-THREE.
+          PROGRAM-ID. POWER-OF-THREE.
       DATA DIVISION.
-           WORKING-STORAGE SECTION.
-           01 SAMPLE-INPUT-1 PIC 9(8) VALUE 27.
+          WORKING-STORAGE SECTION.
+          01 SAMPLE-INPUT-1 PIC 9(8) VALUE 27.
 
-           *> Future assigned variables
-           01 LOG-10-VAL USAGE FLOAT-LONG.
-           01 LOG-10-3 USAGE FLOAT-LONG.
-           01 QUOTIENT PIC 9(10). *> Quotient should be an integer.
-           01 LEFTOVER PIC V9(4). *> Floating point with 4 bits of precision.
+          *> Future assigned variables
+          01 LOG-10-VAL USAGE FLOAT-LONG.
+          01 LOG-10-3 USAGE FLOAT-LONG.
+          *> Quotient should be an integer.
+          01 QUOTIENT PIC 9(10).
+          *> Floating point with 4 bits of precision.
+          01 LEFTOVER PIC V9(4).
 
       PROCEDURE DIVISION.
           *> Get the log base 10 value of n
@@ -229,7 +231,8 @@ i = log<sub>b</sub>(n)/log<sub>b</sub>(3)
           DIVIDE LOG-10-VAL BY LOG-10-3 
           GIVING QUOTIENT REMAINDER LEFTOVER.
 
-          *> If the remainder is 0, 3^i for some integer I equals the input
+          *> If the remainder is 0, 
+          *> 3^i for some integer I equals the input
           IF LEFTOVER = 0 THEN
             DISPLAY "Input is a power of 3"
           ELSE

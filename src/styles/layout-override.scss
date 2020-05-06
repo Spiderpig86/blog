@@ -1,7 +1,7 @@
 /* GLOBAL STYLES */
 
 * {
-  color: #222;
+  color: var(--text-normal);
 }
 
 body {
@@ -49,13 +49,13 @@ h2 {
 }
 
 h2.subtitle {
-  color: #888;
+  color: var(--text-subtitle);
   font-family: 'Nunito Sans';
   font-weight: 400;
   margin-top: 1rem;
 }
 
-.blog-post p, .blog-posts p {
+.blog-post, .blog-posts {
   font-size: 1.25rem;
   line-height: 2.25rem;
 }
@@ -101,10 +101,19 @@ progress {
 
 blockquote {
   background-color: transparent;
-  border-left: 2px solid #222;
+  border-left: 2px solid var(--border-bottom);
   font-family: 'Noto Serif', 'serif';
   font-style: italic;
   padding: 1rem;
+}
+
+.gatsby-highlight > pre {
+  background-color: var(--code) !important;
+}
+
+code.language-text {
+  background-color: var(--code) !important;
+  color: rgb(188, 183, 173) !important;
 }
 
 .gatsby-image-wrapper {
