@@ -13,6 +13,7 @@ module.exports = {
     `gatsby-plugin-catch-links`, // Intercepts links from markdown to avoid refreshes
     `gatsby-plugin-sass`,
     `gatsby-plugin-twitter`,
+    `gatsby-plugin-dark-mode`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
