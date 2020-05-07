@@ -3,10 +3,11 @@ import Link from 'gatsby-link'
 import { graphql } from 'gatsby'
 
 import Layout from '../layouts/index'
-import { styles } from '../styles/component-styles/index-styles'
-import { ThemeToggler } from 'gatsby-plugin-dark-mode'
-
 import Prologue from '../components/prologue'
+import ColorHash from 'color-hash'
+
+import { styles } from '../styles/component-styles/sidebar-styles';
+
 
 export default class Index extends Component {
   // Note that the data is still sent to props from GraphQL as in old code
@@ -45,7 +46,7 @@ export default class Index extends Component {
           />
           {posts
             .filter(
-              post =>
+              (post) =>
                 post.node.frontmatter.title.length > 0 && this.hasTag(post)
             )
             .map(({ node: post }) => {
@@ -80,25 +81,28 @@ export default class Index extends Component {
                   </h2>
                   <p>{post.excerpt}</p>
 
-                  <Link className="utb u-LR" style={ styles.readmoreButton } to={post.frontmatter.path}>
-                    Read
-                  </Link>
+                  {post.frontmatter.tags.map((tag, i) => {
+                    const colorHash = new ColorHash({ lightness: 0.5 })
+                    const color = colorHash.hex(tag)
+
+                    return (
+                      <Link
+                        to={`/tag/${tag}`}
+                        style={{
+                          ...styles.tagStyle,
+                          backgroundColor: color,
+                          color: '#fff',
+                        }}
+                        key={i}
+                      >
+                        {tag}
+                      </Link>
+                    )
+                  })}
                 </div>
               )
             })}
         </div>
-        <ThemeToggler>
-        {({ theme, toggleTheme }) => (
-          <label>
-            <input
-              type="checkbox"
-              onChange={e => toggleTheme(e.target.checked ? 'dark' : 'light')}
-              checked={theme === 'dark'}
-            />{' '}
-            Dark mode
-          </label>
-        )}
-      </ThemeToggler>
       </Layout>
     )
   }

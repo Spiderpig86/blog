@@ -6,10 +6,16 @@ body {
   --text-subtitle: #888;
   --text-link: rgba(12, 26, 66, 0.6);
   --title-link: #222;
+  --link-color: rgba(12, 26, 66, 0.6);
   --hr: rgb(221, 221, 221);
   --nav-bg: rgba(255, 255, 255, 0.6);
   --code: #fdf6e3;
   --border-bottom: rgb(225, 225, 225);
+
+  --scrollbar-bg: #fcfdfd;
+  --scrollbar-color: #c5c1b9;
+  --scrollbar-corner-bg: #b7b7b7;
+  --scrollbar-thumb-bg: #dddddd;
 
   background-color: var(--bg);
 }
@@ -24,8 +30,27 @@ body.dark {
   --text-subtitle: rgb(186, 181, 171);
   --text-link: rgba(213, 210, 204, 0.6);
   --title-link: #424c7d;
+  --link-color: rgba(201, 214, 253, 0.6) !important;
   --hr: #4d4d4d;
   --nav-bg: rgba(24, 26, 27, 0.6);
   --code: rgb(63, 47, 5);
   --border-bottom: #393939;
+
+  --scrollbar-bg: #1c1e1f;
+  --scrollbar-color: #c5c1b9;
+  --scrollbar-corner-bg: #181a1b;
+  --scrollbar-thumb-bg: #2a2c2e;
+}
+
+::-webkit-scrollbar {
+    background-color: var(--scrollbar-bg);
+    color: var(--scrollbar-color);
+}
+
+::-webkit-scrollbar-corner {
+    background-color: var(--scrollbar-corner-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-thumb-bg);
 }

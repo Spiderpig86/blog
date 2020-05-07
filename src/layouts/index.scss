@@ -539,6 +539,10 @@ body, #___gatsby, [data-reactroot] {
   background-color: rgba(0, 102, 255, 0.25);
 }
 
+::-webkit-progress-bar {
+  background: var(--nav-bg) !important;
+}
+
 ::-webkit-progress-value {
   background: linear-gradient(to right, #12c2e9, #c471ed, #f64f59) !important;
 }

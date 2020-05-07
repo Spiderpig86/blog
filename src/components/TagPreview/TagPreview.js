@@ -11,7 +11,7 @@ const TagPreview = ({ post }) => (
     <Link to={ post.frontmatter.path }><h1>{post.frontmatter.title}</h1></Link>
     <h2
       style={{
-        color: '#333',
+        color: 'var(--text-normal)',
         fontFamily: 'Montserrat',
         fontSize: '0.9rem',
       }}
@@ -21,8 +21,8 @@ const TagPreview = ({ post }) => (
     <h2
       className="bold"
       style={{
-        borderLeft: '2px solid #222',
-        color: '#333',
+        borderLeft: '2px solid var(--text-normal)',
+        color: 'var(--text-normal)',
         fontSize: '0.9rem',
         fontWeight: 700,
         marginTop: '0rem',

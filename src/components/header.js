@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import Media from 'react-media'
+import { ThemeToggler } from 'gatsby-plugin-dark-mode'
 
 const Header = ({ siteTitle }) => (
   <div
@@ -19,89 +20,138 @@ const Header = ({ siteTitle }) => (
         padding: '0 1.0875rem',
       }}
     >
-    
       <Media query={{ minWidth: 848 }}>
-        {(
-          matches
-        ) => matches ? (
-          <div className="header-nav" style={{ background: 'transparent' }}>
-            <div className="nav-left">
-              <div className="nav-item">
-                <h1
-                  style={{
-                    margin: 0,
-                    textAlign: 'center',
-                    background: 'transparent',
-                  }}
-                >
-                  <Link
-                    className="header-brand"
-                    to="/"
+        {(matches) =>
+          matches ? (
+            <div className="header-nav" style={{ background: 'transparent' }}>
+              <div className="nav-left">
+                <div className="nav-item">
+                  <h1
                     style={{
-                      color: 'var(--text-title)',
-                      textDecoration: 'none',
+                      display: 'flex',
+                      margin: 0,
+                      textAlign: 'center',
+                      background: 'transparent',
                     }}
                   >
-                    {siteTitle}
-                  </Link>
-                </h1>
+                    <ThemeToggler>
+                      {({ theme, toggleTheme }) => (
+                        <label
+                          style={{
+                            cursor: 'pointer',
+                            position: 'relative',
+                            display: 'flex',
+                            alignItems: 'center',
+                          }}
+                        >
+                          <input
+                            type="checkbox"
+                            onChange={(e) =>
+                              toggleTheme(e.target.checked ? 'dark' : 'light')
+                            }
+                            checked={theme === 'dark'}
+                            style={{
+                              opacity: 0,
+                              position: 'absolute',
+                            }}
+                          />{' '}
+                          {theme === 'dark' ? '🌘' : '☀️'}
+                        </label>
+                      )}
+                    </ThemeToggler>
+                    <Link
+                      className="header-brand"
+                      to="/"
+                      style={{
+                        color: 'var(--text-title)',
+                        textDecoration: 'none',
+                        width: 'inherit',
+                      }}
+                    >
+                      {siteTitle}
+                    </Link>
+                  </h1>
+                </div>
               </div>
-            </div>
-            <div className="nav-center" />
-            <div className="nav-right" style={{ display: 'flex' }}>
-              <div className="nav-item">
-                <div
-                  className="burger"
-                  style={{
-                    background: 'transparent',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    paddingTop: '3px',
-                    right: 0,
-                  }}
-                >
+              <div className="nav-center" />
+              <div className="nav-right" style={{ display: 'flex' }}>
+                <div className="nav-item">
                   <div
-                    style={{...burgerPiece, ...{ alignSelf:'flex-end', width: '15px' }}}
-                  />
-                  <div
-                    style={burgerPiece}
-                  />
-                  <div
-                    style={{...burgerPiece, ...{ width: '15px' }}}
-                  />
+                    className="burger"
+                    style={{
+                      background: 'transparent',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      paddingTop: '3px',
+                      right: 0,
+                    }}
+                  >
+                    <div
+                      style={{
+                        ...burgerPiece,
+                        ...{ alignSelf: 'flex-end', width: '15px' },
+                      }}
+                    />
+                    <div style={burgerPiece} />
+                    <div style={{ ...burgerPiece, ...{ width: '15px' } }} />
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        ) : (
-          <div className="header-nav" style={{ background: 'transparent' }}>
-            <div className="nav-center">
-              <div className="nav-item">
-                <h1
-                  style={{
-                    margin: 0,
-                    textAlign: 'center',
-                    background: 'transparent',
-                  }}
-                >
-                  <Link
-                    className="header-brand"
-                    to="/"
+          ) : (
+            <div className="header-nav" style={{ background: 'transparent' }}>
+              <div className="nav-center">
+                <div className="nav-item">
+                  <h1
                     style={{
-                      color: 'var(--text-title)',
-                      textDecoration: 'none',
+                      display: 'flex',
+                      margin: 0,
+                      textAlign: 'center',
+                      background: 'transparent',
                     }}
                   >
-                    {siteTitle}
-                  </Link>
-                </h1>
+                    <Link
+                      className="header-brand"
+                      to="/"
+                      style={{
+                        color: 'var(--text-title)',
+                        textDecoration: 'none',
+                        width: 'inherit',
+                      }}
+                    >
+                      {siteTitle}
+                    </Link>
+                    <ThemeToggler>
+                      {({ theme, toggleTheme }) => (
+                        <label
+                          style={{
+                            cursor: 'pointer',
+                            marginLeft: '.5rem',
+                            position: 'relative',
+                          }}
+                        >
+                          <input
+                            type="checkbox"
+                            onChange={(e) =>
+                              toggleTheme(e.target.checked ? 'dark' : 'light')
+                            }
+                            checked={theme === 'dark'}
+                            style={{
+                              opacity: 0,
+                              position: 'absolute',
+                            }}
+                          />{' '}
+                          {theme === 'dark' ? '🌘' : '☀️'}
+                        </label>
+                      )}
+                    </ThemeToggler>
+                  </h1>
+                </div>
               </div>
             </div>
-          </div>
-        )
-      }
+          )
+        }
       </Media>
-      
     </div>
   </div>
 )
