@@ -113,7 +113,7 @@ blockquote {
 
 code.language-text {
   background-color: var(--code) !important;
-  color: rgb(188, 183, 173) !important;
+  color: var(--code-text) !important;
 }
 
 .gatsby-image-wrapper {
