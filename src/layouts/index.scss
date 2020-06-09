@@ -216,7 +216,7 @@ html {
 
 * {
   box-sizing: inherit;
-  transition: background-color .3s;
+  transition: background-color .3s ease 0s;
   &:before, &:after {
     box-sizing: inherit;
   }
