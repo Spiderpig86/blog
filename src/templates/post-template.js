@@ -27,6 +27,11 @@ export default function Template({
   const thumbnail = post.frontmatter.image && post.frontmatter.image.childImageSharp.resize.src
   const { title, image } = post.frontmatter
 
+  // Avoid having utterances plugin render a duplicate component, conditional rendering does not work
+  if (document.querySelector('.utterances')) {
+    document.querySelector('.utterances').remove();
+  }
+
   return (
     <Layout>
       <div className="blog-post-container" id="post-container" style={{ display: 'flex' }}>
