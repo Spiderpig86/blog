@@ -28,9 +28,7 @@ export default function Template({
   const { title, image } = post.frontmatter
 
   // Avoid having utterances plugin render a duplicate component, conditional rendering does not work
-  if (document.querySelector('.utterances')) {
-    document.querySelector('.utterances').remove();
-  }
+
 
   return (
     <Layout>
@@ -102,11 +100,14 @@ export default function Template({
           <Share postTitle={ title } postUrl={ url } pathName={ location.pathname } />
           
           <More prev={ prev && prev.node } next={ next && next.node } />
-
+          
           <div ref={
             elem => {
               if (!elem) {
                 return;
+              }
+              if (document.querySelector('.utterances')) {
+                document.querySelector('.utterances').remove();
               }
               const scriptElem = document.createElement("script");
               scriptElem.src = "https://utteranc.es/client.js";
