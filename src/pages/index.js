@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import Link from 'gatsby-link'
 import { graphql } from 'gatsby'
+import ColorHash from 'color-hash'
+import Helmet from 'react-helmet'
 
 import Layout from '../layouts/index'
 import Prologue from '../components/prologue'
-import ColorHash from 'color-hash'
 
 import { styles } from '../styles/component-styles/sidebar-styles';
 
@@ -39,6 +40,7 @@ export default class Index extends Component {
 
     return (
       <Layout>
+        <Helmet title={'💎 slim.'} />
         <div className="blog-posts">
           <Prologue
             blogPosts={posts}
