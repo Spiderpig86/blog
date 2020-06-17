@@ -11,34 +11,37 @@ import { graphql } from 'gatsby'
 import Sidebar from '../components/sidebar'
 import Layout from '../layouts'
 import More from '../components/More/More'
-import Meta from '../components/Meta/Meta';
-import Share from '../components/Share/Share';
+import Meta from '../components/Meta/Meta'
+import Share from '../components/Share/Share'
 
 export default function Template({
   data, // Object will be from GraphQL query
-  pageContext ,
-  location
+  pageContext,
+  location,
 }) {
   const post = data.markdownRemark
   const { prev, next } = pageContext
 
   // Metadata
   const url = data.site.siteMetadata.siteUrl
-  const thumbnail = post.frontmatter.image && post.frontmatter.image.childImageSharp.resize.src
+  const thumbnail =
+    post.frontmatter.image && post.frontmatter.image.childImageSharp.resize.src
   const { title, image } = post.frontmatter
 
   // Avoid having utterances plugin render a duplicate component, conditional rendering does not work
 
-
   return (
     <Layout>
-      <div className="blog-post-container" id="post-container" style={{ display: 'flex' }}>
-
+      <div
+        className="blog-post-container"
+        id="post-container"
+        style={{ display: 'flex' }}
+      >
         <Meta
-          title={ title }
-          description={ post.frontmatter.description || post.excerpt }
-          pathname={ location.pathname }
-          keywords={ post.frontmatter.tags.join(',') }
+          title={title}
+          description={post.frontmatter.description || post.excerpt}
+          pathname={location.pathname}
+          keywords={post.frontmatter.tags.join(',')}
           thumbnail={thumbnail && url + thumbnail}
           url={url}
         />
@@ -63,25 +66,20 @@ export default function Template({
               {post.frontmatter.title}
             </h1>
 
-            {
-              post.frontmatter.description ?
-              <h2 className="subtitle">{ post.frontmatter.description }</h2>
-              : null
-            }
+            {post.frontmatter.description ? (
+              <h2 className="subtitle">{post.frontmatter.description}</h2>
+            ) : null}
 
-            
             <hr
               style={{
                 backgroundColor: 'var(--hr)',
                 marginBottom: '3rem',
               }}
             />
-            
-              {
-                image && image.childImageSharp ?
-                  <Img fluid={ post.frontmatter.image.childImageSharp.fluid} />
-                  : null
-              }
+
+            {image && image.childImageSharp ? (
+              <Img fluid={post.frontmatter.image.childImageSharp.fluid} />
+            ) : null}
 
             <div
               className="blog-post-content"
@@ -97,30 +95,36 @@ export default function Template({
             }}
           />
 
-          <Share postTitle={ title } postUrl={ url } pathName={ location.pathname } />
-          
-          <More prev={ prev && prev.node } next={ next && next.node } />
-          
-          <div ref={
-            elem => {
+          <Share postTitle={title} postUrl={url} pathName={location.pathname} />
+
+          <More prev={prev && prev.node} next={next && next.node} />
+
+          <hr
+            style={{
+              backgroundColor: 'var(--hr)',
+              marginBottom: '3rem',
+            }}
+          />
+
+          <div
+            ref={(elem) => {
               if (!elem) {
-                return;
+                return
               }
               if (document.querySelector('.utterances')) {
-                document.querySelector('.utterances').remove();
+                document.querySelector('.utterances').remove()
               }
-              const scriptElem = document.createElement("script");
-              scriptElem.src = "https://utteranc.es/client.js";
-              scriptElem.async = true;
-              scriptElem.crossOrigin = "anonymous";
-              scriptElem.setAttribute("repo", "Spiderpig86/blog");
-              scriptElem.setAttribute("issue-term", "pathname");
-              scriptElem.setAttribute("label", "💬 blog-comment");
-              scriptElem.setAttribute("theme", "github-light");
-              elem.appendChild(scriptElem);
-            }
-          }>
-          </div>
+              const scriptElem = document.createElement('script')
+              scriptElem.src = 'https://utteranc.es/client.js'
+              scriptElem.async = true
+              scriptElem.crossOrigin = 'anonymous'
+              scriptElem.setAttribute('repo', 'Spiderpig86/blog')
+              scriptElem.setAttribute('issue-term', 'pathname')
+              scriptElem.setAttribute('label', '💬 blog-comment')
+              scriptElem.setAttribute('theme', 'github-light')
+              elem.appendChild(scriptElem)
+            }}
+          ></div>
         </div>
 
         <Media query="(min-width: 848px)">
@@ -140,7 +144,6 @@ export default function Template({
             )
           }
         </Media>
-
       </div>
     </Layout>
   )
@@ -178,8 +181,8 @@ export const postQuery = graphql`
     }
     site {
       siteMetadata {
-          siteUrl
-        }
-     }
+        siteUrl
+      }
+    }
   }
 `

@@ -205,42 +205,7 @@ For the solution below, we will accomplish both. The first solution that comes t
 
 i = log<sub>b</sub>(n)/log<sub>b</sub>(3)
 
-```cobol
-      IDENTIFICATION DIVISION.
-          PROGRAM-ID. POWER-OF-THREE.
-      DATA DIVISION.
-          WORKING-STORAGE SECTION.
-          01 SAMPLE-INPUT-1 PIC 9(8) VALUE 27.
-
-          *> Future assigned variables
-          01 LOG-10-VAL USAGE FLOAT-LONG.
-          01 LOG-10-3 USAGE FLOAT-LONG.
-          *> Quotient should be an integer.
-          01 QUOTIENT PIC 9(10).
-          *> Floating point with 4 bits of precision.
-          01 LEFTOVER PIC V9(4).
-
-      PROCEDURE DIVISION.
-          *> Get the log base 10 value of n
-          COMPUTE LOG-10-VAL = FUNCTION LOG10(SAMPLE-INPUT-1).
-           
-          *> Get the log base 10 value of 3
-          COMPUTE LOG-10-3 = FUNCTION LOG10(3).
-          
-          *> Divide the log values and get the quotient and remainder
-          DIVIDE LOG-10-VAL BY LOG-10-3 
-          GIVING QUOTIENT REMAINDER LEFTOVER.
-
-          *> If the remainder is 0, 
-          *> 3^i for some integer I equals the input
-          IF LEFTOVER = 0 THEN
-            DISPLAY "Input is a power of 3"
-          ELSE
-            DISPLAY "Input is not a power of 3"
-          END-IF.
-
-          STOP RUN.
-```
+![code](https://raw.githubusercontent.com/Spiderpig86/blog/master/images/cobol/code.png)
 
 I seriously hope they never ask Leetcode questions in COBOL. Ever.
 
