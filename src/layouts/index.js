@@ -23,6 +23,7 @@ const Layout = ({ children, data }) => (
             style={{ ...styles.indexBody, ...{ paddingTop: '7rem' }}}
           >
             <div
+              id="post-container"
               style={ styles.indexChildWrapper }
             >
               <div style={{ flex: 1, maxWidth: '100%' }}>{children}</div>
@@ -33,6 +34,7 @@ const Layout = ({ children, data }) => (
             style={{ ...styles.indexBody, ...{ paddingTop: '7rem' }}}
           >
             <div
+              id="post-container"
               style={ styles.indexChildWrapper }
             >
               { children }

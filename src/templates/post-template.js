@@ -32,11 +32,11 @@ export default function Template({
 
   return (
     <Layout>
-      <div
+      {/* <div
         className="blog-post-container"
         id="post-container"
         style={{ display: 'flex' }}
-      >
+      > */}
         <Meta
           title={title}
           description={post.frontmatter.description || post.excerpt}
@@ -55,7 +55,7 @@ export default function Template({
             zIndex: '100',
           }}
         />
-        <div style={{ flex: 2.5, paddingRight: '2rem', maxWidth: '100%' }}>
+        <div style={{ paddingRight: '2rem', maxWidth: '100%', minWidth: 0 }}>
           <Helmet title={`slim - ${post.frontmatter.title}`} />
           <div className="blog-post">
             <h1
@@ -132,7 +132,7 @@ export default function Template({
             matches // Inline function for checking if rules match above (less than 848px)
           ) =>
             matches ? (
-              <div style={{ flex: 1, positon: 'relative' }}>
+              <div style={{ minWidth: "300px" }}>
                 <Sidebar
                   date={post.frontmatter.date}
                   duration={post.timeToRead}
@@ -144,7 +144,7 @@ export default function Template({
             )
           }
         </Media>
-      </div>
+      {/* </div> */}
     </Layout>
   )
 }
