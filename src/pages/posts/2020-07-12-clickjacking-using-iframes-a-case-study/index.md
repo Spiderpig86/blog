@@ -2,9 +2,9 @@
 path: "/clickjacking-using-iframes-a-case-study"
 date: "2020-07-12T16:18:32.278Z"
 title: "Clickjacking Using Iframes: A Case Study"
-description: "Having been around since 2002, Clickjacking or 'UI redressing' is technique that utilizes multiple opaque or transparent layers, usually iframes, to trick users into clicking buttons or entering information without any malicious intent."
+description: "I just wanted some food, but it led me to write this blog post."
 image: './blank.jpg'
-tags: ['security','clickjacking','attacks']
+tags: ['security','clickjacking','exploit','javascript']
 ---
 
 ## What is it?
