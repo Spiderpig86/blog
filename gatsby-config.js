@@ -50,7 +50,7 @@ module.exports = {
       options: {
         name: 'slim',
         short_name: "slim",
-        start_url: "/blog",
+        start_url: "/",
         background_color: "#6b37bf",
         theme_color: "#6b37bf",
         // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
@@ -65,5 +65,5 @@ module.exports = {
     },
     `gatsby-plugin-offline`,
   ],
-  pathPrefix: `/blog`, // For setting up in github pages
+  // pathPrefix: `/blog`, // For setting up in github pages
 }
