@@ -1,4 +1,5 @@
 ---
+path: "/seattle.rain.corona"
 date: "2020-04-12T18:16:42.177Z"
 title: "seattle. rain. corona."
 description: "A brief update to my life."
