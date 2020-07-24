@@ -23,6 +23,7 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-remove-trailing-slashes`,
     {
       resolve: `gatsby-transformer-remark`, // Markdown to HTML,
       options: {
