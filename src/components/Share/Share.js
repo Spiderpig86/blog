@@ -8,7 +8,7 @@ import { SHARE_LINKS } from '../../consts'
 
 const Share = ({ title, postTitle, postUrl, pathName }) => {
 
-  pathName = pathName.replace('/', '')
+  // pathName = pathName.replace('/', '') // TODO: Removed since it breaks path for Netlify deployment
 
   const fbUrl = `${SHARE_LINKS.FACEBOOK}${postUrl}${pathName}`
   const twitterUrl = `${SHARE_LINKS.TWITTER}${postUrl}${pathName}&text=${postTitle} by @hudididudidi`

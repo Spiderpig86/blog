@@ -11,7 +11,7 @@ tags: ['seattle','moving','amazon','life']
 
 it's been a while. there have been a serious lack of posts the past ~7 months and I hope to change that.
 
-a lot has happened in the past few months:  Australian wildfires, Iran, uncertain political climate, tumbling markets, and of course, Coronavirus.
+a lot has happened in the past few months: Australian wildfires, Iran, uncertain political climate, tumbling markets, and of course, Coronavirus.
 
 let's just hope we'll be ok. lol.
 
