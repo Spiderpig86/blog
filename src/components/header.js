@@ -29,6 +29,7 @@ const Header = ({ siteTitle }) => (
                   <h1
                     style={{
                       display: 'flex',
+                      alignItems: 'center',
                       margin: 0,
                       textAlign: 'center',
                       background: 'transparent',
@@ -105,6 +106,7 @@ const Header = ({ siteTitle }) => (
                   <h1
                     style={{
                       display: 'flex',
+                      alignItems: 'center',
                       margin: 0,
                       textAlign: 'center',
                       background: 'transparent',
