@@ -32,7 +32,9 @@ So why does it matter if it is a singleton?
 
 This property matters when you have to handle multiple sources that may be accessing it, especially if web requests are made to modify the state of the singleton bean. *Side note: Please do not make your Spring beans stateful, it will save you a lot of headaches along the way*. For this scenario, however, **let's say you must maintain some state in your Spring bean.**
 
-The question is, how would a singleton bean handle requests from multiple users? To accomplish this like most web servers, another handler, in this case a thread, is spawned to serve a request made by a single user. In other words, if there are two users making a call to your API, one to the `/register` endpoint and the other to the `/login` endpoint, Spring will spawn two separate threads to handle these calls. Because a Spring bean is an object, it resides in the heap which makes it accessible to threads.
+The question is, how would a singleton bean handle requests from multiple users? To accomplish this like most web servers, another handler, in this case a thread, is spawned to serve a request made by a single user. In other words, if there are two users making a call to your API, one to the `/register` endpoint and the other to the `/login` endpoint, Spring will spawn two separate threads to handle these calls. If we have a singleton bean acting as our controller, then both requests will be handled by that bean. This becomes a pain point when we have multiple simultaneous calls to the same endpoint that updates the same variable in an non thread-safe manner.
+
+With the possibility of simultaneously calls with mutable state, Spring Beans are **not thread-safe** inherently.
 
 ## An Example
 
@@ -59,8 +61,116 @@ What's the big deal here?
 
 Now let's say that this API does get launched, gets featured on Product Hunt, and gets 12,000 daily active users making on average 500 calls per day each, meaning 6,000,000 total calls per day to this endpoint. If we do the math, the API will on average serve (6,000,000 calls per day / 86,400 seconds per day) = 69.44... transactions per second. Not everyone ends up getting a unique number and everyone is pissed off that the API failed on its promise. *What the hell happened?*
 
-What happened was a classic race condition. With a load of ~69 TPS, there is a high chance that multiple users could be calling `/increment` at the same time with the chance of reading stale data and incrementing with the wrong number.
+What happened was a classic race condition. With a load of ~69 TPS, there is a high chance that multiple users could be calling `/increment` at the same time with the chance of reading stale data and incrementing with the wrong number. If the counter was at 5 and Alice and Bob call `/increment` at the same time, then there is a good chance that both will receive 6 when they should really be different. 
 
-[DrawIO Race condition diagram with API]
+[Draw io race condition diagram]
 
-If the counter was at 5 and Alice and Bob call `/increment` at the same time, 
+The value of `counter` is also dependent on the last call that updated its value. In the diagram above, if we had 3 threads  incrementing the value in `counter` around the same time, then there is a chance that all these threads read `counter` as 5 and all end up setting the value at 6, which is incorrect. What we should expect is some decision made (usually based on chronological order) for thread A and B to execute it. Thread C will have to wait until both threads A and B are done with updating the variable before it can execute. The expected value for `counter` is supposed to be 8.
+
+## Making the Bean Thread-Safe
+
+Going back the previous point, singleton beans are **not inherently thread safe**. This is because these beans run for the entire lifetime of the application and many HTTP(S) requests can be made from different users.
+
+So how can we fix that?
+
+#### Request Scoping
+
+The **request scope** is a web-aware ApplicationContext in Spring that creates a new bean instance for every single HTTP request. This scope can be extremely helpful for maintaining some sort of state for that request if that bean will be passed on to many different handlers down the chain. For instance, if your state is stored in some bean, you can add the `@RequestScope` annotation such that the bean will get created on each HTTP request.
+
+```java
+@Bean
+@RequestScope
+public MessageProcessor getBean() {
+    // ...
+}
+```
+
+On the surface, making every single bean you use request scoped sounds like a great idea. However, is creating a new bean for every single request really that efficient? Do you really need all of your beans to be thread-safe?
+
+In general, having to create a new bean will add overhead that will slow down your application's performance. Whether if you want all your beans to be thread-safe is also up to you, but most of the time you also wouldn't need every bean to be  thread-safe.
+
+#### Thread-Safe Variables
+
+Let's say you have no other option but to keep your bean stateful. Although Spring will not handle synchronization and concurrent modification issues, you can handle it yourself. There are a couple of options on how to do it in Java:
+
+* **Synchronized blocks** - the `synchronized` keyword is a handy way to restrict access to shared resources to only a single thread at a time. You can apply this keyword on either a **method** or an object. Either way, the JVM knows that once a thread acquires a lock to execute code within a synchronized block, all other threads must be suspended. When the lock is released, then the next thread in line can access. Note that the variables that accessed by multiple threads must be declared with the `volatile` keyword to ensure changes to one thread are immediately reflected to the other threads.
+
+  ```java
+  public synchronized int increment() {
+      return ++this.counter;
+  }
+  ```
+
+  *Code taken from example project.*
+
+  If we look at the example project, the unsynchronized version of the code will produce output like this when calling `/increment`. The expected result is to see the counter reach 200 without any repeating numbers. However, notice that we only reached up to 176 due to numbers being repeated (like 174).
+
+  ```
+  ...
+  Thread 0 - 162
+  Thread 1 - 163
+  Thread 3 - 164
+  Thread 1 - 165
+  Thread 0 - 166
+  Thread 3 - 168
+  Thread 2 - 167
+  Thread 1 - 169
+  Thread 3 - 171
+  Thread 0 - 170
+  Thread 2 - 172
+  Thread 0 - 173
+  Thread 1 - 174
+  Thread 2 - 174
+  Thread 3 - 175
+  Thread 1 - 177
+  Thread 2 - 176
+  ```
+
+  With the `synchronize` and `volatile` keywords in place, we should see this output. Although the output may not be in order (which is still fine), we reach 200 with our counter without any repeated values.
+
+  ```
+  ...
+  Thread 1 - 185
+  Thread 2 - 184
+  Thread 0 - 186
+  Thread 3 - 187
+  Thread 1 - 188
+  Thread 2 - 189
+  Thread 3 - 191
+  Thread 0 - 190
+  Thread 2 - 192
+  Thread 1 - 193
+  Thread 3 - 194
+  Thread 0 - 195
+  Thread 1 - 197
+  Thread 2 - 196
+  Thread 3 - 199
+  Thread 0 - 198
+  Thread 1 - 200
+  ```
+
+* **Synchronized Collections** - using the `synchronized` keyword in the encapsulating block is not enough to prevent race conditions for Java collections. To ensure synchronous access to your collection, the Java collections framework ships with different wrapper methods that transform your collection into its thread-safe version. You can read a great synopsis by [Baeldung](https://www.baeldung.com/java-synchronized-collections) for all the different wrapper classes you can use.
+
+  ```java
+  public synchronized List<String> addWord(final String word) throws InterruptedException {
+      this.words = Collections.synchronizedList(new ArrayList<>());
+      this.words.add(word);
+  
+      // Do some work and return list, we should only return one word (the word originally requested)...
+      Thread.sleep(1000);
+      return this.words;
+  }
+  ```
+
+  *Code taken from sample project.*
+
+* **Atomic Variables** - according to [Oracle's documentation](https://docs.oracle.com/javase/8/docs/api/?java/util/concurrent/atomic/package-summary.html), the `java.util.concurrent.atomic` package is a *small toolkit of classes that support lock-free thread-safe programming on single variables*. Atomic variables have a lot of utility methods that perform comparisons, increment/decrement, accumulation, etc. without needing to specify `synchronized` and `volatile` blocks and variables respectively.
+
+#### Completely Stateless
+
+This may be a cop out answer, but a fool-proof solution to this problem is to never maintain state inside the bean to begin with. This means that your mean would contain any fields, but it is uncommon for developers to build classes like this. However, you can still achieve statelessness in your bean if the execution of its methods does not alter its instance variables. There would be no need to worry about synchronization of variables, access patterns, and cleaner code. Local variables within methods, however, are not affected by this as these local variables are allocated in the stack and only accessed within the scope of that method.
+
+As a side note `final` variables can also be included while still maintaining statelessness, but with a catch. A final `String`, `int`, or `boolean` may work fine, but a final `List`, `Set`, or `Collection` will not. Elements of these collection classes can still be changed during code execution which adds state (see code example for example with lists).
+
+## Conclusion
+
