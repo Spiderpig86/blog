@@ -38,28 +38,39 @@ With the possibility of simultaneously calls with mutable state, Spring Beans ar
 
 ## An Example
 
-As mentioned before, let's use very basic stateful bean as our example (basically a Java bean that as instance variables). This API is designed to return an always incrementing number to the user and we *guarantee* that no one will have the same integer returned to them:
+As mentioned before, let's use very basic stateful bean as our example (basically a Java bean that as instance variables). I went ahead and created a [sample project](https://github.com/Spiderpig86/Spring-Bean-Singleton) to demonstrate a couple of concepts that I will be discussing in the coming sections. The project itself is a simple Spring Boot project with a few endpoints that manipulate data inside our `DataFacade.java` class.
+
+For our first API, I will focus on the `/increment` API which returns a strictly increasing number to each user. We *guarantee* that no two persons calling the endpoint will have the same number:
 
 ```java
+// DataController.java snippet
 @RestController
-public class Controller {
-    private int counter = 0;
-    // ...
-    
-    @PostMapping("/increment")
-    private int increment() {
-        return ++counter;
+public class DataController {
+    @RequestMapping("/increment")
+    private int incrementEndpoint() {
+        return dataFacade.increment();
     }
 }
+
+// DataFacade.java snippet
+@Component
+@Scope("singleton")
+public class DataFacade {
+    private int counter;
+    public int increment() {
+        return ++this.counter;
+    }
+}
+
 ```
 
-In short, this bean stores `counter` as an instance variable and is modified by the `increment()` method. By itself, the class doesn't seem to do much and not much can go wrong with it. You fire up the Spring application, hit the `localhost:8080/increment` endpoint, and you see `1` gets returned. You call it again and receive a `2` and so on.
+In short, our `DataController` bean stores `counter` as an instance variable and is modified by the `increment()` method. By itself, the class doesn't seem to do much and not much can go wrong with it. You fire up the Spring application, hit the `localhost:8080/increment` endpoint, and you see `1` gets returned. You call it again and receive a `2` and so on.
 
 What's the big deal here?
 
 ![	 ](https://i.redd.it/5tbj9d5q0z431.jpg)
 
-Now let's say that this API does get launched, gets featured on Product Hunt, and gets 12,000 daily active users making on average 500 calls per day each, meaning 6,000,000 total calls per day to this endpoint. If we do the math, the API will on average serve (6,000,000 calls per day / 86,400 seconds per day) = 69.44... transactions per second. Not everyone ends up getting a unique number and everyone is pissed off that the API failed on its promise. *What the hell happened?*
+Let's say we launch this amazing API that guarantees no two persons get the same number generated, gets featured on Product Hunt, and then gets 12,000 daily active users making on average 500 calls per day each, meaning 6,000,000 total calls per day to this endpoint. If we do the math, the API will on average serve (6,000,000 calls per day / 86,400 seconds per day) = 69.44... transactions per second. The users eventually find out that some have received the same number and get pissed off. *What the hell happened?*
 
 What happened was a classic race condition. With a load of ~69 TPS, there is a high chance that multiple users could be calling `/increment` at the same time with the chance of reading stale data and incrementing with the wrong number. If the counter was at 5 and Alice and Bob call `/increment` at the same time, then there is a good chance that both will receive 6 when they should really be different. 
 
@@ -67,9 +78,50 @@ What happened was a classic race condition. With a load of ~69 TPS, there is a h
 
 The value of `counter` is also dependent on the last call that updated its value. In the diagram above, if we had 3 threads  incrementing the value in `counter` around the same time, then there is a chance that all these threads read `counter` as 5 and all end up setting the value at 6, which is incorrect. What we should expect is some decision made (usually based on chronological order) for thread A and B to execute it. Thread C will have to wait until both threads A and B are done with updating the variable before it can execute. The expected value for `counter` is supposed to be 8.
 
+Since we only have a single copy of our `DataFacade`, every single thread accessing the `counter` variable is concurrently modifying its value. Recall that Spring spawns a separate thread for each user accessing the endpoint. Spring offers 0 safe-guards to ensure thread safety.
+
+Let's test this using our [sample project](https://github.com/Spiderpig86/Spring-Bean-Singleton).
+
+First, clone the project to some directory on your machine. Open the directory in your terminal and run `git checkout race-conditions` the view error prone code.
+
+Then, open the project in an IDE of your choice (IntelliJ is preferred) and run the project. Once started, you should be able to access `localhost:8080/increment`.
+
+Next, open up your terminal and navigate to our test script called `spammer.py` and run the following command. 
+
+```sh
+python spammer.py
+```
+
+The script will spawn 4 threads and make 50 calls each to the `/increment` endpoint. You can change these if you'd like.
+
+Once the script finishes, the expected value for `counter` is 200 if 4 threads each make 50 calls without any repeating numbers. However, notice that the counter fell short of 200 (176 in our case). The concurrent modification of `counter` is evinced by the appearance of repeating numbers in our log (for example below, 174).
+
+```
+...
+Thread 0 - 162
+Thread 1 - 163
+Thread 3 - 164
+Thread 1 - 165
+Thread 0 - 166
+Thread 3 - 168
+Thread 2 - 167
+Thread 1 - 169
+Thread 3 - 171
+Thread 0 - 170
+Thread 2 - 172
+Thread 0 - 173
+Thread 1 - 174
+Thread 2 - 174
+Thread 3 - 175
+Thread 1 - 177
+Thread 2 - 176
+```
+
+The next section discusses solutions to this issue and changes we can make to the existing code in the project.
+
 ## Making the Bean Thread-Safe
 
-Going back the previous point, singleton beans are **not inherently thread safe**. This is because these beans run for the entire lifetime of the application and many HTTP(S) requests can be made from different users.
+Going back our previous point, singleton beans are **not inherently thread safe**. This is because these beans run for the entire lifetime of the application and many HTTP(S) requests are made from different users at the same time.
 
 So how can we fix that?
 
@@ -80,7 +132,7 @@ The **request scope** is a web-aware ApplicationContext in Spring that creates a
 ```java
 @Bean
 @RequestScope
-public MessageProcessor getBean() {
+public DataFacade getDataFacade() {
     // ...
 }
 ```
@@ -95,35 +147,14 @@ Let's say you have no other option but to keep your bean stateful. Although Spri
 
 * **Synchronized blocks** - the `synchronized` keyword is a handy way to restrict access to shared resources to only a single thread at a time. You can apply this keyword on either a **method** or an object. Either way, the JVM knows that once a thread acquires a lock to execute code within a synchronized block, all other threads must be suspended. When the lock is released, then the next thread in line can access. Note that the variables that accessed by multiple threads must be declared with the `volatile` keyword to ensure changes to one thread are immediately reflected to the other threads.
 
+  With regards to our example project, we can add the `synchronized` keyword to the calling method and the `volatile` keyword to our integer. Both keywords will not work correctly without the other.
+
   ```java
+  private volatile int counter;
+  // ...
   public synchronized int increment() {
       return ++this.counter;
   }
-  ```
-
-  *Code taken from example project.*
-
-  If we look at the example project, the unsynchronized version of the code will produce output like this when calling `/increment`. The expected result is to see the counter reach 200 without any repeating numbers. However, notice that we only reached up to 176 due to numbers being repeated (like 174).
-
-  ```
-  ...
-  Thread 0 - 162
-  Thread 1 - 163
-  Thread 3 - 164
-  Thread 1 - 165
-  Thread 0 - 166
-  Thread 3 - 168
-  Thread 2 - 167
-  Thread 1 - 169
-  Thread 3 - 171
-  Thread 0 - 170
-  Thread 2 - 172
-  Thread 0 - 173
-  Thread 1 - 174
-  Thread 2 - 174
-  Thread 3 - 175
-  Thread 1 - 177
-  Thread 2 - 176
   ```
 
   With the `synchronize` and `volatile` keywords in place, we should see this output. Although the output may not be in order (which is still fine), we reach 200 with our counter without any repeated values.
@@ -152,25 +183,35 @@ Let's say you have no other option but to keep your bean stateful. Although Spri
 * **Synchronized Collections** - using the `synchronized` keyword in the encapsulating block is not enough to prevent race conditions for Java collections. To ensure synchronous access to your collection, the Java collections framework ships with different wrapper methods that transform your collection into its thread-safe version. You can read a great synopsis by [Baeldung](https://www.baeldung.com/java-synchronized-collections) for all the different wrapper classes you can use.
 
   ```java
-  public synchronized List<String> addWord(final String word) throws InterruptedException {
-      this.words = Collections.synchronizedList(new ArrayList<>());
-      this.words.add(word);
-  
-      // Do some work and return list, we should only return one word (the word originally requested)...
-      Thread.sleep(1000);
-      return this.words;
+  public Set<String> toSynchronizedSet(final Set<Integer> numbers) {
+      return Collections.synchronizedSet(numbers);
   }
   ```
 
-  *Code taken from sample project.*
+  In our sample project, the other endpoint that needs fixing is the `/addstring` endpoint. I'll leave that as an exercise for you to fix... or just copy the code from `master`.
 
 * **Atomic Variables** - according to [Oracle's documentation](https://docs.oracle.com/javase/8/docs/api/?java/util/concurrent/atomic/package-summary.html), the `java.util.concurrent.atomic` package is a *small toolkit of classes that support lock-free thread-safe programming on single variables*. Atomic variables have a lot of utility methods that perform comparisons, increment/decrement, accumulation, etc. without needing to specify `synchronized` and `volatile` blocks and variables respectively.
+
+  In our `/increment` endpoint, the `counter` can be replaced with an `AtomicInteger`.
+
+  ```Java
+  private AtomicInteger counter;
+  
+  public DataFacade() {
+      this.counter = new AtomicInteger(0);
+  }
+  
+  public int increment() {
+      return this.counter.incrementAndGet();
+  }
+  ```
 
 #### Completely Stateless
 
 This may be a cop out answer, but a fool-proof solution to this problem is to never maintain state inside the bean to begin with. This means that your mean would contain any fields, but it is uncommon for developers to build classes like this. However, you can still achieve statelessness in your bean if the execution of its methods does not alter its instance variables. There would be no need to worry about synchronization of variables, access patterns, and cleaner code. Local variables within methods, however, are not affected by this as these local variables are allocated in the stack and only accessed within the scope of that method.
 
-As a side note `final` variables can also be included while still maintaining statelessness, but with a catch. A final `String`, `int`, or `boolean` may work fine, but a final `List`, `Set`, or `Collection` will not. Elements of these collection classes can still be changed during code execution which adds state (see code example for example with lists).
+As a side note, `final` variables can also be included while still maintaining statelessness, but with a catch. A final `String`, `int`, or `boolean` may work fine, but a final `List`, `Set`, or `Collection` will not. Elements of these collection classes can still be changed during code execution which adds state. JDK 9 introduced [immutable versions](https://docs.oracle.com/javase/9/core/creating-immutable-lists-sets-and-maps.htm#JSCOR-GUID-DD066F67-9C9B-444E-A3CB-820503735951) of these collections, but they must be used with a bit of caution. Objects are not automatically immutable when stored in these collections, only the collection itself is.
 
 ## Conclusion
 
+The takeaway from all this is that working with singleton beans in a multi-threaded environment without the right mechanisms to ensure thread safety can be an absolute nightmare to debug. Even if it is possible to add thread-safety to your instance variables in the singleton bean itself, the cleaner option may be to only keep constant instance variables and move all changing variables into local methods or other classes that are created on a per-request basis. I hope this post brought greater insight on some of the dangers in maintaining state in your singleton Spring beans.
