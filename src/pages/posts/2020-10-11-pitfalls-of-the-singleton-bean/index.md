@@ -1,4 +1,11 @@
-# Pitfalls of the Singleton Bean
+---
+path: "/pitfalls-of-the-singleton-bean"
+date: "2020-10-11T17:02:19.995Z"
+title: "Pitfalls of the Singleton Bean"
+description: "Conceptually, a singleton bean is rather simple to understand. However in certain situations, this unsuspecting class could transpire to days of debugging."
+image: './blank.jpg'
+tags: ['java','spring','concurrency','threads','singleton']
+---
 
 A Spring bean. Sounds relatively harmless, doesn't it? What if I told you that this could be the source of many headaches in web servers, especially if you are new to Spring development. However, if you're a more seasoned Java developer, then you would be aware of the restless nights debugging your code for hours only to discover that the dreaded bug was a **race condition**.
 
