@@ -17,9 +17,7 @@ const Sidebar = props => (
       top: '7rem'
     }}
   >
-    <div className="row" style={{
-      marginBottom: '1rem'
-    }}>
+    <div className="row">
       ✏️ Published <strong>{props.date}</strong>
     </div>
     <div className="row" style={{
