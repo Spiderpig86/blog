@@ -12,9 +12,7 @@ Taken straight from the website:
 
 > Product Hunt surfaces the best new products, every day. It's a place for product-loving enthusiasts to share and geek out about the latest mobile apps, websites, hardware projects, and tech creations.
 
-In short, it's just a place where aspirational founders and developers go to pitch/launch their product/service. Pretty much anyone can post a product there, but only the best ones get featured each day in terms of popularity (usually the more upvotes you get, the higher you a ranked. However, that is not always the case). You can quite a big boost if you know anyone with a significant following on the platform to *hunt* or list your product. Unfortunately, I do not have such luxuries. But this does not mean that it is impossible to get something off the ground yourself if you play your cards right.
-
-TODO: now talk about all the projects and attempts
+In short, it's just a place where aspirational founders and developers go to pitch/launch their product/service. Pretty much anyone can post a product there, but only the best ones get featured each day in terms of popularity (usually the more upvotes you get, the higher you a ranked. However, that is not always the case). You can get quite a big boost if you know anyone with a significant following on the platform to *hunt* or list your product. Unfortunately, I do not have such luxuries. But the lack thereof does not mean it is impossible to get something off the ground yourself -- if you play your cards right.
 
 I first created my account back in July of 2015 hoping to test the platform out to help grow my web browser, [Polarity](https://polaritybrowser.netlify.app/). At the time, Polarity started to receive more notable recognition from various websites and platforms as a viable alternative to existing browsers out there. I saw ProductHunt as a great means to help sustain that growth well into 2016 and 2017 since the platform was growing rapidly with more and more users, developers, and founders checking it out each day. I had already launched on Betalist and created multiple campaigns on Headtalker that provided a decent amount of reach, so I hoped to get some success launching here as well.
 
@@ -32,5 +30,50 @@ The best case scenario would be if your launch becomes one of the top 5 products
 
 ## Lessons Learned
 
+### 1. Take your time
+
+Take the time to think through your launch. The last thing you want to do is hastily rush into posting with zero planning. Maybe you'll have the slim chance that it'll work out, but for the most part it won't. Prior to launch, take a couple weeks or more to make sure your product/service is completely working and think about what would your post contain. This includes:
+
+* Having an all encompassing yet succinct tagline.
+* Deciding between your regular logo or creating an animated version of it.
+* Have a concise and easy to read description.
+* Choose eye-catching images that showcase your product the best.
+* Plan your first comment. Convince people why your product/service can be useful to them and your story working on it.
+
+I guarantee you that taking the time to think through these elements can determine if a post sinks or swims. There's nothing that says you can't launch a product multiple times, but you'll have a much better chance succeeding by treating each launch as the only shot you have.
+
+I would like to stress how important your logo and tagline are since these two pieces of information are the first thing people see when browsing on ProductHunt. If they are interested, they would then visit your actual post and see your description, images, and your first comment.
+
+### 2. Have an audience
+
+Although I did not personally follow this, having an audience that is immediately reachable via a newsletter or announcement can bolster your launch to the top 5 spots, especially if a lot of them are also ProductHunt users. If you send an announcement that links your ProductHunt launch, there is a good chance that your users would go ahead and upvote your post. When it comes to reaching the top spots, it's all about numbers. A strong user base can come a long way in adding the extra *oomph* needed not just reach the top, but also stay at the top.
+
+If you don't currently have an audience you can reach, I suggest creating a mailing list now. There are plenty of free to start services like [MailChimp](https://mailchimp.com/) that can get the ball rolling.
+
+> The best time to plant a tree is twenty years ago. The second best time is now.
+
+Besides your own audience, you would also have to consider if your product is something that the ProductHunt community would find interesting based on current trends. For example, an app that teaches about [skeumorphic design](https://uxdesign.cc/skeuomorphic-design-is-dead-myth-or-reality-b5c65708677a) may not do as well as an app that teaches about [neumorphic design](https://uxdesign.cc/neumorphism-in-user-interfaces-b47cef3bf3a6).
+
+### 3. Time your launch properly
+
+In my first launch, I remember launching in the middle of some afternoon. This led to the post going no where. **Do not do this.**
+
+When it comes to the right time to launch, it is very reminiscent of Instagram. On Instagram, you would wait to the time window that your users are most active on the app to maximize your exposure. With ProductHunt, the concept is quite similar. The [general consensus](https://www.quora.com/What-is-the-best-time-to-submit-a-product-on-Product-Hunt) is that the best time to launch is at **00:01 PST**. As for the given day, it varies depending on who you ask (they'll say either Sunday or Tuesday). I used to launch on Tuesdays since it was believed it was the best day to launch, but for this launch, I decided to launch on Monday morning and it worked out well.
+
+There is no right or wrong answer as to what day of the week is best. Some products launched on Wednesday/Thursday, supposedly the worst days of the week, went on to be featured as the top product for that week.
+
+As an additional note on timing, you don't have to launch at midnight exactly. It might pay off to wait and see what other products are being launched on that day. For example, your launch may be overshadowed by a GoogleX project or [Tesla's new tequila](https://www.producthunt.com/posts/tesla-tequila). As mean as it sounds, if the products you see being launched aren't too well received, you probably have a chance at standing out from the rest of the launches.
+
+### 4. Follow up on user comments
+
+Once you have launched, respond to all comments you get. This is a really good indication to others that you are responsive to user inquiries and overall the polite thing to do.
+
+### 5. Don't stop trying
+
+Even though you may have followed all of the tips listed above, polished your launch descriptions and images, created the perfect product, and already have a significant user base, your launch could still flop. This has happened to numerous startup and product posts in the past. One maker even wrote an article [detailing when it happened to them](https://www.indiehackers.com/@naveen_pacha/1874fb5b01).
+
+It's not the end of the world. Learn from what went wrong this launch, make the necessary adjustments, and post again.
+
 ## Fin
 
+This is my first successful feature on ProductHunt, but I certainly hope it won't be my last. I original got into coding because I enjoy building things that people find beneficial. I hope these tips will come in handy for your next launch on ProductHunt. 🚀
