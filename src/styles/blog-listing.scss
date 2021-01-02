@@ -1,3 +1,5 @@
+@import 'cirrus-ui/src/core/spacing.scss';
+
 /* Tag Filter */
 
 .tag {
@@ -11,9 +13,8 @@
 /* Blog Posts */
 
 .blog-post-preview {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  margin-bottom: 2rem;
+  @extend .py-4;
+  @extend .mb-4;
 }
 
 h1 > * {

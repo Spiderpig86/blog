@@ -32,11 +32,6 @@ export default function Template({
 
   return (
     <Layout>
-      {/* <div
-        className="blog-post-container"
-        id="post-container"
-        style={{ display: 'flex' }}
-      > */}
         <Meta
           title={title}
           description={post.frontmatter.description || post.excerpt}
@@ -58,11 +53,7 @@ export default function Template({
         <div style={{ paddingRight: '2rem', maxWidth: '100%', minWidth: 0 }}>
           <Helmet title={`slim - ${post.frontmatter.title}`} />
           <div className="blog-post">
-            <h1
-              style={{
-                fontSize: '3rem',
-              }}
-            >
+            <h1>
               {post.frontmatter.title}
             </h1>
 
@@ -144,7 +135,6 @@ export default function Template({
             )
           }
         </Media>
-      {/* </div> */}
     </Layout>
   )
 }

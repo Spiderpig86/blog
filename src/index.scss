@@ -1,5 +1,8 @@
-@import './styles/cirrus.header.css';
-@import './styles/cirrus.links.css';
+@import 'cirrus-ui/src/core/header.scss';
+@import 'cirrus-ui/src/core/font.scss';
+@import 'cirrus-ui/src/core/spacing.scss';
+@import 'cirrus-ui/src/ext/pagination.scss';
+
 @import './layouts/index.scss';
 @import './styles/blog-listing.scss';
 @import './styles/gradient.scss';
