@@ -105,7 +105,7 @@ class Prologue extends Component {
     let keys = Object.keys(tagOccurs)
     keys.sort((a, b) => tagOccurs[b] - tagOccurs[a])
 
-    return ['All', ...keys.slice(0, 4)]
+    return ['All', ...keys.slice(0, 3)]
   }
 
   filterPosts(tag) {

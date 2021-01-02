@@ -19,7 +19,7 @@ const Tags = props => {
 
       <div>
         <h1>{`Available posts in '${tag}'`}</h1>
-        <h3><Link to={ `/tags` }>Go back to all tags.</Link></h3>
+        <h4><Link to={ `/tags` }>Go back to all tags.</Link></h4>
         <div className="tags">
           {posts.map(({ node }, i) => (
             <TagPreview post={ node } key={ i } />

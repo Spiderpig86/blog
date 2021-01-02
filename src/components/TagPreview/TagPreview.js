@@ -4,10 +4,10 @@
 
 import React from 'react'
 import Link from 'gatsby-link'
-import styles from './TagPreview.module.scss'
+import 'cirrus-ui/src/core/spacing.scss';
 
 const TagPreview = ({ post }) => (
-  <div>
+  <div className="py-2">
     <Link to={ post.frontmatter.path }><h1>{post.frontmatter.title}</h1></Link>
     <h2
       style={{
