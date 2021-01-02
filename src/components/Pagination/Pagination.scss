@@ -1,0 +1,16 @@
+@import 'cirrus-ui/src/ext/modifiers.scss';
+
+.pagination .pagination-item {
+  &.disabled a {
+    color: var(--text-subtitle);
+  }
+
+  a {
+    color: var(--text-normal);
+  }
+}
+
+.pagination
+  .pagination-item.short:not([disabled]):not(.disabled):not(.selected):hover {
+  background-color: var(--pagination-hover);
+}

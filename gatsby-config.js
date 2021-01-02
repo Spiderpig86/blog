@@ -6,12 +6,17 @@ module.exports = {
     description: config.description,
     keyword: config.keyword,
     url: config.url,
-    siteUrl: config.url
+    siteUrl: config.url,
   },
   plugins: [
     `gatsby-plugin-react-helmet`, // To modify head tags
     `gatsby-plugin-catch-links`, // Intercepts links from markdown to avoid refreshes
-    `gatsby-plugin-sass`,
+    {
+      resolve: `gatsby-plugin-sass`,
+      options: {
+        includePaths: ['node_modules'],
+      },
+    },
     `gatsby-plugin-twitter`,
     `gatsby-plugin-dark-mode`,
     {
@@ -50,13 +55,13 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: 'slim',
-        short_name: "slim",
-        start_url: "/",
-        background_color: "#6b37bf",
-        theme_color: "#6b37bf",
+        short_name: 'slim',
+        start_url: '/',
+        background_color: '#6b37bf',
+        theme_color: '#6b37bf',
         // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
         // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
-        display: "standalone",
+        display: 'standalone',
         // icon: "src/images/icon.png", // This path is relative to the root of the site.
         // An optional attribute which provides support for CORS check.
         // If you do not provide a crossOrigin option, it will skip CORS for manifest.

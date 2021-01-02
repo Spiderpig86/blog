@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "bluebird": "^3.5.4",
+    "cirrus-ui": "^0.6.0",
     "classnames": "^2.2.6",
     "codecov": "^3.5.0",
     "color-hash": "^1.0.3",

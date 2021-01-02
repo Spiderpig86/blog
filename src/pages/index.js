@@ -7,7 +7,10 @@ import Helmet from 'react-helmet'
 import Layout from '../layouts/index'
 import Prologue from '../components/prologue'
 import siteConfig from '../../config'
+import Pagination from '../components/Pagination/Pagination'
 
+import 'cirrus-ui/src/core/spacing.scss'
+import 'cirrus-ui/src/core/utils/misc.scss'
 import { styles } from '../styles/component-styles/sidebar-styles'
 
 export default class Index extends Component {
@@ -32,7 +35,21 @@ export default class Index extends Component {
   }
 
   updateSelectedTag(tag) {
-    this.setState({ curTag: tag })
+    // Reset current page as well
+    this.setState({ currentPage: 0, curTag: tag })
+  }
+
+  updateSelectedPage(page) {
+    this.setState({
+      currentPage: page,
+    })
+  }
+
+  componentDidMount() {
+    const totalCount = this.props.data.allMarkdownRemark.edges.length
+    this.setState({
+      numPages: Math.ceil(totalCount / siteConfig.postsPerPage),
+    })
   }
 
   render() {
@@ -42,80 +59,90 @@ export default class Index extends Component {
     let filteredPosts = []
 
     if (posts) {
-      filteredPosts = posts
-        .filter(
-          (post) => post.node.frontmatter.title.length > 0 && this.hasTag(post)
-        )
-        .slice(
-          this.state.currentPage * siteConfig.postsPerPage,
-          (this.state.currentPage + 1) * siteConfig.postsPerPage
-        )
+      filteredPosts = posts.filter(
+        (post) => post.node.frontmatter.title.length > 0 && this.hasTag(post)
+      )
     }
+
+    const numPages = Math.ceil(filteredPosts.length / siteConfig.postsPerPage)
 
     return (
       <Layout>
         <Helmet title={'💎 slim.'} />
         <div className="blog-posts">
           <Prologue
-            blogPosts={filteredPosts}
+            blogPosts={posts}
             updateSelectedTag={this.updateSelectedTag.bind(this)}
           />
-          {filteredPosts.map(({ node: post }) => {
-            // Generate an list entry for each post
-            return (
-              <div className="blog-post-preview" key={post.id}>
-                <Link to={post.frontmatter.path}>
-                  <h1>{post.frontmatter.title}</h1>
-                </Link>
-                <h2
-                  style={{
-                    color: 'var(--text-normal)',
-                    fontFamily: 'Montserrat',
-                    fontSize: '0.9rem',
-                  }}
-                >
-                  {post.frontmatter.date}
-                </h2>
-                <h2
-                  className="bold"
-                  style={{
-                    borderLeft: '2px solid var(--text-normal)',
-                    color: 'var(--text-normal)',
-                    fontSize: '0.9rem',
-                    fontWeight: 700,
-                    marginTop: '0rem',
-                    paddingLeft: '0.5rem',
-                  }}
-                >
-                  {post.timeToRead}{' '}
-                  {post.timeToRead === 1 ? 'minute' : 'minutes'}
-                </h2>
-                <p>{post.excerpt}</p>
-
-                {post.frontmatter.tags.map((tag, i) => {
-                  const colorHash = new ColorHash({ lightness: 0.5 })
-                  const color = colorHash.hex(tag)
-
-                  return (
-                    <Link
-                      to={`/tag/${tag}`}
-                      style={{
-                        ...styles.tagStyle,
-                        backgroundColor: color,
-                        color: '#fff',
-                      }}
-                      key={i}
-                    >
-                      {tag}
-                    </Link>
-                  )
-                })}
-              </div>
+          {filteredPosts
+            .slice(
+              this.state.currentPage * siteConfig.postsPerPage,
+              Math.min(
+                (this.state.currentPage + 1) * siteConfig.postsPerPage,
+                posts.length
+              )
             )
-          })}
-        </div>
+            .map(({ node: post }) => {
+              // Generate an list entry for each post
+              return (
+                <div className="blog-post-preview" key={post.id}>
+                  <Link to={post.frontmatter.path}>
+                    <h1>{post.frontmatter.title}</h1>
+                  </Link>
+                  <h2
+                    style={{
+                      color: 'var(--text-normal)',
+                      fontFamily: 'Montserrat',
+                      fontSize: '0.9rem',
+                    }}
+                  >
+                    {post.frontmatter.date}
+                  </h2>
+                  <h2
+                    className="bold"
+                    style={{
+                      borderLeft: '2px solid var(--text-normal)',
+                      color: 'var(--text-normal)',
+                      fontSize: '0.9rem',
+                      fontWeight: 700,
+                      marginTop: '0rem',
+                      paddingLeft: '0.5rem',
+                    }}
+                  >
+                    {post.timeToRead}{' '}
+                    {post.timeToRead === 1 ? 'minute' : 'minutes'}
+                  </h2>
+                  <p>{post.excerpt}</p>
 
-        {/* TODO: PAGINATION */}
+                  {post.frontmatter.tags.map((tag, i) => {
+                    const colorHash = new ColorHash({ lightness: 0.5 })
+                    const color = colorHash.hex(tag)
+
+                    return (
+                      <Link
+                        to={`/tag/${tag}`}
+                        style={{
+                          ...styles.tagStyle,
+                          backgroundColor: color,
+                          color: '#fff',
+                        }}
+                        key={i}
+                      >
+                        {tag}
+                      </Link>
+                    )
+                  })}
+                </div>
+              )
+            })}
+          <div className="u-center mb-16">
+            <Pagination
+              currentPage={this.state.currentPage}
+              numPages={numPages}
+              updateSelectedPage={this.updateSelectedPage.bind(this)}
+            />
+          </div>
+        </div>
       </Layout>
     )
   }

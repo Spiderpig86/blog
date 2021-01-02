@@ -1,3 +1,4 @@
+import { Link } from 'gatsby'
 import React, { Component } from 'react'
 import FontAwesome from 'react-fontawesome'
 
@@ -5,14 +6,14 @@ import { styles } from '../styles/component-styles/proglogue-styles'
 
 class Prologue extends Component {
   constructor(props) {
-        super(props);
-        this.state = {
-            curTagFilter: 'All',
-        }
+    super(props)
+    this.state = {
+      curTagFilter: 'All',
     }
-    
-    render() {
-        return (
+  }
+
+  render() {
+    return (
       <div className="prologue-component" style={styles.prologueComponent}>
         <h1>Blog</h1>
         <p>Writing about whatever comes to mind.</p>
@@ -60,21 +61,24 @@ class Prologue extends Component {
         </div>
 
         <div style={styles.prologueTagContainer}>
-          {this.props.blogPosts && this.getTopTags().map((tag, i) => {
-            return (
-              <span
-                className={
-                  this.state.curTagFilter === tag ? 'tag selected' : 'tag'
-                }
-                onClick={() => this.filterPosts(tag)}
-                style={styles.prologueTagItem}
-                key={i}
-              >
-                {tag}
-              </span>
-            )
-          })}
-          <span>More...</span>
+          {this.props.blogPosts &&
+            this.getTopTags().map((tag, i) => {
+              return (
+                <span
+                  className={
+                    this.state.curTagFilter === tag ? 'tag selected' : 'tag'
+                  }
+                  onClick={() => this.filterPosts(tag)}
+                  style={styles.prologueTagItem}
+                  key={i}
+                >
+                  {tag}
+                </span>
+              )
+            })}
+          <span className="tag" style={styles.prologueTagItem}>
+            <Link to="/tags">More...</Link>
+          </span>
         </div>
       </div>
     )

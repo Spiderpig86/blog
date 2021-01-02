@@ -18,6 +18,8 @@ body {
   --scrollbar-corner-bg: #b7b7b7;
   --scrollbar-thumb-bg: #dddddd;
 
+  --pagination-hover: rgba(255, 255, 255, 0.07);
+
   background-color: var(--bg);
 }
 
@@ -42,6 +44,8 @@ body.dark {
   --scrollbar-color: #c5c1b9;
   --scrollbar-corner-bg: #181a1b;
   --scrollbar-thumb-bg: #2a2c2e;
+
+  --pagination-hover: rgba(0, 0, 0, 0.07);
 }
 
 ::-webkit-scrollbar {
