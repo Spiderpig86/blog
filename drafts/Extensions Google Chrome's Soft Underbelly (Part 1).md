@@ -9,11 +9,11 @@ Throughout the years, there is more and more evidence that malicious Chrome exte
 Attackers employ a range of strategies to lure unsuspecting users into their trap. The most basic types of attacks on the Chrome store are extensions that pose as other legitimate extensions out there such as [Snapchat for Chrome](https://chrome.google.com/webstore/detail/snapchat-for-chrome/dhcjddnandoaonmnidbdnbbkmlmmnell?hl=en-US). Higher level attacks include injecting advertisements into a page, redirecting users to phishing sites, tracking user browsing behavior, stealing user credentials from sites, mining Bitcoin, and more. Despite Chrome's more rigid [Content Security Policy](https://developers.google.com/web/fundamentals/security/csp) enforced a couple of years ago, these malicious attacks can very well still occur if a loophole is found.
 
 ![Fake Facetime Extension](https://raw.githubusercontent.com/Spiderpig86/blog/master/images/Extensions%20Google%20Chromes%20Soft%20Underbelly%20Part%201/facetime.PNG)
-*This extension is a grim reminder that we live in a world where people think Facetime is available on Chrome.*
+*This extension is a grim reminder that we live in a world where over 10,000 people think Facetime is available on Chrome.*
 
 Today, attackers have gotten more crafty with their attacks. Popular extensions with a large and trusting community are now sometimes sold to those who have harmful intentions. Attackers can modify the source to include malicious code. Thanks to [Chrome's Autoupdate](https://support.google.com/chrome/a/thread/3050651?hl=en) feature for extensions, the now harmful extension can reach most Chrome users in days. A notable example of this is [NanoAdblocker](https://github.com/NanoAdblocker/NanoCore/issues/362#issuecomment-709428210).
 
-Most of the articles written for regarding the latest batch of banned extensions have been quite shallow, so I hope this series of blog posts will help shed some light on what these extensions are doing with your browsing data.
+Most of the articles written regarding the latest batch of banned extensions have been quite shallow, so I hope this series of blog posts will help shed some light on what these extensions are doing with your browsing data.
 
 ## First Look: Vimeo Video Downloader
 
@@ -33,7 +33,7 @@ To install, you will have to enable **developer mode** in `chrome://extensions` 
 
 Given that the extension was flagged, I was curious to see the code that got this flagged in the first place. One tool that is great for viewing the source of Chrome extensions without having to download it is [CrxViewer](https://robwu.nl/crxviewer/). If you already have the source, any editor like VSCode would work just as well, if not better.
 
-> *Wait, where's the link to the code?* In order to remove any liability of me "distributing" code that can be used for bad intentions, I will not be providing the full source. You, the reader, have full liberty to seek it for yourself. 😎
+> *Wait, where's the link to the code?* To remove any liability of me "distributing" code that can be used for bad intentions, I will not be providing the full source. You, the reader, have full liberty to seek it for yourself. 😎
 
 Running `tree` yields the following directory structure:
 
@@ -258,9 +258,9 @@ String.prototype.strvstrevsstr = function() {
 }
 ```
 
-Obivously someone doesn't want people like me to be snooping around their extension. Without actually using this extension, we won’t know what this is used for other than how it is called in some parts of the code.
+Obviously, someone doesn't want people like me to be snooping around their extension. Without actually using this extension, we won’t know what this is used for other than how it is called in some parts of the code.
 
-`strvstrevsstr` gets invoked if we can find a string that is greater than 10 chars in length in the string stored in local storage with the key `cache-control` (for some reason now it filters for 10 chars rather than 20 as stated earlier). The `cache-control` header [typically holds these values](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control), but nothing stops a bad actor from inserting additional information into the field, like an encoded string. Without running the extension, it isn’t too clear what is going on with this function. What we can tell from reading this code is that once `e` is decoded in some form with `strvstrevsstr` and parsed as a JSON object, its object entries are written to window. `A` gets set to true to possibly indicate that this step has completed.
+`strvstrevsstr` gets invoked if we can find a string that is greater than 10 chars in length in the string stored in local storage with the key `cache-control` (for some reason now it filters for 10 chars rather than 20 as stated earlier). The `cache-control` header [typically holds these values](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control), but nothing stops a bad actor from inserting additional information into the field, like an encoded string. Without running the extension, it isn’t too clear what is going on with this function. What we can tell from reading this code is that once `e` is decoded in some form with `strvstrevsstr` and parsed as a JSON object, its object entries are written to window. `A` gets set to true to possibly indicate that this step has been completed.
 
 ```js
 getMediaPath: function() {
@@ -323,8 +323,8 @@ The function `e` is triggered as an event listener for when chrome tabs are upda
 
 ```js
 chrome.tabs.onRemoved.addListener(function(a, b) {
-			var c = w.indexOf(a);
-			c > -1 && w.splice(c, 1)
+            var c = w.indexOf(a);
+            c > -1 && w.splice(c, 1)
         }), chrome.tabs.onUpdated.addListener(e), chrome.browserAction.onClicked.addListener(D.openVimeoByClickListener), "config" == localStorage.userSettings && D.addStringParser()
 ```
 
@@ -332,7 +332,7 @@ According to [Chrome's documentation](https://developer.chrome.com/docs/extensio
 
 ![onUpdate Events](https://raw.githubusercontent.com/Spiderpig86/blog/master/images/Extensions%20Google%20Chromes%20Soft%20Underbelly%20Part%201/onUpdate.PNG)
 
-If these findings tell us anything, it's that the extension is trying to execute some code whenever the tab gets updated. Once executed, it deletes itself in order to hide from the user.
+If these findings tell us anything, it's that the extension is trying to execute some code whenever the tab gets updated. Once executed, it deletes itself to hide from the user.
 
 ##### This Extension Has Friends
 
