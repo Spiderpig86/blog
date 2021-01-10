@@ -60,7 +60,7 @@ class Prologue extends Component {
           </a>
         </div>
 
-        <div style={styles.prologueTagContainer}>
+        <div className="prologue-tag-container" style={styles.prologueTagContainer}>
           {this.props.blogPosts &&
             this.getTopTags().map((tag, i) => {
               return (

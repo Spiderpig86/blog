@@ -44,7 +44,9 @@ h2.subtitle {
   margin-top: 1rem;
 }
 
-.blog-post p, .blog-posts p, .tag {
+.blog-post p,
+.blog-posts p,
+.tag {
   font-size: 1.15rem;
   line-height: 2.15rem;
 }
@@ -113,6 +115,10 @@ code.language-text {
   color: #fff;
 }
 
+.prologue-tag-container {
+  display: flex;
+}
+
 @media only screen and (max-width: 768px) {
   .blog-post p,
   div {
@@ -123,5 +129,10 @@ code.language-text {
   /* Override Cirrus default setting which hides header */
   .header .header-nav {
     height: inherit;
+  }
+
+  .prologue-tag-container {
+    display: inherit;
+    overflow: auto;
   }
 }

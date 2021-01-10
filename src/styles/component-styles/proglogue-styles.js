@@ -7,7 +7,6 @@
  }
 
  const prologueTagContainer = {
-    display: 'flex',
     justifyContent: 'flex-end',
     marginTop: '3rem',
  }
