@@ -119,4 +119,9 @@ code.language-text {
     font-size: 1rem;
     line-height: 2rem;
   }
+
+  /* Override Cirrus default setting which hides header */
+  .header .header-nav {
+    height: inherit;
+  }
 }
