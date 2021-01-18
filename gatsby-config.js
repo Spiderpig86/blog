@@ -36,7 +36,7 @@ module.exports = {
         // If you do not provide a crossOrigin option, it will skip CORS for manifest.
         // Any invalid keyword or empty string defaults to `anonymous`
         crossOrigin: `use-credentials`,
-        icon: `src/images/logo.png`
+        icon: `static/images/logo.png`
       },
     },
     `gatsby-plugin-offline`,

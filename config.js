@@ -7,7 +7,7 @@ module.exports = {
     'slim, stanley lim, blog, gatsby, spiderpig86, software engineer, swe, cs, stony brook',
   copyright: '© All rights reserved.',
   pathPrefix: ``,
-  image: 'src/images/logo.png',
+  image: 'images/preview.png',
   author: {
     name: 'Stanley Lim',
     photo: '',

@@ -18,7 +18,7 @@ const Tags = props => {
           description={siteMetadata.description + ' Display all tags on blog'}
           pathname={''}
           keywords={siteMetadata.keywords}
-          thumbnail={siteMetadata.image}
+          thumbnail={siteMetadata.url + siteMetadata.image}
           url={siteMetadata.url}
         />
 

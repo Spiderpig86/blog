@@ -38,7 +38,7 @@ export default function Template({
           description={post.frontmatter.description || post.excerpt}
           pathname={location.pathname}
           keywords={post.frontmatter.tags.join(',') + ', ' + siteMetadata.keywords}
-          thumbnail={thumbnail && url + thumbnail}
+          thumbnail={thumbnail ? url + thumbnail : siteMetadata.url + siteMetadata.image}
           url={url}
         />
 

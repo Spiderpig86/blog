@@ -69,7 +69,7 @@ export default (props) => {
         description={siteMetadata.description}
         pathname={''}
         keywords={siteMetadata.keywords}
-        thumbnail={siteMetadata.image}
+        thumbnail={siteMetadata.url + siteMetadata.image}
         url={siteMetadata.url}
       />
       <div className="blog-posts">
