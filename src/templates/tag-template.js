@@ -4,17 +4,22 @@ import { Link, graphql } from 'gatsby'
 import Layout from '../layouts'
 import TagPreview from '../components/TagPreview/TagPreview';
 import Meta from '../components/Meta/Meta';
+import useSiteMetadata from '../hooks/use-site-metadata';
 
 const Tags = props => {
   const posts = props.data.allMarkdownRemark.edges
+  const siteMetadata = useSiteMetadata()
   const { tag } = props.pageContext
 
   return (
     <Layout>
-
-      <Meta
-          title={ `slim - All Tags` }
-          description={ `Display all tags on blog` }
+        <Meta
+          title={`💎 slim -- All Tags`}
+          description={siteMetadata.description + ' Display all tags on blog'}
+          pathname={''}
+          keywords={siteMetadata.keywords}
+          thumbnail={siteMetadata.image}
+          url={siteMetadata.url}
         />
 
       <div>

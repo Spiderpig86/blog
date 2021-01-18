@@ -13,6 +13,7 @@ import Layout from '../layouts'
 import More from '../components/More/More'
 import Meta from '../components/Meta/Meta'
 import Share from '../components/Share/Share'
+import { siteMetadata } from '../../gatsby-config'
 
 export default function Template({
   data, // Object will be from GraphQL query
@@ -36,7 +37,7 @@ export default function Template({
           title={title}
           description={post.frontmatter.description || post.excerpt}
           pathname={location.pathname}
-          keywords={post.frontmatter.tags.join(',')}
+          keywords={post.frontmatter.tags.join(',') + ', ' + siteMetadata.keywords}
           thumbnail={thumbnail && url + thumbnail}
           url={url}
         />

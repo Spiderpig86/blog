@@ -4,9 +4,12 @@ module.exports = {
   siteMetadata: {
     title: config.title,
     description: config.description,
-    keyword: config.keyword,
+    keywords: config.keywords,
     url: config.url,
     siteUrl: config.url,
+    copyright: config.copyright,
+    author: config.author,
+    image: config.image,
   },
   plugins: [
     {

@@ -12,7 +12,7 @@ const Meta = props => {
         { name: 'title', content: props.title },
 
         { name: 'description', content: props.description },
-        { name: 'keywords', content: 'stanley, lim, blog, ' + props.keywords },
+        { name: 'keywords', content: props.keywords },
         {
           property: 'og:title',
           content: props.title,
@@ -57,10 +57,10 @@ const Meta = props => {
           name: 'twitter:description',
           content: props.description || '',
         },
-        // {
-        //   name: 'twitter:image',
-        //   content: props.thumbnail && props.thumbnail,
-        // },
+        {
+          name: 'twitter:image',
+          content: props.thumbnail && props.thumbnail,
+        },
         { property: 'og:type', content: 'website' },
         { name: 'robots', content: 'index, follow' },
 
