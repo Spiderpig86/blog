@@ -35,6 +35,7 @@ const useSiteMetadata = () => {
             title
             description
             copyright
+            image
           }
         }
       }
