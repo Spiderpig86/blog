@@ -50,17 +50,6 @@ export default (props) => {
           (post) => post.node.frontmatter.title.length > 0 && hasTag(post)
         )
       )
-      console.log(
-        filteredPosts,
-        curTag,
-        filteredPosts.length,
-        siteConfig.postsPerPage
-      )
-      console.log(
-        posts.filter(
-          (post) => post.node.frontmatter.title.length > 0 && hasTag(post)
-        )
-      )
     }
   }
 
