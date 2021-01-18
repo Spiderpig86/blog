@@ -15,10 +15,10 @@ module.exports = {
     {
       resolve: `gatsby-plugin-gtag`, // note this instead of gatsby-plugin-react-helmet
       options: {
-        trackingId: "G-7L9VLT78VG",
+        trackingId: 'G-7L9VLT78VG',
         head: true, // note this is TRUE and not FALSE as listed in other examples above
-        anonymize: false
-      }
+        anonymize: false,
+      },
     },
     {
       resolve: `gatsby-plugin-manifest`,
@@ -36,7 +36,7 @@ module.exports = {
         // If you do not provide a crossOrigin option, it will skip CORS for manifest.
         // Any invalid keyword or empty string defaults to `anonymous`
         crossOrigin: `use-credentials`,
-        icon: `static/images/logo.png`
+        icon: `static/images/logo.png`,
       },
     },
     `gatsby-plugin-offline`,
@@ -60,6 +60,60 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-remove-trailing-slashes`,
+    {
+      resolve: 'gatsby-plugin-feed',
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                site_url: url
+                title
+                description
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMarkdownRemark } }) =>
+              allMarkdownRemark.edges.map((edge) => ({
+                ...edge.node.frontmatter,
+                description: edge.node.frontmatter.description,
+                date: edge.node.frontmatter.date,
+                url: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                custom_elements: [{ 'content:encoded': edge.node.html }],
+              })),
+            query: `
+              {
+                allMarkdownRemark(
+                  limit: 1000,
+                  sort: { order: DESC, fields: [frontmatter___date] }
+                ) {
+                  edges {
+                    node {
+                      html
+                      fields {
+                        slug
+                      }
+                      frontmatter {
+                        title
+                        date
+                        description
+                        tags
+                      }
+                    }
+                  }
+                }
+              }
+            `,
+            output: '/rss.xml',
+            title: config.title,
+          },
+        ],
+      },
+    },
     {
       resolve: `gatsby-transformer-remark`, // Markdown to HTML,
       options: {
