@@ -33,52 +33,36 @@ export default function Template({
 
   return (
     <Layout>
-        <Meta
-          title={title}
-          description={post.frontmatter.description || post.excerpt}
-          pathname={location.pathname}
-          keywords={post.frontmatter.tags.join(',') + ', ' + siteMetadata.keywords}
-          thumbnail={thumbnail ? url + thumbnail : siteMetadata.url + siteMetadata.image}
-          url={url}
-        />
+      <Meta
+        title={title}
+        description={post.frontmatter.description || post.excerpt}
+        pathname={location.pathname}
+        keywords={
+          post.frontmatter.tags.join(',') + ', ' + siteMetadata.keywords
+        }
+        thumbnail={
+          thumbnail ? url + thumbnail : siteMetadata.url + siteMetadata.image
+        }
+        url={url}
+      />
 
-        <ReadingProgress
-          targetEl="#post-container"
-          style={{
-            borderColor: 'transparent',
-            color: '#000',
-            height: '0.25rem',
-            zIndex: '100',
-          }}
-        />
-        <div style={{ paddingRight: '2rem', maxWidth: '100%', minWidth: 0 }}>
-          <Helmet title={`slim - ${post.frontmatter.title}`} />
-          <div className="blog-post">
-            <h1>
-              {post.frontmatter.title}
-            </h1>
+      <ReadingProgress
+        targetEl="#post-container"
+        style={{
+          borderColor: 'transparent',
+          color: '#000',
+          height: '0.25rem',
+          zIndex: '100',
+        }}
+      />
+      <div style={{ paddingRight: '2rem', maxWidth: '100%', minWidth: 0 }}>
+        <Helmet title={`slim - ${post.frontmatter.title}`} />
+        <div className="blog-post">
+          <h1>{post.frontmatter.title}</h1>
 
-            {post.frontmatter.description ? (
-              <h2 className="subtitle">{post.frontmatter.description}</h2>
-            ) : null}
-
-            <hr
-              style={{
-                backgroundColor: 'var(--hr)',
-                marginBottom: '3rem',
-              }}
-            />
-
-            {image && image.childImageSharp ? (
-              <Img fluid={post.frontmatter.image.childImageSharp.fluid} />
-            ) : null}
-
-            <div
-              className="blog-post-content"
-              dangerouslySetInnerHTML={{ __html: post.html }} // Gets the html version of the post
-              id="post-el"
-            />
-          </div>
+          {post.frontmatter.description ? (
+            <h2 className="subtitle">{post.frontmatter.description}</h2>
+          ) : null}
 
           <hr
             style={{
@@ -87,55 +71,91 @@ export default function Template({
             }}
           />
 
-          <Share postTitle={title} postUrl={url} pathName={location.pathname} />
-
-          <More prev={prev && prev.node} next={next && next.node} />
-
-          <hr
-            style={{
-              backgroundColor: 'var(--hr)',
-              marginBottom: '3rem',
-            }}
-          />
+          {image && image.childImageSharp ? (
+            <Img fluid={post.frontmatter.image.childImageSharp.fluid} />
+          ) : null}
 
           <div
-            ref={(elem) => {
-              if (!elem) {
-                return
-              }
-              if (document.querySelector('.utterances')) {
-                document.querySelector('.utterances').remove()
-              }
-              const scriptElem = document.createElement('script')
-              scriptElem.src = 'https://utteranc.es/client.js'
-              scriptElem.async = true
-              scriptElem.crossOrigin = 'anonymous'
-              scriptElem.setAttribute('repo', 'Spiderpig86/blog')
-              scriptElem.setAttribute('issue-term', 'pathname')
-              scriptElem.setAttribute('label', '💬 blog-comment')
-              scriptElem.setAttribute('theme', 'github-light')
-              elem.appendChild(scriptElem)
-            }}
-          ></div>
+            className="blog-post-content"
+            dangerouslySetInnerHTML={{ __html: post.html }} // Gets the html version of the post
+            id="post-el"
+          />
         </div>
 
-        <Media query="(min-width: 848px)">
+        <Media query="(max-width: 848px)">
           {(
             matches // Inline function for checking if rules match above (less than 848px)
           ) =>
             matches ? (
-              <div style={{ minWidth: "300px" }}>
-                <Sidebar
-                  date={post.frontmatter.date}
-                  duration={post.timeToRead}
-                  tags={post.frontmatter.tags}
-                />
-              </div>
+              <Sidebar
+                date={post.frontmatter.date}
+                duration={post.timeToRead}
+                tags={post.frontmatter.tags}
+                sticky={false}
+              />
             ) : (
               <div />
             )
           }
         </Media>
+
+        <hr
+          style={{
+            backgroundColor: 'var(--hr)',
+            marginBottom: '3rem',
+          }}
+        />
+
+        <Share postTitle={title} postUrl={url} pathName={location.pathname} />
+
+        <More prev={prev && prev.node} next={next && next.node} />
+
+        <hr
+          style={{
+            backgroundColor: 'var(--hr)',
+            marginBottom: '3rem',
+          }}
+        />
+
+        <div
+          ref={(elem) => {
+            if (!elem) {
+              return
+            }
+            if (document.querySelector('.utterances')) {
+              document.querySelector('.utterances').remove()
+            }
+            const scriptElem = document.createElement('script')
+            scriptElem.src = 'https://utteranc.es/client.js'
+            scriptElem.async = true
+            scriptElem.crossOrigin = 'anonymous'
+            scriptElem.setAttribute('repo', 'Spiderpig86/blog')
+            scriptElem.setAttribute('issue-term', 'pathname')
+            scriptElem.setAttribute('label', '💬 blog-comment')
+            scriptElem.setAttribute('theme', 'github-light')
+            elem.appendChild(scriptElem)
+          }}
+        ></div>
+      </div>
+
+      <Media query="(min-width: 849px)">
+        {(
+          matches // Inline function for checking if rules match above (less than 848px)
+        ) =>
+          matches ? (
+            <div style={{ minWidth: '300px' }}>
+              <Sidebar
+                date={post.frontmatter.date}
+                duration={post.timeToRead}
+                tags={post.frontmatter.tags}
+                sticky={true}
+              />
+            </div>
+          ) : (
+            <div />
+          )
+        }
+      </Media>
     </Layout>
   )
 }

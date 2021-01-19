@@ -25,7 +25,15 @@ const Layout = ({ children, data }) => {
           matches ? (
             <div style={{ ...styles.indexBody, ...{ paddingTop: '7rem' } }}>
               <div id="post-container" style={styles.indexChildWrapper}>
-                <div style={{ flex: 1, maxWidth: '100%' }}>{children}</div>
+                <div
+                  style={{
+                    flex: 1,
+                    maxWidth: '100%',
+                    flexFlow: 'column-reverse',
+                  }}
+                >
+                  {children}
+                </div>
               </div>
             </div>
           ) : (
