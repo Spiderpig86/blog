@@ -42,6 +42,7 @@ module.exports = {
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`, // To modify head tags
     `gatsby-plugin-catch-links`, // Intercepts links from markdown to avoid refreshes
+    `gatsby-plugin-advanced-sitemap`,
     {
       resolve: `gatsby-plugin-sass`,
       options: {
