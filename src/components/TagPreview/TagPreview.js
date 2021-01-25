@@ -19,7 +19,7 @@ const TagPreview = ({ post }) => (
       {post.frontmatter.date}
     </h2>
     <h2
-      className="bold"
+      className="font-bold"
       style={{
         borderLeft: '2px solid var(--text-normal)',
         color: 'var(--text-normal)',

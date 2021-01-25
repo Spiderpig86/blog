@@ -8,7 +8,7 @@ const Header = ({ siteTitle }) => (
     className="header header-fixed header-clear"
     style={{
       backgroundColor: 'var(--nav-bg)',
-      backdropFilter: 'blur(5px)',
+      backdropFilter: 'saturate(180%) blur(20px)',
       borderBottom: '1px solid var(--border-bottom)',
       boxShadow: '0 0.2rem 1.25rem 0 rgba(27,30,36,.07)',
     }}
@@ -54,7 +54,7 @@ const Header = ({ siteTitle }) => (
                     )}
                   </ThemeToggler>
                   <Link
-                    className="header-brand"
+                    className="header-brand pl-0"
                     to="/"
                     style={{
                       color: 'var(--text-title)',
@@ -63,7 +63,7 @@ const Header = ({ siteTitle }) => (
                       width: 'inherit',
                     }}
                   >
-                    <h4>{siteTitle}</h4>
+                    <h6 className="font-bold">{siteTitle}</h6>
                   </Link>
                 </div>
               </div>

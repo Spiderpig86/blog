@@ -84,7 +84,7 @@ export default (props) => {
             return (
               <div className="blog-post-preview" key={post.id}>
                 <Link to={post.frontmatter.path}>
-                  <h1>{post.frontmatter.title}</h1>
+                  <h2>{post.frontmatter.title}</h2>
                 </Link>
                 <h2
                   style={{
@@ -96,7 +96,7 @@ export default (props) => {
                   {post.frontmatter.date}
                 </h2>
                 <h2
-                  className="bold"
+                  className="font-bold"
                   style={{
                     borderLeft: '2px solid var(--text-normal)',
                     color: 'var(--text-normal)',

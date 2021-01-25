@@ -17,7 +17,7 @@ const Share = ({ title, postTitle, postUrl, pathName }) => {
 
   return (
     <div className={ styles['share'] }>
-      <h4 className={ styles['share__title'] }>{title || 'Sharing is caring'}</h4>
+      <h6 className={ styles['share__title'] }>{title || 'Sharing is caring'}</h6>
       <div className={ styles['share__container'] }>
         <ShareButton network="facebook" url={ fbUrl } />
         <ShareButton network="twitter" url={ twitterUrl } />
@@ -41,8 +41,3 @@ const ShareButton = ({ network, url }) => (
 )
 
 export default Share
-
-const capitalize = s => {
-  if (typeof s !== 'string') return ''
-  return s.charAt(0).toUpperCase() + s.slice(1)
-}

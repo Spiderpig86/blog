@@ -6,7 +6,7 @@ import styles from './More.module.scss'
 
 const More = ({ prev, next }) => (
     <div className={ styles['more'] }>
-        <h4 className={ styles['more__title'] }>Suggested Posts</h4>
+        <h6 className={ styles['more__title'] }>Suggested Posts</h6>
         <div className={ styles['more__links'] }>
             <MoreLink post={prev} />
             <MoreLink post={next} />

@@ -3,7 +3,6 @@ import Helmet from 'react-helmet'
 import Media from 'react-media' // Listens for matches to CSS media query and renders components
 
 import Header from '../components/header'
-import Meta from '../components/Meta/Meta'
 
 import { styles } from '../styles/component-styles/index-styles'
 

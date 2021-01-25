@@ -34,7 +34,7 @@ export default function Template({
   return (
     <Layout>
       <Meta
-        title={title}
+        title={`slim - ${title}`}
         description={post.frontmatter.description || post.excerpt}
         pathname={location.pathname}
         keywords={
@@ -56,12 +56,11 @@ export default function Template({
         }}
       />
       <div style={{ paddingRight: '2rem', maxWidth: '100%', minWidth: 0 }}>
-        <Helmet title={`slim - ${post.frontmatter.title}`} />
         <div className="blog-post">
           <h1>{post.frontmatter.title}</h1>
 
           {post.frontmatter.description ? (
-            <h2 className="subtitle">{post.frontmatter.description}</h2>
+            <h4 className="subtitle font-alt font-normal">{post.frontmatter.description}</h4>
           ) : null}
 
           <hr
