@@ -1,5 +1,5 @@
 module.exports = {
-  url: 'https://slim.netlify.app/',
+  url: 'https://blog.stanleylim.me/',
   title: '💎 slim -- A blog by Stanley Lim',
   description:
     'A personal blog of mine (Stanley Lim) talking about tech, life, and whatever I found interesting.',
