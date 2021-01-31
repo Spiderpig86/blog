@@ -2,7 +2,6 @@
  * Template for a blog post
  */
 import React from 'react'
-import Helmet from 'react-helmet'
 import Media from 'react-media'
 import ReadingProgress from 'react-reading-progress'
 import Img from 'gatsby-image'
@@ -34,7 +33,7 @@ export default function Template({
   return (
     <Layout>
       <Meta
-        title={`slim - ${title}`}
+        title={`${title} - slim`}
         description={post.frontmatter.description || post.excerpt}
         pathname={location.pathname}
         keywords={
