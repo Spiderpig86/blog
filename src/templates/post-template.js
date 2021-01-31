@@ -21,17 +21,40 @@ export default function Template({
   const post = data.markdownRemark
   const { prev, next } = pageContext
 
-  // IMPORTANT: Forces Gatsby to rerender on all layouts. Gatsby preloads layout for 0 or undefined width and messes up page load from external links.
-  // https://stackoverflow.com/questions/58608523/gatsby-react-conditional-rendering-based-on-window-innerwidth-misbehaving/59534680#59534680
-  if (typeof window === `undefined`) {
-    return <></>
-  }
-
   // Metadata
   const url = data.site.siteMetadata.siteUrl
   const thumbnail =
     post.frontmatter.image && post.frontmatter.image.childImageSharp.resize.src
   const { title, image } = post.frontmatter
+
+  // IMPORTANT: Forces Gatsby to rerender on all layouts. Gatsby preloads layout for 0 or undefined width and messes up page load from external links.
+  // Adding in some metadata and text for crawlers to process this better (Google, Facebook, etc)
+  // https://stackoverflow.com/questions/58608523/gatsby-react-conditional-rendering-based-on-window-innerwidth-misbehaving/59534680#59534680
+  if (typeof window === `undefined`) {
+    return (
+      <>
+        <Meta
+          title={`${title} - slim`}
+          description={post.frontmatter.description || post.excerpt}
+          pathname={location.pathname}
+          keywords={
+            post.frontmatter.tags.join(',') + ', ' + siteMetadata.keywords
+          }
+          thumbnail={
+            thumbnail ? url + thumbnail : siteMetadata.url + siteMetadata.image
+          }
+          url={url}
+        />
+
+        <h1>{post.frontmatter.title}</h1>
+        <div
+          className="blog-post-content"
+          dangerouslySetInnerHTML={{ __html: post.html }} // Gets the html version of the post
+          id="post-el"
+        />
+      </>
+    )
+  }
 
   // Avoid having utterances plugin render a duplicate component, conditional rendering does not work
   return (
