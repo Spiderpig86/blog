@@ -21,6 +21,8 @@ export default function Template({
   const post = data.markdownRemark
   const { prev, next } = pageContext
 
+  // IMPORTANT: Forces Gatsby to rerender on all layouts. Gatsby preloads layout for 0 or undefined width and messes up page load from external links.
+  // https://stackoverflow.com/questions/58608523/gatsby-react-conditional-rendering-based-on-window-innerwidth-misbehaving/59534680#59534680
   if (typeof window === `undefined`) {
     return <></>
   }
