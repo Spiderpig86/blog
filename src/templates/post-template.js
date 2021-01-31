@@ -21,6 +21,10 @@ export default function Template({
   const post = data.markdownRemark
   const { prev, next } = pageContext
 
+  if (typeof window === `undefined`) {
+    return <></>
+  }
+
   // Metadata
   const url = data.site.siteMetadata.siteUrl
   const thumbnail =
@@ -28,7 +32,6 @@ export default function Template({
   const { title, image } = post.frontmatter
 
   // Avoid having utterances plugin render a duplicate component, conditional rendering does not work
-
   return (
     <Layout>
       <Meta
@@ -57,11 +60,11 @@ export default function Template({
         <div className="blog-post">
           <h1>{post.frontmatter.title}</h1>
 
-          {post.frontmatter.description ? (
+          {post.frontmatter.description && (
             <h4 className="subtitle font-alt font-normal">
               {post.frontmatter.description}
             </h4>
-          ) : null}
+          )}
 
           <hr
             style={{
@@ -70,9 +73,9 @@ export default function Template({
             }}
           />
 
-          {image && image.childImageSharp ? (
+          {image && image.childImageSharp && (
             <Img fluid={post.frontmatter.image.childImageSharp.fluid} />
-          ) : null}
+          )}
 
           <div
             className="blog-post-content"

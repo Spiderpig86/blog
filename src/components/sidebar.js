@@ -101,7 +101,7 @@ const Sidebar = (props) => (
     <span>
       Or follow this RSS feed
       <a className="ml-1" href="/rss.xml" target="_blank">
-        <i class="fa fa-rss"></i>
+        <i className="fa fa-rss"></i>
       </a>
     </span>
   </div>
