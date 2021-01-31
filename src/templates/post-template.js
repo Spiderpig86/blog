@@ -32,7 +32,7 @@ export default function Template({
   // https://stackoverflow.com/questions/58608523/gatsby-react-conditional-rendering-based-on-window-innerwidth-misbehaving/59534680#59534680
   if (typeof window === `undefined`) {
     return (
-      <Layout>
+      <>
         <Meta
           title={`${title} - slim`}
           description={post.frontmatter.description || post.excerpt}
@@ -47,16 +47,12 @@ export default function Template({
         />
 
         <h1>{post.frontmatter.title}</h1>
-
-        <div style={{ paddingRight: '2rem', maxWidth: '100%', minWidth: 0 }}>
-          <div className="blog-post"></div>
-          <div
-            className="blog-post-content"
-            dangerouslySetInnerHTML={{ __html: post.html }} // Gets the html version of the post
-            id="post-el"
-          />
-        </div>
-      </Layout>
+        <div
+          className="blog-post-content"
+          dangerouslySetInnerHTML={{ __html: post.html }} // Gets the html version of the post
+          id="post-el"
+        />
+      </>
     )
   }
 
