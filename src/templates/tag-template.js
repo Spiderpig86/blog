@@ -14,7 +14,7 @@ const Tags = props => {
   return (
     <Layout>
         <Meta
-          title={`💎 slim -- All Tags`}
+          title={`Tags ${tag} - slim`}
           description={siteMetadata.description + ' Display all tags on blog'}
           pathname={''}
           keywords={siteMetadata.keywords}
