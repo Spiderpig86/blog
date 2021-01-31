@@ -2,7 +2,6 @@
  * Template for a blog post
  */
 import React from 'react'
-import Media from 'react-media'
 import ReadingProgress from 'react-reading-progress'
 import Img from 'gatsby-image'
 import { graphql } from 'gatsby'
@@ -59,7 +58,9 @@ export default function Template({
           <h1>{post.frontmatter.title}</h1>
 
           {post.frontmatter.description ? (
-            <h4 className="subtitle font-alt font-normal">{post.frontmatter.description}</h4>
+            <h4 className="subtitle font-alt font-normal">
+              {post.frontmatter.description}
+            </h4>
           ) : null}
 
           <hr
@@ -80,22 +81,14 @@ export default function Template({
           />
         </div>
 
-        <Media query="(max-width: 848px)">
-          {(
-            matches // Inline function for checking if rules match above (less than 848px)
-          ) =>
-            matches ? (
-              <Sidebar
-                date={post.frontmatter.date}
-                duration={post.timeToRead}
-                tags={post.frontmatter.tags}
-                sticky={false}
-              />
-            ) : (
-              <div />
-            )
-          }
-        </Media>
+        <div id="sidebarBottom">
+          <Sidebar
+            date={post.frontmatter.date}
+            duration={post.timeToRead}
+            tags={post.frontmatter.tags}
+            sticky={false}
+          />
+        </div>
 
         <hr
           style={{
@@ -136,24 +129,14 @@ export default function Template({
         ></div>
       </div>
 
-      <Media query="(min-width: 849px)">
-        {(
-          matches // Inline function for checking if rules match above (less than 848px)
-        ) =>
-          matches ? (
-            <div style={{ minWidth: '300px' }}>
-              <Sidebar
-                date={post.frontmatter.date}
-                duration={post.timeToRead}
-                tags={post.frontmatter.tags}
-                sticky={true}
-              />
-            </div>
-          ) : (
-            <div />
-          )
-        }
-      </Media>
+      <div id="sidebar" style={{ minWidth: '300px' }}>
+        <Sidebar
+          date={post.frontmatter.date}
+          duration={post.timeToRead}
+          tags={post.frontmatter.tags}
+          sticky={true}
+        />
+      </div>
     </Layout>
   )
 }
