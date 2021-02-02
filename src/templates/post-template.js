@@ -86,7 +86,9 @@ export default function Template({
           <h1>{post.frontmatter.title}</h1>
 
           {post.frontmatter.description && (
-            <h4 className="subtitle font-alt font-normal">
+            <h4 className="subtitle font-alt font-normal" style={{
+              color: 'var(--text-subtitle)'
+            }}>
               {post.frontmatter.description}
             </h4>
           )}
