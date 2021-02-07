@@ -139,7 +139,7 @@ For the `strvstrevsstr` function, I'm not too sure if it is worth going too much
 "NTM2MTEzeChZb1koQTBfFX5pWRY4FFNLexxTNhogb0dlOlFFHHxoLQ1uVFlYBDJ7CHIKZ1pdWlR-eV4xVTNkIUJBMCM6K1UqFUpEEX13bVt6WRFfVjxwSD8KbjUuGx03NSFhGmBhZiExVEUUQFFbOXBUZV13LC1X".strvstrevsstr() // => {"ee":"eval","jj":"$","gg":"get","uu":"https:\/\/s3.amazonaws.com\/g-js\/6afj7be259a48.js?r=12345","cache_c":"1"}
 ```
 
-"`JSON
+```JSON
 {
    "ee":"eval",
    "jj":"$",
@@ -192,7 +192,7 @@ setMediaPath: function() {
 
 So what is going on here? In `getMediaPath`, the code is taking advantage of what you can do with JavaScript, which is to store a string representation of tokens (or code) and then execute them. For example:
 
-"`js
+```js
 let test = {
     "c": "console",
     "l": "log"
