@@ -1,4 +1,11 @@
-# Extensions: Google Chrome's Soft Underbelly (Part 2)
+---
+path: "/extensions-google-chrome's-soft-underbelly-(part-2)"
+date: "2021-02-07T01:02:46.816Z"
+title: "Extensions: Google Chrome's Soft Underbelly (Part 2)"
+description: "Dynamic code analysis of Vimeo Video Downloader reveals major security risks."
+image: './blank.jpg'
+tags: ['security','chrome','webdev','devops']
+---
 
 In the previous post, I mainly went through the code to understand what was going on on a syntactic level. Now that I've done some actual runs let's see what this code does.
 
