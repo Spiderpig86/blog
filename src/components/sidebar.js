@@ -65,7 +65,7 @@ const Sidebar = (props) => (
     <p>
       <b>Subscribe</b> to receive notifications for any <b>new post</b>!
     </p>
-    <form action="https://stanleylim.us2.list-manage.com/subscribe/post">
+    <form action="https://stanleylim.us2.list-manage.com/subscribe">
       <div className="form-group">
         <input
           type="email"
