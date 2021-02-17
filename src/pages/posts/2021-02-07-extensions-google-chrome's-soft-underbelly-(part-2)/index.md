@@ -210,7 +210,7 @@ Let's take a step back and analyze how the functions I described above fit into 
 
 To start, the line that triggers all of this to happen in the first place is when an event listener is attached to monitor when tabs are updated when the extension is first loaded. `A` is defined as the flag that dictates if we have executed the malicious S3 script yet.
 
-​```js
+```js
 A = !1
 
 // ...
