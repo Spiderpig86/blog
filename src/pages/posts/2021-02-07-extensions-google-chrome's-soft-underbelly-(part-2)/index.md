@@ -157,7 +157,7 @@ Once we have this JSON object, each key-value pair is stored in the `window` obj
 
 ![](https://github.com/Spiderpig86/blog/raw/master/images/Extensions%20Google%20Chromes%20Soft%20Underbelly%20Part%202/ext5.PNG)
 
-​```js
+```js
 // getMediaPath (snippet from above)
 if (c = e.strvstrevsstr(), c = "undefined" != typeof JSON && JSON.parse && JSON.parse(c), c && c.cache_c) {
     for (var f in c) window[f] = c[f];
