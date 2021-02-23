@@ -1,7 +1,7 @@
 ---
 path: "/extensions-google-chrome's-soft-underbelly-(part-1)"
 date: "2021-01-07T01:03:56.715Z"
-title: "Extensions Google Chrome's Soft Underbelly (Part 1)"
+title: "Extensions: Google Chrome's Soft Underbelly (Part 1)"
 description: "Chrome extensions have always been a major selling point for the browser. However, some developed them to snoop on everyday users."
 image: './blank.jpg'
 tags: ['security','chrome','privacy','javascript']
