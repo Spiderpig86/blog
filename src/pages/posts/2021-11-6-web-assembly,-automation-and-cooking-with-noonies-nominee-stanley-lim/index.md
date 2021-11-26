@@ -13,9 +13,8 @@ Hey Hackers! I’m Stanley Lim and I’m a Software Engineer at Snap.
 
 First of all, a huge thank you to the HackerNoon community and staff for nominating me for a 2021 Noonies award! I’ve been nominated in the following categories please do check out these award pages and vote:
 
-HackerNoon Contributor of the Year - Angular: https://noonies.tech/award/2021-hackernoon-contributor-of-the-year-angular
-
-HackerNoon Contributor of the Year - Webdev: https://noonies.tech/award/2021-hackernoon-contributor-of-the-year-webdev
+- HackerNoon Contributor of the Year - Angular: https://noonies.tech/award/2021-hackernoon-contributor-of-the-year-angular
+- HackerNoon Contributor of the Year - Webdev: https://noonies.tech/award/2021-hackernoon-contributor-of-the-year-webdev
 
 As someone in the software development industry, I believe that the most exciting technology of the present is Web Assembly (WASM) because it is a technology with huge implications for the future of the web. WASM is a low-level assembly-like language that allows modern browsers to run wasm web apps at near-native performance. Not to mention, it enables anyone to take programs previously written in C, C++, Rust, etc. to run on the web with interoperability with JavaScript. Although the technology is in its early stages, I’m excited for what’s to come in the following years.
 

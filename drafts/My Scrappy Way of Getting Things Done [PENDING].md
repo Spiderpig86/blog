@@ -1,6 +1,6 @@
 # My Scrappy Way of Getting Things Done
 
-Every year there seems to be a slew of new productivity apps that aim to one-up the next in making you more productive. Every year there's also a new JavaScript framework that aims to make the world a better place, but that's a topic for another time.  From simple observation, many of the productivity apps today offer various features and methods meant to help you be more effective in tackling your goals. This seems to be well-intentioned, but gamifying with a points system, adding fancy charts, and including many templates can even do so much to incentivize users to perform.
+Every year there seems to be a slew of new productivity apps that aim to one-up the next in making you more productive. Every year there's also a new JavaScript framework that aims to make the world a better place, but that's a topic for another time. From simple observation, many of the productivity apps today offer various features and methods meant to help you be more effective in tackling your goals. This seems to be well-intentioned, but gamifying with a points system, adding fancy charts, and including many templates can even do so much to incentivize users to perform.
 
 At the end of the day, if your main goal is to finish something, the only thing that matters is the progress -- not the process.
 
@@ -8,7 +8,7 @@ At the end of the day, if your main goal is to finish something, the only thing 
 
 > If you fail to plan, you are planning to fail! ― **Benjamin Franklin**
 
-In battle, proper planning makes the difference between swift victory and a long, arduous defeat. But sometimes, over planning can end up making you less productive overall. Applications like Notion, Habitica, and Todoist are some of the most popular productivity apps out there with the sole purpose of task management. These work immensely well for more long term planning, but these applications' complexity could lead you to over plan and procrastinate on smaller, more immediate items. It is relatively easy to get sucked into the positive feedback loop of continually writing, categorizing, and reorganizing without crossing anything off. Over time, your small list of things to do ends up spreading across two calendars, 5 Kanban boards, and 12 spreadsheets.
+In battle, proper planning makes the difference between swift victory and a long, arduous defeat. But sometimes, over planning can end up making you less productive overall. Applications like *Notion*, *Habitica*, and *Todoist* are some of the most popular productivity apps out there with the sole purpose of task management. These work immensely well for more long term planning, but these applications' complexity could lead you to over plan and procrastinate on smaller, more immediate items. It is relatively easy to get sucked into the positive feedback loop of continually writing, categorizing, and reorganizing without crossing anything off. Over time, your small list of things to do ends up spreading across two calendars, 5 Kanban boards, and 12 spreadsheets.
 
 My point is, in the time some people spent organizing and tinkering with an app's features, they could have crossed off a couple of items, if not all the things, from their list.
 
@@ -63,3 +63,5 @@ Another point is the overall lack of features. A text editor is **just** a text 
 ## Is this approach for you?
 
 I can't speak for everyone, but I can speak for myself and say that I have spent more time getting my work done rather than tinkering with my schedule after trying this method for eight months. Without the app's complexity getting in the way, you can focus on the things that matter most.
+
+If this approach sounds interesting or it may work for you, definitely try it out 🚀. I'd love to hear how it works for you. Did it help you do more or remember more? Did it slow things down?

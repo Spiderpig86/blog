@@ -9,14 +9,14 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby clean && gatsby build --prefix-paths --log-pages",
-    "develop": "gatsby clean && gatsby develop",
+    "dev": "gatsby clean && gatsby develop",
     "format": "prettier --write 'src/**/*.js'",
     "test": "echo \"Error: no test specified\" && exit 1",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public"
   },
   "dependencies": {
     "bluebird": "^3.5.4",
-    "cirrus-ui": "^0.6.0",
+    "cirrus-ui": "^0.6.3",
     "classnames": "^2.2.6",
     "codecov": "^3.5.0",
     "color-hash": "^1.0.3",
@@ -90,7 +90,7 @@
     "identity-obj-proxy": "3.0.0",
     "jest": "24.8.0",
     "jest-cli": "24.8.0",
-    "node-sass": "^4.12.0",
+    "node-sass": "4.14",
     "react-test-renderer": "16.8.6",
     "standard-version": "8.0.1"
   }

@@ -81,6 +81,17 @@ export default function Template({
           zIndex: '100',
         }}
       />
+      
+      {/* Used for blur effect behind nav bar */}
+      <ReadingProgress
+        targetEl="#post-container"
+        style={{
+          borderColor: 'transparent',
+          color: '#000',
+          height: '0.25rem',
+          zIndex: '1',
+        }}
+      />
       <div style={{ paddingRight: '2rem', maxWidth: '100%', minWidth: 0 }}>
         <div className="blog-post">
           <h1>{post.frontmatter.title}</h1>
