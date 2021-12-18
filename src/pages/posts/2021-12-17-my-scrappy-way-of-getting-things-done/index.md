@@ -1,4 +1,11 @@
-# My Scrappy Way of Getting Things Done
+---
+path: "/my-scrappy-way-of-getting-things-done"
+date: "2021-12-17T23:20:42.734Z"
+title: "My Scrappy Way of Getting Things Done"
+description: "My slightly unorthodox way of getting shit done."
+image: './blank.jpg'
+tags: ['productivity','tips','career','coding']
+---
 
 Every year there seems to be a slew of new productivity apps that aim to one-up the next in making you more productive. Every year, there's also a new JavaScript framework that aims to make the world a better place, but that's a topic for another time. From simple observation, many of the productivity apps today offer various features and methods meant to help you be more effective in tackling your goals. This seems to be well-intentioned, but gamifying with a points system, adding fancy charts, and including many templates can even do so much to incentivize users to perform.
 
