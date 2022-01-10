@@ -1,4 +1,11 @@
-# Why I Unit Test My Sass/Scss: Functions
+---
+path: "/why-i-unit-test-my-sass---functions"
+date: "2022-01-10T11:18:32.318Z"
+title: "Why I Unit Test My Sass - Functions"
+description: "Did you know you could unit test your Sass? No? Me neither."
+image: './blank.jpg'
+tags: ['sass','scss','testing','webdev']
+---
 
 > Did you know you could unit test your Sass/Scss? No? Me neither.
 
