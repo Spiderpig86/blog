@@ -1,6 +1,15 @@
-# Why I Unit Test My Sass: Mixins
+---
+path: "/why-i-unit-test-my-sass---mixins"
+date: "2022-01-31T18:22:33.422Z"
+title: "Why I Unit Test My Sass - Mixins"
+description: "Unit testing Sass functions wasn't too complicated. But what about mixins? Testing-wise, it is quite similar. The only difference here is the syntax."
+image: './blank.jpg'
+tags: ['sass','scss','testing','webdev']
+---
 
 In my [previous post](https://dev.to/spiderpig86/why-i-unit-test-my-sass-functions-37l8), I discussed why Sass unit testing is a thing and why you may want to incorporate it into your project. If you were shocked to find out that this is something that is done, please let me explain in my first post.
+
+![Mind blown](https://media0.giphy.com/media/Z5HVfEvnxr67u/giphy.gif)
 
 Unit testing Sass functions wasn’t too complicated. But what about mixins? Testing-wise, it is quite similar. The only difference here is the syntax.
 
