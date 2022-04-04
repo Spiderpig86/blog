@@ -2,7 +2,7 @@
 
 “Beware the Ides of March”, they say; and we should for good reason.
 
-On March 15th, a security researcher by the name of *mr.d0x* published an [article](https://mrd0x.com/browser-in-the-browser-phishing-attack/) a **nearly undetectable** phishing attack that most users would quickly overlook as a legitimate sign-in dialog. This form of phishing, coined as the *Browser in the Browser* attack, presents a large complication to the web’s growing reliance on SSO and OAuth dialogs to authorize and authenticate users to online services like social media, cloud storage, and other platforms that may store sensitive user information. Common examples of this we see today are signing into other services with our Google Account, Microsoft Account, etc. which we would automatically trust due to reputation.
+On March 15th, a security researcher by the name of *mr.d0x* published an [article](https://mrd0x.com/browser-in-the-browser-phishing-attack/) about a **nearly undetectable** phishing attack that most users would quickly overlook as a legitimate sign-in dialog. This form of phishing, coined as the *Browser in the Browser* attack, presents a large complication to the web’s growing reliance on SSO and OAuth dialogs to authorize and authenticate users to online services like social media, cloud storage, and other platforms that may store sensitive user information. Common examples of this we see today are signing into other services with our Google Account, Microsoft Account, etc. which we would automatically trust due to reputation.
 
 This attack takes advantage of the trust users built with these sign-in processes to steal credentials by replicating a fake OAuth modal using plain old HTML and CSS.
 
@@ -12,11 +12,11 @@ While this attack is making headlines today, it is a variation of something that
 
 The goal of these fake antivirus scanners was to scare users into purchasing their “antivirus” since their machine was magically infected one day. These phishing sites flooded your screens with Windows XP or 7 looking windows consisting of flashing red text, a large list of viruses, and giant call-to-actions coercing you to register the product to save your computer from certain destruction. For Windows XP, you would see something like this.
 
-![](https://github.com/Spiderpig86/blog/raw/master/images/Browser%20in%20the%20Browser%20(BITB)%20Attack/FakeAV.png)
+![FakeAV](https://github.com/Spiderpig86/blog/raw/master/images/Browser%20in%20the%20Browser%20(BITB)%20Attack/FakeAV.png)
 
 Eventually, attackers became more sophisticated and started emulating window dialogs from your operating system which made it more believable that this was an official product.
 
-![](https://github.com/Spiderpig86/blog/raw/master/images/Browser%20in%20the%20Browser%20(BITB)%20Attack/fakeavgif.gif)
+![Fake AV Gif](https://github.com/Spiderpig86/blog/raw/master/images/Browser%20in%20the%20Browser%20(BITB)%20Attack/fakeavgif.gif)
 
 A panicked user would obediently follow the prompts to download the **scareware** which launches the fake antivirus with a “trial” period. After that period ends, it will degrade the performance of the host machine or flood it with more malware to convince the user to purchase an official license to remove all the adware, spyware, and other crap it put on your machine. Once the victim purchases the software, the attacker now has your name, billing address, and credit card information to perform whatever transaction it wants.
 
@@ -26,7 +26,9 @@ Fake antiviruses are a whole other topic that I can dive deep into, but the part
 
 *mr.d0x’s* proof of concept is an evolution from what we saw with the fake antivirus scan windows. Instead of displaying a scanning page with system-related details, this proof of concept phishes uses a malicious OAuth dialog akin to signing up for an online service using a third-party account. If this doesn’t sound familiar to you, then the GIF below may be more familiar.
 
-![](https://github.com/Spiderpig86/blog/raw/master/images/Browser%20in%20the%20Browser%20(BITB)%20Attack/oauth.gif)
+![OAuth Gif](https://github.com/Spiderpig86/blog/raw/master/images/Browser%20in%20the%20Browser%20(BITB)%20Attack/oauth.gif)
+
+*Sample OAuth dialog from Facebook’s JavaScript SDK.*
 
 The first portion of this attack requires the victim to visit a compromised domain where the attacker set up the trap. This can either be done using [IDN Homographs](https://en.wikipedia.org/wiki/IDN_homograph_attack) or [DNS poisoning/spoofing](https://en.wikipedia.org/wiki/DNS_spoofing). This portion of the attack is probably the harder part to implement and convince users to visit the site for reasons explained below. The most convincing approach is to use DNS poisoning, but that in itself is harder to set up.
 
@@ -99,7 +101,7 @@ function loadWindow() {
 
 After these changes, the final result looks like this:
 
-![](https://github.com/Spiderpig86/blog/raw/master/images/Browser%20in%20the%20Browser%20(BITB)%20Attack/demo.gif)
+![Demo](https://github.com/Spiderpig86/blog/raw/master/images/Browser%20in%20the%20Browser%20(BITB)%20Attack/demo.gif)
 
 ### Further Enhancements
 
@@ -142,7 +144,7 @@ Assuming that the victim is not aware of the phishing page, the next stage of th
 
 Even with the enhancements, there are still lots of holes in the phishing attack. The first glaring issue is figuring out how to handle the window frames of all operating systems in existence? Sure, we can use the Windows and Mac OS window design to fool most users, but even these common operating systems also come with different variants and shades. Designing a bunch of Windows to match all these variations is a huge waste of time. Not to mention all the different combinations that come with different Linux distros. I mean, seeing a Windows border frame on Mac OS is just *sloppy* and *embarrassing*.
 
-![](https://media.discordapp.net/attachments/496678355123306508/783798110476435476/unknown.png)
+![Steam BitB](https://media.discordapp.net/attachments/496678355123306508/783798110476435476/unknown.png)
 
 The second issue is that the fake OAuth dialog window cannot be moved outside the browser. You’ll notice that attempting to drag it outside the browser would just cause it to get stuck at the edge of the page. Minimizing the browser would also hide the window with it. There is no trace of it in your taskbar and it won’t be shown on Task View for Windows or Mission Control on Mac OS.
 

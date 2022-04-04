@@ -9,7 +9,7 @@ tags: ['security','phishing','webdev','oauth']
 
 “Beware the Ides of March”, they say; and we should for good reason.
 
-On March 15th, a security researcher by the name of *mr.d0x* published an [article](https://mrd0x.com/browser-in-the-browser-phishing-attack/) a **nearly undetectable** phishing attack that most users would quickly overlook as a legitimate sign-in dialog. This form of phishing, coined as the *Browser in the Browser* attack, presents a large complication to the web’s growing reliance on SSO and OAuth dialogs to authorize and authenticate users to online services like social media, cloud storage, and other platforms that may store sensitive user information. Common examples of this we see today are signing into other services with our Google Account, Microsoft Account, etc. which we would automatically trust due to reputation.
+On March 15th, a security researcher by the name of *mr.d0x* published an [article](https://mrd0x.com/browser-in-the-browser-phishing-attack/) about a **nearly undetectable** phishing attack that most users would quickly overlook as a legitimate sign-in dialog. This form of phishing, coined as the *Browser in the Browser* attack, presents a large complication to the web’s growing reliance on SSO and OAuth dialogs to authorize and authenticate users to online services like social media, cloud storage, and other platforms that may store sensitive user information. Common examples of this we see today are signing into other services with our Google Account, Microsoft Account, etc. which we would automatically trust due to reputation.
 
 This attack takes advantage of the trust users built with these sign-in processes to steal credentials by replicating a fake OAuth modal using plain old HTML, CSS and JS.
 
