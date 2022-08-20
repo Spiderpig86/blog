@@ -2,7 +2,7 @@
 path: "/airpods-not-charging-on-windows"
 date: "2022-08-19T22:19:21.936Z"
 title: "Airpods Not Charging on Windows"
-description: "Airpods not charging on Windows?"
+description: "Airpods not charging on Windows? No problem. This post should help :)"
 image: './blank.jpg'
 tags: ['airpods','apple','troubleshooting']
 ---
@@ -22,9 +22,21 @@ The root cause of this issue is a driver problem. To fix it, all you have to do 
 1. Connect your Airpods case with your Windows machine using the charging cable you have.
 2. Open Control Panel and click 'Devices and Printers'.
 3. Under the 'Unspecified' dropdown group, you should see 'AirPod Case'. Double click this item.
+
+![](https://raw.githubusercontent.com/Spiderpig86/blog/master/images/Airpods%20Not%20Charging%20on%20Windows/Step3.PNG)
+
 4. Open the 'Hardware' tab and double click 'HID-compliant vendor-defined device'.
+
+![](https://raw.githubusercontent.com/Spiderpig86/blog/master/images/Airpods%20Not%20Charging%20on%20Windows/Step4.PNG)
+
 5. Click on 'Change settings'.
+
+![](https://raw.githubusercontent.com/Spiderpig86/blog/master/images/Airpods%20Not%20Charging%20on%20Windows/Step5.PNG)
+
 6. Click 'Disable Device'.
+
+![](https://raw.githubusercontent.com/Spiderpig86/blog/master/images/Airpods%20Not%20Charging%20on%20Windows/Step6.PNG)
+
 7. Finally, unplug and plug in your AirPod case. At this time, your case should charge correctly.
 
 I hope these steps fixed the issue. If not, feel free to consult other guides or give it a good old slap to get things working again.
