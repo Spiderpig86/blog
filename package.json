@@ -18,7 +18,7 @@
     "bluebird": "^3.5.4",
     "cirrus-ui": "^0.6.3",
     "classnames": "^2.2.6",
-    "codecov": "^3.5.0",
+    "codecov": "^3.7.1",
     "color-hash": "^1.0.3",
     "gatsby": "^2.30.3",
     "gatsby-image": "^2.1.0",
