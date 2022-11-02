@@ -88,8 +88,8 @@
     "flow-typed": "^2.5.1",
     "gh-pages": "2.0.1",
     "identity-obj-proxy": "3.0.0",
-    "jest": "24.8.0",
-    "jest-cli": "24.8.0",
+    "jest": "29.2.2",
+    "jest-cli": "29.2.2",
     "node-sass": "4.14",
     "react-test-renderer": "16.8.6",
     "standard-version": "8.0.1"
