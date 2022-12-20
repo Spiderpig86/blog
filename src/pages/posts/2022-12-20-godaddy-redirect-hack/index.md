@@ -1,4 +1,11 @@
-# GoDaddy Redirect Hack
+---
+path: "/godaddy-redirect-hack"
+date: "2022-12-20T18:40:54.129Z"
+title: "GoDaddy Redirect Hack"
+description: "Users are redirected to malicious sites upon visiting GoDaddy hosted websites"
+image: './blank.jpg'
+tags: ['security','phishing','web hosting','redirect']
+---
 
 ## Introduction
 
@@ -280,3 +287,4 @@ Previously, it was suspected to be a firewall-related issue, but this has since 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">We&#39;re aware of the issue and working to correct it now. I can assure you that our teams are diligently working to restore service as soon as possible. ^CG</p>&mdash; GoDaddy Help (@GoDaddyHelp) <a href="https://twitter.com/GoDaddyHelp/status/1605268691951689756?ref_src=twsrc%5Etfw">December 20, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 Previously, it was suspected to be a firewall-related issue but this has since been disproven since this issue occurs regardless of the firewall changes being made.
+
