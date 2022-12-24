@@ -9,7 +9,7 @@ tags: ['security','phishing','web hosting','redirect']
 
 ## Introduction
 
-Over the last few days, website owners, specifically those hosting on GoDaddy, have been experiencing strange redirects to various websites. These redirects don’t happen all the time, but they seem to happen when a user first visits a page or refreshes it enough times to trigger it. I first stumbled upon this issue when visiting a website of a favourite restaurant of mine. Instead of seeing a page with pictures of food, menus, etc., I was presented with a [fake AV page](https://arstechnica.com/information-technology/2014/02/what-a-fake-antivirus-attack).
+Over the last few days, website owners, specifically those hosting on GoDaddy, have been experiencing strange redirects to various websites. These redirects don’t happen all the time, but they seem to happen when a user first visits a page or refreshes it enough times to trigger it. I first stumbled upon this issue when visiting a website of a favourite restaurant of mine. Instead of seeing a page with pictures of food, menus, etc., I was presented with a [fake AV page](https://arstechnica.com/information-technology/2014/02/what-a-fake-antivirus-attack-on-a-trusted-website-looks-like/).
 
 ## How it works
 
