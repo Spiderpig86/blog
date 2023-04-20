@@ -38,7 +38,7 @@
     "gatsby-plugin-remove-trailing-slashes": "^2.3.11",
     "gatsby-plugin-robots-txt": "^1.5.5",
     "gatsby-plugin-sass": "^2.0.11",
-    "gatsby-plugin-sharp": "^2.5.4",
+    "gatsby-plugin-sharp": "^4.25.1",
     "gatsby-plugin-twitter": "^2.3.10",
     "gatsby-remark-autolink-headers": "^2.0.16",
     "gatsby-remark-copy-linked-files": "^2.0.12",
