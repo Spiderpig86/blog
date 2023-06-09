@@ -20,7 +20,7 @@
     "classnames": "^2.2.6",
     "codecov": "^3.7.1",
     "color-hash": "^1.0.3",
-    "gatsby": "^2.32.13",
+    "gatsby": "^4.25.7",
     "gatsby-image": "^2.1.0",
     "gatsby-link": "^2.1.1",
     "gatsby-plugin-advanced-sitemap": "^1.5.7",
